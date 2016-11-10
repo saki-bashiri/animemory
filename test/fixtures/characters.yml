@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  anime_id: 1
+  voice_actor_id: 1
+  name: MyString
+  kana: MyString
+  comment: MyString
+  status: 1
+
+two:
+  anime_id: 1
+  voice_actor_id: 1
+  name: MyString
+  kana: MyString
+  comment: MyString
+  status: 1

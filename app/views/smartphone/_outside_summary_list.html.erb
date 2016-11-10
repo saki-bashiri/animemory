@@ -1,0 +1,18 @@
+<%
+  outside_summaries ||= []
+  border = Time.zone.now - 6.hour
+%>
+<div class="am-top-outside-summary-cat-headder">その他新着まとめ</div>
+<ul class="am-outside-summary-wrap">
+  <% outside_summaries.each_with_index do |outside_summary, i| -%>
+    <li>
+      <a href="<%= outside_summary.url %>" target="_blank">
+        <%= cut_str(outside_summary.title, 25) %>
+      </a>
+      <span>&nbsp;[<%= cut_str(outside_summary.site_name, 10) %>]</span>
+      <% if outside_summary.posted_at > border %>
+        <%= image_tag("new-icon.gif") -%></br>
+      <% end %>
+    </li>
+  <% end -%>
+</ul>

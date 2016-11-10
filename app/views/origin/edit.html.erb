@@ -1,0 +1,45 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag "lib/bootstrap.min", "lib/bootstrap-responsive.min" %>
+<%= javascript_include_tag "lib/jquery/jquery-1.9.1.min", "lib/jquery-ui/jquery-ui-1.10.2.custom.min", "origin/edit", "lib/plugin/bootstrap.min.js" %>
+<% end %>
+<h1><%= @origin.title %>の編集</h1>
+
+
+<%= form_tag url_for(:action => "regist_conf"), {:method => :post} do %>
+ <li class="action">
+   <%= hidden_field_tag "origin[id]", @origin.id %>
+ </li>
+  <li class="action">
+    <%= text_field_tag "origin[title]", @origin.title %>
+  </li>
+  <li class="action">
+    <%= text_area_tag "origin[description]", @origin.description, {:size => "60x20"} %>
+  </li>
+  <li class="action">
+    <%= select_tag "origin[original_type]", options_for_select( Origin::OriginType.to_a.each{|ar| ar[0], ar[1] = ar[1], ar[0]}, @origin.original_type ) %>
+  </li>
+
+
+  <ul id="select-animes" class="tab">
+    <li class="action">
+      ここに移動。
+    </li>
+    <% @origin_animes.each do |anime| %>
+    <li class="anime-box">
+      <%= link_to anime.title, url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>
+      <%= hidden_field_tag "origin[anime_ids][]", anime.id %>
+    </li>
+    <% end %>
+  </ul>
+  <%= submit_tag "確認する", :name => "conf" %>
+<% end %>
+
+
+<ul id="source-animes">
+  <% @animes.each do |anime| %>
+  <li class="anime-box">
+    <%= link_to anime.title, url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>
+    <%= hidden_field_tag "origin[anime_ids][]", anime.id %>
+  </li>
+  <% end %>
+</ul>

@@ -1,0 +1,16 @@
+.creator-index-main-pic-set{
+  text-align:left;
+  background-size:contain;
+	background-repeat:no-repeat;
+	height:350px;
+	margin-top: -10px;
+	position:relative;
+	z-index: 0;
+	border-radius: 5px 8px 0 0;
+}
+
+.creator-index-main-pic-set > img{
+	margin: 8px 2px 0 0;
+	border: 8px solid #E6EEE9;
+	height: 288px;
+}

@@ -1,0 +1,158 @@
+.dtl-anime-title-set{
+  background-image: url("/images/overlay_dtl_pages.png");
+  color: white;
+  font-size: 15px;
+  padding: 7px 5px 10px 20px;
+  position: absolute;
+  left: 7px;
+  bottom: 46px;
+  height: 100px;
+  width: 488px;
+ }
+
+.dtl-anime-title-set strong.inner{
+  color: #fefefe;
+  text-decoration: none;
+  display: block;
+  width: 370px;
+  margin-top: 54px;
+  font-weight: bold;
+}
+
+.dtl-anime-title-set small{
+  color: #E7E7E7;
+  display: block;
+  font-size: 12px;
+}
+
+.am-anime-status-buttons{
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  padding: 0!important;
+  width: auto!important;
+}
+
+#mymemory-watch,
+#mymemory-watch-no-login{
+  color: #505050;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #dbcfd9;
+  background-image: -moz-linear-gradient(top, #ffffff, #868585);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#868585));
+  background-image: -webkit-linear-gradient(top, #ffffff, #868585);
+  background-image: -o-linear-gradient(top, #ffffff, #868585);
+  background-image: linear-gradient(to bottom, #ffffff, #868585);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #868585 #868585 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #d1c5cf;
+  font-size: 13px;
+  width: 76px!important;
+  height: 25px!important;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  margin: -30px 0 0 5px;
+  display:inline-block;
+  font-weight:bold;
+  box-shadow: 0px 0px 1px #fff;
+  border-radius: 5px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+#mymemory-watch-no-login{
+  width: 70px!important;
+  height: 20px!important;
+  right:-5px;
+  padding-top: 3px;
+}
+
+#mymemory-watch:hover,
+#mymemory-watch-no-login:hover{
+  color: #333333;
+  background-color: #dbcfd9;
+  background-image: -moz-linear-gradient(top, #dbcfd9, #dbcfd9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dbcfd9), to(#dbcfd9));
+  background-image: -webkit-linear-gradient(top, #dbcfd9, #dbcfd9);
+  background-image: -o-linear-gradient(top, #dbcfd9, #dbcfd9);
+  background-image: linear-gradient(to bottom, #dbcfd9, #dbcfd9);
+  background-repeat: repeat-x;
+}
+
+.am-arrow-balloon-fav,
+.am-arrow-balloon-watch{
+  position: absolute;
+  width: 150px;
+  background-color: #c62a54;
+  color: white;
+  font-size: 11px;
+  bottom: -55px;
+  right: -10px;
+  padding: 5px 2px;
+  height:20px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.am-arrow-balloon-fav{
+  right: 85px; 
+}
+
+.am-arrow-balloon-watch{
+  right: 0;
+}
+
+.am-arrow-balloon-fav:after,
+.am-arrow-balloon-watch:after{
+  right: 5.6%;
+  bottom: -40%;
+  border: solid transparent;
+  content: " ";
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -5px;
+}
+
+div.mymemory a{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  right: 88px;
+  bottom: -92px;
+  position: absolute;
+}
+
+div.mymemory button{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  right: 0;
+  bottom: -91px;
+  position: absolute;
+}
+
+.favorite{
+  background-image:url('/images/star.png');
+
+}
+
+.unfavorite{
+  background-image:url('/images/star_unfavorite.png');
+}
+
+.unfavorite:hover{
+  background-image:url('/images/star.png');
+}
+
+

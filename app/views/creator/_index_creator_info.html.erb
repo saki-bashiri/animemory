@@ -1,0 +1,74 @@
+<%
+creator ||= nil 
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "creator/_index_creator_info" %>
+<% end %>
+
+<div class="index-creator-info">
+  <div><strong><%= creator.name %> のWorks</strong></div>
+  <div class="creator-works-info">
+    <% if creator.voice_actor_flg %>
+      <div><i>出演アニメ</i></div>
+      <% creator.sorted_characters.each do |character_hash| %>
+        <span class="year-of-works"><%= character_hash[:year].to_i > 0 ? "#{character_hash[:year]}年" : "" %></span>
+        <ul>
+          <% character_hash[:characters].each do |chara| %>
+            <li>
+              <%= link_to chara.anime.title, url_for(:controller => :anime, :action => :dtl, :anime => chara.anime_id) %> <%= chara.name %>
+            </li><br />
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+    <% if creator.staff_flg || creator.production_flg %>
+      <div><i>制作アニメ</i></div>
+      <% creator.sorted_staffs.each do |staff_hash| %></span>
+        <span class="year-of-works"><%= staff_hash[:year].to_i > 0 ? "#{staff_hash[:year]}年" : "" %>
+        <% staff_hash[:staffs].each do |staff| %>
+          <ul>
+            <li>
+              <span><%= link_to staff.anime.title, url_for(:controller => :anime, :action => :dtl, :anime => staff.anime_id) %> <%= staff.role.name %>
+              </span>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="creator-songs-info">
+    <% if creator.artist? %>
+      <div><i>楽曲</i></div>
+      <% songs_per_year = creator.songs_per_year %>
+      <% creator.sorted_songs.each do |song_hash| %>
+        <span class="year-of-works"><%= song_hash[:year].to_i > 0 ? "#{song_hash[:year]}年" : "" %></span>
+        <ul>
+          <% song_hash[:songs].each do |song| %>
+            <li>
+              <span>
+                <%= song.song_type_name %>:
+                <%= song.title %>
+                （<%= link_to song.anime.title, url_for(:controller => :anime, :action => :dtl, :anime => song.anime_id) %>）
+              </span><br />
+
+              <% if song.singers.present? %>
+                歌手: <span class="person-name"><%= song.singers.map{|singer| "#{singer.display_name}　"} %></span>
+              <% end %><br />
+              <% if song.songwriters.present? %>
+                作詞: <span class="person-name"><%= song.songwriters.map{|songwriter| "#{songwriter.display_name}　"} %></span>
+              <% end %>
+              <% if song.composers.present? %>
+                作曲: <span class="person-name"><%= song.composers.map{|composer| "#{composer.display_name}　"} %></span>
+              <% end %>
+              <% if song.arrangers.present? %>
+                編曲: <span class="person-name"><%= song.arrangers.map{|arranger| "#{arranger.display_name}　"} %></span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+ </div>
+

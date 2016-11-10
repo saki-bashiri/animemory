@@ -1,0 +1,23 @@
+<% content_for :head do %>
+
+<% end %>
+<% content_for :title do %>
+アニメモリの退会
+<% end %>
+
+<div class="row-fluid amHightfixer">
+  <div class="span12">
+  <p class="amCategoryhead">アニメモリの退会</p>
+    <div class="row-fluid">
+    <div class="span12 well amlonginwell2 text-center">
+
+    アニメモリを退会されますとコメント投稿、アニメ情報の編集ができなくなります。<br/>
+    本当に退会されますか？
+
+    <%= link_to "キャンセル", create_url({:controller => "anime", :action => "index"}, {:https => false}) %>
+    &nbsp;
+    <%= link_to "退会画面へ進む", create_url({:action => "quitting"}, {:https => true}) %>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+class AnimemoryError < Exception
+
+end

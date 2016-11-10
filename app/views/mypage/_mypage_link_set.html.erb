@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag  "mypage/_mypage_link_set" %>
+  <%= javascript_include_tag "mypage/_mypage_link_set" %>
+<% end %>
+
+<div class="mypage-link-set" data-action="<%= params[:action] -%>">
+	<ul>
+    <li id="setting">
+    	<a href="#"><span><%= image_tag("setting_icon.png")%></span></a>
+      <ul style="display:none;" id="setting-list">
+        <li><%= link_to "My!チャンネル設定", url_for(:controller => :mypage, :action => :my_channel) %></li>
+        <li><%= link_to "放送局選択", url_for(:controller => :mypage, :action => :media_list) %></li>
+      </ul>
+    </li>
+    <li>
+    	<a href="<%= url_for(:action => :can_watch) %>"><span>みれるアニメ</span></a>
+      <span class="mypage-link-set-balloon" style="display:none;">選択中放送局で放送中アニメ</span>
+    </li>
+	  <li>
+    	<a href="<%= url_for(:action => :favo) %>"><span>お気に入り</span></a>
+      <span class="mypage-link-set-balloon" style="display:none;">お気に入りアニメリスト表示</span>
+	  </li>
+	  <li>
+    	<a href="<%= url_for(:action => :watched) %>"><span>みたリスト</span></a>
+      <span class="mypage-link-set-balloon" style="display:none;">みたアニメリスト表示</span>
+	  </li>
+	  <li>
+    	<a href="<%= url_for(:action => :watching) %>"><span>みてるリスト</span></a>
+      <span class="mypage-link-set-balloon"  style="display:none;">みてるアニメリスト表示</span>
+	  </li>
+    <li>
+      <a href="<%= url_for(:action => :notice) %>">
+        <span>My!チャンネル
+          <%- if @notice_size.to_i > 0 -%>
+            <span class="new-notice-count">
+              <%= @notice_size.to_i %>
+            </span>
+          <%- end -%>
+        </span>
+      </a>
+      <span class="mypage-link-set-balloon" style="display:none;">My!チャンネル通知表示</span>
+    </li>
+	  <li>
+    	<a href="<%= url_for(:action => :index) %>"><span><%= image_tag("home_icon.png")%></span></a>
+	  </li>
+	</ul>
+</div>

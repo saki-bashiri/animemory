@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>編集画面</title>
+</head>
+<body>
+<div>
+  <img src="<%= anime_image_path(@anime.icon_path(:path)) %>" style="width:100px; height:100px;" alt="icon">
+  <div>Title <%= @anime.title %>
+    放送年<br>
+    キャスト、主題歌、スタッフ</div>
+</div>
+<div>エピソードリスト</div>
+<div>
+  <%= @media.name %>
+  第<%= @episode.episode %>話 編集</div>
+<%= form_tag (url_for(:action => "edit_conf"), :method => :post) do %>
+  <%= hidden_field_tag "schedule", @schedule.id %>
+    <%= text_field_tag "date", @schedule.on_air_time.strftime("%Y-%m-%d") %>
+  </div>
+  <div>放送時間
+    <%= text_field_tag "time", @schedule.on_air_time.strftime("%H:%M:%S") %>
+  </div>
+<div>終了時間
+  <%= radio_button_tag "span", "30" %>30分後<br />
+  <%= radio_button_tag "span", "60" %>60分後<br />
+<div>参考、コメント
+  <%= text_field_tag "memo" %>
+<div>
+  <%= button_to("戻る", :action => {}) %>
+  <%= submit_tag "確認する", :name => "conf" %>
+</div>
+<% end %>
+</body>
+</html>

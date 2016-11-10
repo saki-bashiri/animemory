@@ -1,0 +1,65 @@
+
+.amRegistercontainer{
+  margin-top: 10px;
+}
+.amRegister{
+  height:190px;
+}
+
+.amRegister2{
+  line-height: 0.3 !important;
+  height:80px !important;
+}
+
+input[type="text"]{
+  height:13px;
+  width: 265px;
+}
+
+input[type="password"]{
+  height:13px;
+  width: 265px;
+}
+
+input[type="submit"]{
+  height:30px;
+  width: 200px;
+}
+
+select[multiple],
+select[size] {
+ font-size: 13px;
+ height: 59px;
+ width:280px;
+}
+
+select{
+  font-size: 13px;
+  width:280px;
+}
+
+.amRegisterline{
+  line-height:2.5;
+}
+
+
+
+textarea{
+  width: 420px;
+  height: 300px;
+}
+
+.error{
+  line-height: 1;
+  font-size: 10px;
+  color: #ff0000;
+}
+
+.amRegistercomment textarea{
+  width: 400px;
+  height: 300px;
+}
+
+.amRegisterconfcomment{
+  width: 400px;
+}

@@ -1,0 +1,50 @@
+.sidebar-ads-wrap{
+  margin-top: 10px;
+  width: 215px;
+  text-align: center;
+  margin-left: 11px;
+}
+.sidebar-ads-wrap div:nth-child(2){
+  margin-top: -5px;  
+}
+
+.am-top-sidebar-main{
+  text-align: right;
+  display:block;
+  list-style-type:none;
+  margin:0;
+}
+
+.am-top-sidebar-main li{
+  margin: 0 0 3px 0;
+  padding: 5px 5px 0 5px;
+  background-color:#ccc;
+  display:block;
+  text-align:center;
+  position: relative;
+}
+
+.am-top-sidebar-main li a{
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.top-top-sidebar-product-text{
+  background-image: url('/images/daily_info_dl_background.png');
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  display:block;
+  width: 205px;
+}
+
+.am-top-sidebar-main li a img{
+  width: 225px;
+}
+
+.am-amazon-product-warp {
+  display:inline-block;
+  text-align: center!important;
+  background-color:#FFFFFF;
+}

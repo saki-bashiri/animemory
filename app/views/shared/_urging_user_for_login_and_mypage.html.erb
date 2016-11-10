@@ -1,0 +1,33 @@
+<%
+user ||= nil
+%>
+
+<%- content_for :head do -%>
+	<%= stylesheet_link_tag "shared/_urging_user_for_login_and_mypage" -%>
+	<% if params[:controller] == "anime" && params[:action] == "dtl" -%>
+	  <%= stylesheet_link_tag "shared/_dtl_urging_user_for_login_and_mypage" -%>
+	<%- end -%>
+<%- end -%>
+
+<% if user.present? -%>
+  <% unless params[:controller] == "anime" && params[:action] == "dtl" -%>
+		<div class="urging-user-for-mypage">
+		  <div>
+		  	<a href="<%= url_for(:controller => "mypage", :action => :index) -%>">
+		  		<i class="icon-white icon-user"></i>MY PAGE
+		  	</a>
+		  </div>
+		</div>
+	<%- end-%>
+<%- elsif -%>
+	<div class="urging-user-for-login">
+	  <div>
+	    <a href="<%= url_for (:controller => "account", :action => :auth_twitter) -%>">
+	    	<i class="icon-white icon-circle-arrow-right"></i>Twitterアカウントではじめる
+	    </a>
+	  </div>
+	  <div class="instruction-text">
+      <i class="icon icon-info-sign"></i>このアニメに「みてる」して毎週の放送情報を見ませんか？
+	  </div>
+	</div>
+<%- end -%>

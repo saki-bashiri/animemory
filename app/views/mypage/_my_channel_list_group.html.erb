@@ -1,0 +1,15 @@
+<% creators ||= [] %>
+<% mychannel_cids ||= [] %>
+<% user ||= nil %>
+<% creators.each do |creator| %>
+  <ul id="creators">
+    <li class="creator-box">
+      <span class="creator-name"><%= creator.name %>
+      	<% creator.labels.each do |label| %>
+      	  <span class="roll-type <%= label.type -%>">[<%= label.name -%>]</span>
+      	<% end %>
+      </span>
+      <%= my_channel_button(creator.id, mychannel_cids.include?(creator.id), user) %>
+    </li>
+  </ul>
+<% end %>

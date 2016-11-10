@@ -1,0 +1,57 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>
+  <div>キャラクター管理</div>
+<% end %>
+<% content_for :title do %>キャラクター管理<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin2">
+        <div>キャラクター管理</div>
+    </div>
+    <div class="amBadge-Admin">
+      <%= form_tag({:action => "character"}, :method => :get) do %>
+        <div class="amAdminSearch">
+          <span><span>キャラ名</span><%= text_field_tag "q", params[:q] %></span>
+        </div>
+        <div class="text-center amAdminInput"><%= submit_tag "検索", :name => "search" %></div>
+      <% end %>
+    </div>
+
+    <div class="row-fluid amAdminCountWrap">
+      <span class="text-left span6 amSearchResultLeft"><%= page_entries_info(@characters) %></span>
+      <span class="text-right span6 amSearchResultRight"><%= paginate(@characters) %></span>
+    </div>
+
+
+    <div class="row-fluid">
+
+        <table class="amAdminTableWrap">
+          <tr class="amAdminTableHead">
+            <th class="amCharName">キャラ名</th>
+            <th class="amCharName">キャラ名(ふりがな)</th>
+            <th class="amVoiceActor">声優名</th>
+            <th class="amAdminAnimeTitle">アニメタイトル</th>
+            <th class="amAdminUpdate">更新</th>
+            <th class="amAdminUpdate">保留/復帰</th>
+          </tr>
+          <% @characters.each do |character| %>
+            <%= form_tag({:action => "character"}, :method => :post) do %>
+              <%= hidden_field_tag "id", character.id %>
+              <tr class="amAdminTable <%= cycle("even","odd") %>">
+                <td><%= text_field_tag "name", character.name %></td>
+                <td><%= text_field_tag "kana", character.kana %></td>
+                <td><%= select_tag "artist_id", options_for_select(@artists.map{|artist| [artist.name, artist.id]}, character.artist_id) %></td>
+                <td><%= link_to cut_str(character.anime.title,14), url_for(:controller => "anime", :action => "dtl", :anime => character.anime_id) %></td>
+                <td><%= submit_tag "更新", :name => "commit" %></td>
+                <td><%= submit_tag character.status == 1 ? "保留" : "復帰",:name => (character.status == 1 ? "draft" : "open")%></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+
+      </div>
+    </div>
+  </div>

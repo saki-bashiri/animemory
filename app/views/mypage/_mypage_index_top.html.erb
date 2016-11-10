@@ -1,0 +1,11 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "mypage/_mypage_index_top" %>
+<% end %>
+
+<%
+user ||= nil
+%>  
+
+<div class="span12 mypage-index-top">
+	<h3><%=  @user.nickname %> さんの アニレポ</h3>
+</div>

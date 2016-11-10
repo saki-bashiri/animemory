@@ -1,0 +1,41 @@
+<% content_for:head do %>
+<%= stylesheet_link_tag "anime/schedule_common" %>
+
+<% end %>
+
+<%# content_for:yield do %>
+<table>
+  <tr>
+    <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+  </tr>
+  <tr>
+    <% @weekdays.each do |weekday| %>
+    <td>
+    <% weekday[1].each do |schedule| %>
+        <div class="schedule">
+          <ul>
+            <li>
+              <%= schedule.on_air_time.strftime('%H：%M') %>～<%= (schedule.on_air_time + schedule.span * 60).strftime('%H: %M') %>
+            </li>
+            <li>
+              <%= cut_str(schedule.anime.title, 8) + " #" + schedule.episode.episode.to_s %>
+            </li>
+            <li>
+              <%= cut_str(schedule.episode.subtitle, 10) %>
+            </li>
+            <li>
+              <%= schedule.medium.name %>[<%= Medium::MEDIA_TYPE[schedule.medium.media_type] %>]
+            </li>
+          </ul>
+          <br />
+        </div>
+
+    <% end %>
+    </td>
+    <% end %>
+  </tr>
+
+</table>
+
+
+<%# end %>

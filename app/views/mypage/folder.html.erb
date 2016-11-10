@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag "folders" %>
+<%= javascript_include_tag "jquery-ui-1.9.1.custom/js/jquery-1.8.2.min.js" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+
+<div id="wrap">
+  <div id="header">
+    <div id="title">
+      <a href=""><img src="animemory_title.png"></a>
+    </div>
+    <div class="top-pic">
+      <img src="top-pic.png">
+    </div>
+  </div>
+  <div id="inner">
+    <div id="inner-left">
+      <div id="folder-bar">
+        <a>フォルダ</a>
+      </div>
+      <ul id="folder-bundle">
+        <% @folders.each do |folder| %>
+            <li href="<%= url_for(:controller => "mypage", :action => "folder", :folder_id => folder.id) %>"><a><%= folder.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="inner-right">
+      <div id="folders-upper">
+        <a><%=  @user.nickname %> さんの 『激アツアニメ』棚</a>
+        <select name="effects" id="effectTypes">
+          <option value="">名前順</option>
+          <option value="">登録日が新しい順</option>
+          <option value="">登録日が古い順</option>
+        </select>
+      </div>
+      <ul id=listing-wrap>
+        <% @mymemories.each do |mymemory| %>
+            <li class="listing"><img src="<%= anime_image_path(mymemory.anime.icon_path(:path))%>"></img><div><a><%= mymemory.anime.title %></a></div></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+  </div>
+</div>

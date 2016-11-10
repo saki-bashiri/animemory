@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  description: MyString
+  unit_flg: 1
+  voice_actor_id: 1
+  office_id: 1
+  record_office_id: 1
+
+two:
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  description: MyString
+  unit_flg: 1
+  voice_actor_id: 1
+  office_id: 1
+  record_office_id: 1

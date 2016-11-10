@@ -1,0 +1,47 @@
+.dtl-main-pic-set-buttons{
+	text-align: right;
+	z-index: 2;
+	position: absolute;
+	bottom: 10px;
+	right: 50px;
+}
+
+.dtl-main-pic-set-buttons a{
+  height:50px;
+  width:50px;
+  display:inline-block;
+  background-size:contain;
+	background-repeat:no-repeat;
+	margin-right: 5px;
+　position:relative;
+}
+
+.dtl-main-pic-set-buttons a span{
+	position: absolute;
+	width: 100px;
+	height: 18px;
+	right: -23px;
+	top: 55px;
+	line-height: 1.2;
+	font-size: 11px;
+	color: #fff;
+	background-color: #c62a54;
+	text-align: center;
+	padding: 6px 3px 0 3px;
+	border-radius: 3px;
+}
+
+
+.dtl-main-pic-set-buttons a img{
+
+}
+
+.dtl-main-pic-set-buttons a:nth-child(2){
+}
+
+.dtl-main-pic-set-buttons a:first-child{
+}
+
+.dtl-main-pic-set-buttons a i{
+	margin-top: -1px;
+}

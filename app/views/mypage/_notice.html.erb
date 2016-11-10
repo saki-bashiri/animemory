@@ -1,0 +1,46 @@
+<%
+  selected_creator ||= nil
+  notifications ||= []
+  new_notice_ids ||= []
+%>
+
+<% content_for :head do %>
+ <%= stylesheet_link_tag "mypage/_notice" %>
+<%- end -%>
+
+<div class="mypage-notice">
+  <div><%= image_tag("/images/my.png") %>　　&nbsp;チャンネル通知<% if selected_creator %><%= " -- #{selected_creator.name} --" %><% end %>
+    <span>
+      <%= page_entries_info(notifications, :entry_name => "Notice") %><%= paginate(notifications) -%>
+    </span>
+  </div>
+  <ul>
+    <%- if notifications.present? -%>
+      <% notifications.each do |notification| %>
+        <%
+          anime = notification.anime
+          creator = notification.creator
+          image_path = anime.anime_image ? anime.anime_image.image_path(:path_256x144) : "/images/no_image.jpg"
+        %>
+        <li>
+          <%= link_to image_tag( anime_image_path(image_path), :width => 192, :height => 108 ), url_for(:controller => :anime, :action => :dtl, :anime => notification.anime_id) %>
+          <%- if new_notice_ids.include?(notification.id) -%>
+            <span class="new-notice">New!</span>
+          <%- end -%>
+          <span class="notice-title">
+            <%= link_to_if (creator.production? || creator.voice_actor?), creator.name, url_for(:controller => :creator, :action => :index, :crid => creator.id) -%>
+          </span>
+          <span class="notice-content">
+           <%= link_to_if (creator.production? || creator.voice_actor?), creator.name, url_for(:controller => :creator, :action => :index, :crid => creator.id) %>&nbsp;が&nbsp;
+           <%= link_to anime.title, url_for(:controller => :anime, :action => :dtl, :anime => notification.anime_id) %>&nbsp;で
+           <%= notification.target_name %> を<%= notification.action_text %>。
+          </span>
+          <span class="time-elapsed"><%= ago_from_now(notification.created_at) %></span>
+          <span class="design-triangle"><span>
+        </li>
+      <% end %>
+    <% else %>
+      <span class="no-notice-yet"><i class="icon icon-info-sign"></i>まだMy!チャンネル通知はありません。<br />”My!” でMy!お気に入りの声優や制作会社をMy!チャンネル登録をしましょう。</span>
+    <% end %>
+  </ul>
+</div>

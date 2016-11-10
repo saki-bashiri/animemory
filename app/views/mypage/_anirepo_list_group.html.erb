@@ -1,0 +1,38 @@
+<%
+  anirepos ||= []
+  offset ||= 1
+%>
+<%# ajaxでは読み込まれない %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "mypage/_anirepo_list_group" %>
+  <%= javascript_include_tag "mypage/_anirepo_list_group" %>
+<% end %>
+
+<ul>
+  <%- if false -%>
+    <% anirepos.sort_by{|anirepo| -anirepo.reported_on.to_i}.each do |anirepo| %>
+      <% if anirepo.report_type == :anime_edit %>
+        <li class="mypage-anirepo-type-anime-edit">
+      <% else %>
+        <li>
+      <% end %>
+      <img src="<%= anime_image_path(anirepo.anime_image.try(:image_path, :path_100x100)) %>">
+      <span class="mypage-anirepo-content">
+  	    <span><%= anirepo.report_sentense -%></span>
+  	    <span><%= link_to anirepo.title, url_for( anirepo.url_options ) -%></span>
+  	    <span><%= ago_from_now(anirepo.reported_on) -%></span>
+      </span>
+      </li>
+    <%- end -%>
+  <%- else -%>
+    <span class="nothing"><i class="icon icon-info-sign"></i>カミングスーン。神だけに。</span>
+    <div>
+      <%= image_tag "kaming_soon.jpg" %>
+    </div>
+  <%- end -%>
+</ul>
+<% if anirepos.present? && anirepos.size >= AnimeReport::MYPAGE_LIST_SIZE %>
+<div id="more-load" data-offset="<%= offset %>" data-url="<%= url_for(:action => :anirepo_ajax) %>">
+  <a href="#">さらに読み込む</a>
+</div>
+<% end %>

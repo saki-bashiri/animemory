@@ -1,0 +1,187 @@
+.my-channel{
+  color:#5C5C5C;
+}
+
+.my-channel div:first-child{
+	display:block;
+	border-bottom:2px solid #E4E9F2;
+  position:relative;
+  padding-left:5px;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.my-channel div:first-child img{
+	width: 30px;
+	height: 20px;
+	top: -1px;
+	position: absolute;
+}
+
+.my-channel ul{
+	margin: 0;
+	padding: 15px 10px;
+	list-style-type: none;
+	color:#2B2B2B;
+}
+
+.my-channel ul li{
+	display: inline-block;
+	border-radius: 3px;
+	background-color: #E6EEE9;
+	margin: 0 9px 12px 0;
+	padding: 8px 40px 0 10px;
+	position: relative;
+	height: 26px;
+	font-size:12px;
+}
+
+.my-channel ul li .my-channel-wrap button.my-channel-button{
+	position: absolute;
+	border: 0px;
+}
+
+.my-channel ul li .my-channel-wrap button.on{
+	background: url('/images/remove.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	right: 15px;
+	top: 11px;
+	height: 13px;
+	width: 13px;
+}
+
+.my-channel ul li .my-channel-wrap button.off{
+	background: url('/images/my_off_status.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 22px;
+	width: 27px;
+	right: 7px;
+	top: 8px;
+}
+
+.my-channel ul li .roll-type{
+  color:#696969;
+}
+
+.my-channel ul li .my-channel-wrap span{
+  position:absolute;
+}
+
+
+/* キーワード検索カラム */
+
+.my-channel-keyword-search div:first-child{
+	display:block;
+	border-bottom:2px solid #E4E9F2;
+  position:relative;
+  padding-left:5px;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.my-channel-keyword-search div:first-child img{
+	width: 30px;
+	height: 20px;
+	top: -1px;
+	position: absolute;
+}
+
+.my-channel-keyword-search div:nth-child(2){
+  padding:17px 10px;
+}
+
+.my-channel-keyword-search div:nth-child(2) #search-text{
+  width: 220px;
+}
+
+.my-channel-keyword-search div:nth-child(2) #search-button{
+	height: 29px;
+	margin-top: -10px;
+	border-radius: 4px;
+	border: 1px;
+	padding: 15px;
+	line-height: 2px;
+	background-color: #ccc;
+}
+
+.my-channel-keyword-search div:nth-child(2) #search-button:hover{
+	background-color: #B3B1B1;
+}
+
+
+.my-channel-keyword-search #search-result ul{
+  list-style-type: none;
+}
+
+.my-channel-keyword-search div:nth-child(3){
+	display:block;
+	border-bottom:2px dashed #E4E9F2;
+  position:relative;
+  padding:5px;
+  margin-top: -5px;
+  font-size: 15px;
+}
+
+#search-result{
+	padding-top:5px;
+}
+
+.my-channel-keyword-search ul{
+	margin:0;
+	padding:0 10px;
+}
+
+.my-channel-keyword-search ul li{
+	list-style-type: none;
+	margin: 5px 0;
+	display: inline-block;
+	background-color: #E6EEE9;
+	position: relative;
+	padding: 7px 40px 6px 10px;
+	font-size: 12px;
+	border-radius: 3px;
+}
+
+.my-channel-keyword-search ul li span.my-channel-wrap button.off{
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	border: 0;
+	height: 22px;
+	width: 27px;
+	background:url('/images/my_off_status.png')left top no-repeat;
+  background-size:contain;
+}
+
+.my-channel-keyword-search ul li span.my-channel-wrap button.on{
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	border: 0;
+	height: 22px;
+	width: 28px;
+	background:url('/images/my.png')left top no-repeat;
+  background-size:contain;
+}
+
+.my-channel-keyword-search ul li span.my-channel-wrap span{
+  position:absolute;
+}
+
+.my-channel-balloon{
+	position: absolute;
+	width: 100px;
+	background-color: #c62a54;
+	color: white!important;
+	font-size: 10px;
+	bottom: 30px;
+	right: -32px;
+	padding: 5px 2px;
+	height: 17px;
+	border-radius: 2px;
+	text-align: center;
+	z-index:12;
+}
+

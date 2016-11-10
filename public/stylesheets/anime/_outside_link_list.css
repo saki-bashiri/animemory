@@ -1,0 +1,17 @@
+.am-outside-link-wrap-cathead{
+  color:#48bb32;
+  font-weight: bold;
+}
+
+.am-outside-links-wrap{
+  list-style-type: none; 
+  margin:0;  
+  padding:5px 0;
+  border-top: 1px dashed #bbbbbb;
+}
+
+.am-outside-links-wrap li{
+  float:left;
+  margin-right: 8px;
+  font-size: 12.5px!important;
+}

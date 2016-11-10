@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title></title>
+</head>
+<body>
+<%= stylesheet_link_tag "top" %>
+<h1 xmlns="http://www.w3.org/1999/html"><%= @artist.name %>の情報</h1>
+
+<table>
+  <tr>
+    <td>
+      名前
+    </td>
+    <td>
+      <%= @artist.name %>[<%= @artist.kana %>]
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ニックネーム
+    </td>
+    <td>
+      <%= @artist.nickname %>
+    </td>
+  </tr>
+  <% if @artist.unit_flg == 1 && @artist.units.present? %>
+  <tr>
+    <td>
+      メンバー
+    </td>
+    <td>
+      <ul>
+        <% @artist.units.each do |u| %>
+        <li>
+          <a href="<%= url_for(:action => "top", :artid => u.artist.try(:id) ) %>">
+            <%= u.artist.try(:name) %>
+          </a>
+
+        </li>
+        <% end %>
+      </ul>
+      <%= @artist.nickname %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td>
+      <%= @artist.voice_actor_flg == 1 ? "声優" : "--" %> <%= @artist.singer_flg == 1 ? "歌手" : "--" %> <%= @artist.songwriter_flg == 1 ? "作詞者" : "--" %> <%= @artist.composer_flg == 1 ? "作曲者" : "--" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      誕生日
+    </td>
+    <td>
+      <% if @artist.birthday.present? %>
+          <%= @artist.birthday.strftime("%Y年%m月%d日") %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+    <td>
+      <%= @artist.description %>
+    </td>
+  </tr>
+  <% if @artist.singer_flg == 1 %>
+  <tr>
+    <td>
+     歌った曲
+    </td>
+    <td>
+      <% @sings.each do |sing| %>
+          <%= sing.title %>::<%= sing.anime.try(:title) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <% if @artist.composer_flg == 1 %>
+  <tr>
+    <td>
+      作曲
+    </td>
+    <td>
+      <% @composes.each do |comp| %>
+          <%= comp.title %>::<%= comp.anime.try(:title) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <% if @artist.songwriter_flg == 1 %>
+  <tr>
+    <td>
+      作詞
+    </td>
+    <td>
+      <% @writes.each do |write| %>
+          <%= write.title %>::<%= write.anime.try(:title) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.twitter-login-lead{
+  display:block;
+  position:relative;
+}
+
+.twitter-login-lead img{
+	display: inline-block;
+	left: 40px;
+	position: absolute;
+	top: 75px;
+	width: 75px;
+}

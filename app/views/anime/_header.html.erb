@@ -1,0 +1,29 @@
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <div class="layout-h1" xmlns="http://www.w3.org/1999/html">
+  	<span>
+	  <ul>
+		<% if @user.blank? %>
+		  <li>|&nbsp;<%= link_to( "Twitterアカウントではじめる", "/auth/twitter") %>&nbsp;|</li>
+		<% else %><% unless params[:action] == 'intro_mychannel' || @new_register_flg %>
+		  <li>&nbsp;<%= link_to( "ログアウト", create_url({:controller => "account", :action => "logout"}) ) %>&nbsp;</li><% end %>
+      <li>&nbsp;<%= link_to @user.nickname, url_for(:controller => :mypage, :action => :index) %>&nbsp;<% unless params[:action] == 'intro_mychannel' || @new_register_flg %>|<% end %></li>
+      <% profile_image_url = @user.profile_image_url.presence || "/images/testprofileimage.png" %>
+      <li>&nbsp;<%= link_to image_tag(profile_image_url, :width => 15, :height => 15), url_for(:controller => :mypage, :action => :index) %>&nbsp;</li>
+		<%- end -%>
+	  </ul>
+  	</span>
+  	<span>
+      <% unless params[:action] == 'intro_mychannel' || @new_register_flg %>
+    		<a href="<%= create_url({:controller => "anime", :action => "index"}, {:https => false}) -%>">
+    		　　<%= image_tag("sp-logo.png", :size => "250x134", :alt => "#{Time.new.year}年のお気に入り・おすすめアニメであなただけの番組表を作成 [アニメモリ]") -%>
+    	　</a>
+      <% else %>
+        <span>
+      　　<%= image_tag("sp-logo.png", :size => "250x134", :alt => "#{Time.new.year}年のお気に入り・おすすめアニメであなただけの番組表を作成 [アニメモリ]") -%>
+    　  </span>
+      <% end %>
+  	</span>
+    <h1><%= content_for :h1 -%></h1>
+  </div>
+  <%=  render :partial => "anime/top_form" %>
+</div>

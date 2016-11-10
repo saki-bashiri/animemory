@@ -1,0 +1,133 @@
+*{
+  margin: 0;
+  padding: 0;
+  font: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+body{
+  background-color: #000000;
+}
+
+/* header */
+.am-sp-header{
+  margin: -10px 0 0 0;
+  background-color: #5bb75b;
+  width: 100%;
+}
+
+.am-sp-header a{
+}
+
+.am-sp-header a img{
+  width: 60%;
+  margin: 10px 0;
+}
+
+.am-sp-header div{
+  position: relative;
+}
+
+.am-sp-header div input{
+  height: 50px;
+  font-size: 100%;
+  padding-top: 5px;
+  position: relative;
+  margin:5px;
+}
+
+.am-sp-header div input[type="text"]{
+  padding: 2px 4px 0 4px;
+  width: 95%;
+  height: 35px;
+  font-size: 100%;
+  color: #111;
+  font-weight: bold;
+  border-top: #ccc 1px solid;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: #ccc 1px solid;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 0;
+}
+
+.am-sp-header div input[type="submit"]{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: #ccc 1px solid;
+  -webkit-border-radius: 0;
+  width: 12%;
+  height: 35px;
+
+  background-color:#5bb75b;
+  background: url("/images/search.png") 50% no-repeat;
+
+  background-color: #5bb75b; /* Old browsers */
+  background-color: -moz-linear-gradient(top, #7DB220 0%, #5bb75b 100%); /* FF3.6+ */
+  background-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7DB220), color-stop(100%,#5bb75b)); /* Chrome,Safari4+ */
+  background-color: -webkit-linear-gradient(top, #7DB220 0%,#5bb75b 100%); /* Chrome10+,Safari5.1+ */
+  background-color: -o-linear-gradient(top, #7DB220 0%,#5bb75b 100%); /* Opera 11.10+ */
+  background-color: -ms-linear-gradient(top, #7DB220 0%,#5bb75b 100%); /* IE10+ */
+  background-color: linear-gradient(to bottom, #7DB220 0%,#5bb75b 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7DB220', endColorstr='#5bb75b',GradientType=0 ); /* IE6-9 */
+  -moz-background-size: contain;
+  background-size: contain;
+}
+
+.am-sp-header div input[type="submit"]:hover{
+  background-color: #4b934b;
+}
+
+/* footer */
+.am-sp-footer{
+  clear:both;
+  position: relative;
+  width: 100%;
+  background: #777777; /* Old browsers */
+  background: -moz-linear-gradient(top,  #777777 0%, #000000 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#777777), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #777777 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #777777 0%,#000000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #777777 0%,#000000 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #777777 0%,#000000 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777777', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  height: 50px;
+}
+
+.am-sp-footer span{
+  position: absolute;
+  top:33%;
+  right:24%;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.am-sp-footer a{
+  position: absolute;
+  top:18%;
+  right:5%;
+  font-size: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  border-radius: 3px;
+  padding: 5px;
+  border: 2px ridge rgba(192, 192, 192, 0.20);
+  -webkit-box-shadow: 0 1px 3px rgba(192, 192, 192, 0.89);
+  -moz-box-shadow: 0 1px 3px rgba(192, 192, 192, 0.89);
+  box-shadow: 0 1px 3px rgba(192, 192, 192, 0.89);
+  background-color: #777777;
+}
+
+.am-sp-footer a:hover{
+  background-color: #000000;
+}
+
+iframe#twitter-widget-0{
+  width: 100%!important;
+}

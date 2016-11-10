@@ -1,0 +1,27 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag "common/wiki", "anime/edit_conf" %>
+<%= javascript_include_tag "anime/edit_conf" %>
+<% end %>
+
+<% content_for :title do %>
+  <%= @anime.title %>のアニメモを編集しましょう！[アニメモリ]
+<% end %>
+
+<% content_for :h1 do %>
+  アニメモを編集して<%= @anime.title %>の情報を充実させましょう！
+<% end %>
+
+<div class="span12">
+  <div class="anime-edit-conf">
+    <div><i class="icon icon-edit"></i>[アニメモ]編集内容確認画面</div>
+    <%= form_tag url_for(:action => :edit_do), :method => :post do %>
+      <%= hidden_field_tag :aid, @anime.id %>
+      <span class="edit-content"><%= wiki(@anime.outline) %></span>
+      <%= hidden_field_tag "outline", @anime.outline %>
+      <span class="buttons">
+        <span><%= submit_tag "戻る", :name => "back", :id => "back" %></span>
+        <span><%= submit_tag "編集", :name => "commit", :id => "commit" %></span>
+      </span>
+    <% end %>
+  </div>
+</div>

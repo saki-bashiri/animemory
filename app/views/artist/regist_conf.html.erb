@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>
+
+  </title>
+</head>
+<body>
+<h1>新規アーティスト登録確認</h1>
+<div>
+  <%= form_tag (url_for(:action => "regist_conf"), :method => :post) do %>
+      <%= hidden_field_tag "artid", @artist.id %>
+      <ul>
+        <li>名前：
+          <%= @artist.name %>
+          <%= hidden_field_tag "artist[name]", @artist.name %></li>
+        <li>ふりがな：
+          <%=  @artist.kana %>
+          <%= hidden_field_tag "artist[kana]", @artist.kana %></li>
+        <li>ニックネーム：
+          <%= @artist.nickname %>
+          <%= hidden_field_tag "artist[nickname]", @artist.nickname %></li>
+        <% if @artist.birthday.present? %>
+        <li>
+          誕生日：<%= @artist.birthday.strftime("%Y年%m月%d日") %>
+          <%= hidden_field_tag "artist[birthday]", @artist.birthday.strftime("%Y-%m-%d") %>
+        </li>
+        <% end %>
+        <li>グループですか？:
+          <%= @artist.unit_flg > 0 ? "グループ" : "グループじゃない" %>
+          <%= hidden_field_tag "artist[unit_flg]", @artist.unit_flg.to_i %>
+        </li>
+        <% if @unit_members.present? %>
+            <% @unit_members.unit.each do |uartist| %>
+                <li>メンバー
+                  <%= uartist.name %>
+                </li>
+            <% end %>
+            <%= hidden_field_tag "artist[unit_ids]", @unit_members.map(&:id).join(',') %>
+        <% end %>
+        <li>コメント：
+          <div><%= @artist.description %></div>
+          <%= hidden_field_tag "artist[description]", @artist.description %>
+        </li>
+        <li>
+          <%= @artist.voice_actor_flg > 0 ? "声優" : "--" %>
+          <%= hidden_field_tag "artist[voice_actor_flg]", @artist.voice_actor_flg.to_i %>
+        </li>
+        <li>
+          <%= @artist.singer_flg > 0 ? "歌手" : "--" %>
+          <%= hidden_field_tag "artist[singer_flg]", @artist.singer_flg.to_i %>
+        </li>
+        <li>
+          <%= @artist.composer_flg > 0 ? "作曲者" : "--" %>
+          <%= hidden_field_tag "artist[composer_flg]", @artist.composer_flg.to_i %>
+        </li>
+        <li>
+          <%= @artist.songwriter_flg > 0 ? "作詞者" : "--" %>
+          <%= hidden_field_tag "artist[songwriter_flg]", @artist.songwriter_flg.to_i %>
+        </li>
+        <li><%= submit_tag "作成", :name => "commit" %></li>
+      </ul>
+  <% end %>
+</div>
+</body>
+</html>

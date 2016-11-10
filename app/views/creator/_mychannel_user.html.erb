@@ -1,0 +1,18 @@
+<% 
+mychannel_users ||= []
+%>
+
+<div class="dtl-mymemory-user-favo">
+  <div><% image_tag("my.png") -%></div>
+  <ul>
+  <% @mychannel_users.each do |user| %>
+    <li>
+    <%= image_tag user.profile_image_url, :width => 30, :height => 30 %>
+    </li>
+  </ul>
+  <% end %>
+</div>
+
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/_dtl_mymemory_user" %>
+<% end %>

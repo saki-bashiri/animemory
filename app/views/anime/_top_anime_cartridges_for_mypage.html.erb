@@ -1,0 +1,16 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_top_anime_cartridges_for_mypage" %>
+<% end %>
+
+<div class="top-anime-cartridges-for-mypage">
+  <div>
+    <i class="icon-white icon-user"></i>
+    <%= link_to "MY PAGE", url_for(:controller => "mypage", :action => :index) %>
+  </div>
+  <div class="instruction-text">
+    <i class="icon-white icon-info-sign"></i>
+    視聴しているアニメの数が多くて、管理に困っているあなたへ。アニメモリなら簡単に、楽しく視聴管理ができます
+  </div>
+  <ul>
+  </ul>
+</div>

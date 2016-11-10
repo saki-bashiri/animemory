@@ -1,0 +1,82 @@
+.urging-user-for-login{
+	padding: 0 5px;
+	position: relative;
+	border-radius: 3px;
+	height: 75px;
+	margin-bottom: 10px;
+	margin-top: -5px;
+}
+
+.urging-user-for-login{
+	background-color: #B2D0E9;
+	height: 95px;
+}
+
+.urging-user-for-login div:first-child a{
+	background-image: -webkit-linear-gradient(top, #3CABFF, #3C9AE2);
+	background-image: -moz-linear-gradient(top, #3CABFF, #3C9AE2);
+	background-image: -ms-linear-gradient(top, #3CABFF, #3C9AE2);
+	background-image: -o-linear-gradient(top, #3CABFF, #3C9AE2);
+	background-image: linear-gradient(to bottom, #3CABFF, #3C9AE2);
+	-webkit-border-radius: 15;
+	-moz-border-radius: 15;
+	border-radius: 7px;
+	text-shadow: 1px 1px 3px #666666;
+	-webkit-box-shadow: 0px 1px 1px #666666;
+	-moz-box-shadow: 0px 1px 1px #666666;
+	box-shadow: 0px 1px 1px #666666;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 10px;
+	border: solid #4EB1FC 1px;
+	text-align: center;
+	width: 88%;
+	left: 14px;
+	position: absolute;
+	display: block;
+	top: 15px;
+}
+
+.urging-user-for-login div:first-child a:hover{
+  background: #d43968;
+  background-image: -webkit-linear-gradient(top, #3CA0EC, #3490D6);
+  background-image: -moz-linear-gradient(top, #3CA0EC, #3490D6);
+  background-image: -ms-linear-gradient(top, #3CA0EC, #3490D6);
+  background-image: -o-linear-gradient(top, #3CA0EC, #3490D6);
+  background-image: linear-gradient(to bottom, #3CA0EC, #3490D6);
+  text-decoration: none;
+} 
+
+.urging-user-for-login div:first-child a div:first-child a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.urging-user-for-login div:first-child a i div:first-child a i{
+	margin-right: 3px;
+	margin-top: 4px;
+}
+
+.urging-user-for-login div:first-child a i{
+	margin-right: 3px;
+	margin-top: 3px;
+}
+
+.urging-user-for-login div.instruction-text{
+	position: absolute;
+	top: 68px;
+	left: 15px;
+	text-shadow: none;
+	font-size: 12px;
+	line-height: 1.4;
+	font-weight: bolder;
+	color: #5E5E83;
+	text-align:center;
+	width: 88%;
+}
+
+.urging-user-for-login div.instruction-text i{
+	margin-right: 3px;
+	margin-top: -1px;
+}

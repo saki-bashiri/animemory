@@ -1,0 +1,22 @@
+<%- content_for :head do -%>
+  <%= stylesheet_link_tag "summary/summary_howto" %>
+<%- end -%>
+
+<div class="row-fluid span3 am-summary-howto">
+  <span class="am-summary-edit-instruction text-center">まとめのつくり方</span>
+  <div class="am-summary-instruction-contents">
+    <ol>
+      <li><span>＜まとめタイトル入力＞</span>編集パレット（右）上で、まとめタイトルを入力してください。（必須）<br />
+        ※タイトルは200文字以内となります。</li>
+      <li><span>＜メイン画像選択＞</span>まとめの一番上に表示する画像を選んでください。不要な場合はnoimageを選んでください。（必須）</li>
+      <li><span>＜まとめ対象レス選択＞</span>ソースパレット（左）から編集パレット（右）に編集したいレスをドラッグ＆ドロップしてください。</li>
+      <li><span>＜まとめ対象レス編集＞</span>色や大きさを変えたい場合は、マウスドラッグにて対象箇所を選択した状態で、テキストエリア上部のボタンを押してください。<br />
+        ※色と大きさを同時に変えたい場合は、[色:[大きさ:（レス内容）]]の順で括ってください。（例... [color:green [size:32  特大の緑文字]] )<br />
+        ※まとめに使うレス数は100までにしてください。<br />
+      <li><span>＜まとめ確認画面へ＞</span>編集が完了しましたら、「確認画面へ」ボタンを押してください。</li>
+    </ol>
+  </div>
+</div>
+<footer>
+  <%= render :partial => "anime/footer" %>
+</footer>

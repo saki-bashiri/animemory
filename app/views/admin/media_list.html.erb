@@ -1,0 +1,38 @@
+<% content_for :head do %>
+<% end %>
+
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+  <div class="span9">
+    <div class="amBadge-Admin2">
+      <div>放送局管理</div>
+    </div>
+    <div class="row-fluid amAdminBody">
+      <ol class="am-admin-content-list">
+        <% MasterTable::Area::KEYS.each do |area_type| %>
+          <%= MasterTable::Area.area_name(area_type) %>
+          <div class="am-admin-th">
+            <span class="am-admin-th-cat">名前</span>
+            <span class="am-admin-th-mini-cat">地域</span>
+            <div>
+              <% if @media_hash[area_type].present? %>
+                <ul>
+                  <% @media_hash[area_type].each do |media| %>
+                    <li>
+                      <%= form_tag ( url_for(:action => "media_edit") ) do %>
+                        <%= hidden_field_tag "mid", media.id %>
+                        <span><%= text_field_tag "name", media.name %></span>
+                        <span><%= select_tag "area_id", options_for_select(Medium.area_options_for_select, :selected => media.area_id) %></span>
+                        <span><%= submit_tag "編集" %></span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.anime-edit-conf{
+	display: block;
+	text-align:center;
+	margin:0;
+}
+
+.anime-edit-conf div{
+ margin: 0 0 15px -20px;
+ border-bottom: 2px solid #E4E9F2;
+ color: #5C5C5C;
+ font-size: 14px;
+ padding-bottom: 5px;
+}
+
+.anime-edit-conf div i{
+	margin: 0 0 0 -10px;
+	padding-left: 8px;
+	display: inline-block;
+}
+
+.anime-edit-conf span.edit-content{
+	display: inline-block;
+	width: 545px;
+	min-height: 300px;
+	margin-left: -10px;
+	word-break:break-all;
+	text-align: left;
+	padding:10px;
+	background-color: #FCF7F7;
+	border-radius:3px;
+}
+
+.anime-edit-conf span.buttons{
+	display: inline-block;
+	margin-top: 15px;
+  margin-left:-22px;
+}
+
+.anime-edit-conf span.buttons > span > input{
+	display: inline-block;
+  border:0;
+  padding:6px 20px 5px 20px;
+  background-color: #E76587;
+  color: #fff;
+  border-radius:3px;
+  margin:0 10px;
+}
+
+.anime-edit-conf span.buttons > span > input:hover{
+  background-color: #c62a54;
+}
+
+.container{
+  min-height: 550px;
+}

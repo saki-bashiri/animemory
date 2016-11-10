@@ -1,0 +1,384 @@
+* {
+	margin: 0;
+	padding: 0;
+	}
+
+#inner {
+    margin:0 10px;
+    }
+
+#header {
+	background-image:url("/images/header-line.png");
+	background-repeat:repeat-x;
+	}
+
+#title{
+	padding-left:15px;
+	padding-top:30px;
+    FLOAT: LEFT;
+    }
+
+#gnavi{
+    text-align: right;
+    }
+
+#gnavi2{
+    list-style-type: none;
+    text-align: right;
+    padding-right:15px;
+    padding-TOP: 27px;
+    margin-right:7.5px;
+    }
+
+#gnavi-bar{
+    margin-right:7px;
+    text-align: right;
+    margin-top: -13px;
+    }
+
+#gnavi2 li{
+    text-align: left;
+    display: inline;
+    font-size: 16px;
+    margin:0 6px;
+    }
+
+#news{
+    margin-right:23px;
+    font-size:11px;
+    margin-top: -17.5px;
+    margin-bottom: 3px;
+    }
+
+.top-pic{
+    margin-top:7px;
+    text-align: center;
+    }
+
+#inner-left{
+    margin-left:5px;
+    float: left;
+    width: 530px;
+    }
+
+#search{
+    height:45px;
+    padding-top:11px;
+    padding-left:28px;
+    background-image:url("/images/search-bar.png");
+    background-repeat: no-repeat;
+    }
+
+#search input{
+    padding-top:-2px;
+    padding-bottom:-1px;
+    border:3px solid #ccc;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition:1s;
+}
+/* :focusで動作 */
+#search input:focus{
+    border:3px solid #00eda0;
+    background-color:#58ffac;
+    color:#0C0C0C;
+}
+
+#anime-info{
+    margin-top: 5px;
+    margin-right:22px;
+    text-align: center;
+    overflow: hidden;
+    height: 550px;
+    }
+
+.anime-daily{
+    float: left;
+}
+
+.anime-daily-list{
+    list-style-type: none;
+}
+
+.anime-daily-list li{
+    font-size: 10.5px;
+    padding:0 10px;
+}
+
+.anime-daily-list li div{
+    margin: 2px;
+}
+
+ul.tab{
+    padding:0;
+}
+ul.tab li{
+    list-style-type:none;
+    width:63.5px;
+    height:20px;
+    float:left;
+    margin-bottom:7px;
+}
+ul.tab li{
+    border:2px solid #cecdcd;
+    border-top-left-radius: 0.5em;
+    padding: 3px;
+    outline:none;
+    background-color:#f5f5f5;
+    background-repeat:no-repeat;
+    display:block;
+    color:#050505;
+    line-height:20px;
+    text-decoration:none;
+    text-align:center;
+
+}
+ul.tab li.selected{
+    border:2px solid #cecdcd;
+    border-bottom: none;
+    border-top-left-radius: 0.5em;
+    background:url("/images/bg008_04.gif");
+    text-decoration:none;
+    color:#00a964;
+    cursor:default;
+}
+ul.panel{
+    clear:both;
+    border:2px solid #cecdcd;
+    background:url("/images/bg008_04.gif");
+    border-top:none;
+    padding:0;
+    height: 550px;
+}
+ul.panel li {
+    list-style-type:none;
+    padding:15px;
+    text-indent:1em;
+    color:#333;
+    height:500px;
+    text-align: center;
+}
+
+ul.panel li ol {
+        float:left;
+        padding:10px 10px;
+}
+
+
+
+.tagSearch01 {
+    overflow: hidden;
+    margin: 10px auto 30px;
+    padding: 20px 10px 10px 30px;
+    text-align: center;
+    line-height: 1;
+}
+
+.tagSearch01 li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -1px;
+    font-family: "Times New Roman",Serif;
+}
+
+.tagSearch01 li a {
+    position: relative;
+    top: 0px;
+    left: -10px;
+    z-index: 10;
+    margin: 0;　
+    padding: 0 5px;
+    color: #00a964;
+    font-size: 1em;
+    text-decoration: none;
+}
+.tagSearch01 li a:hover {
+    border: 2px dotted #F99;
+    text-decoration: none;
+    background: white;
+    position: relative;
+    z-index: 50;
+    color: #00a964;
+}
+
+.tagSearch01 li.tagRank1 {
+    line-height: 1.3em;
+}
+
+.tagSearch01 li.tagRank1 a {
+    top: -5px;
+    z-index: 1;
+    font-size: 2.8em;
+}
+
+.tagSearch01 li.tagRank2 a {
+    top: -4px;
+    z-index: 2;
+    font-size: 2.6em;
+    color:#00a964;
+}
+
+.tagSearch01 li.tagRank3 a {
+    top: 4px;
+    z-index: 3;
+    font-size: 2.4em;
+    color:#00b66e;
+}
+
+.tagSearch01 li.tagRank4 a {
+    top: -6px;
+    z-index: 4;
+    font-size: 2.2em;
+    color:#00c078;
+}
+
+.tagSearch01 li.tagRank5 a {
+    top: 8px;
+    z-index: 5;
+    font-size: 2em;
+    color:#00ca82;
+}
+
+.tagSearch01 li.tagRank6 a {
+    top: -5px;
+    z-index: 6;
+    font-size: 1.8em;
+    color:#00d58c;
+}
+
+.tagSearch01 li.tagRank7 a {
+    top: 6px;
+    z-index: 7;
+    font-size: 1.6em;
+    color: #00e196;
+}
+
+.tagSearch01 li.tagRank8 a {
+    top: -4px;
+    z-index: 8;
+    font-size: 1.4em;
+    color: #00eda0;
+}
+
+.tagSearch01 li.tagRank9 a {
+    top: 8px;
+    z-index: 9;
+    font-size: 1.2em;
+    color: #00f8aa;
+}
+
+.tagSearch01 li.tagRank10 a {
+    top: 0;
+    z-index: 10;
+    font-size: 1em;
+    color: #00ffae;
+}
+
+.tagSearch01 li.tagRank3 + li a,
+.tagSearch01 li.tagRank2 + li a,
+.tagSearch01 li.tagRank1 + li a {
+    left: -25px;
+    top: -5px;
+}
+
+.tagSearch01 li.tagRank7 + li.tagRank7 a {
+    top: -3px;
+}
+.tagSearch01 li.tagRank10 + li a {
+    top: 3px;
+}
+.tagSearch01 li.tagRank10 + li + li a {
+    top: -3px;
+}
+.tagSearch01 li.tagRank10 + li + li + li a {
+    top: 5px;
+}
+.tagSearch01 li + li + li + li + li a {
+    top: -2px;
+}
+
+#inner-right{
+    float:right;
+    width: 240px;
+    }
+
+.log-in{
+    margin-top:1px;
+    margin-right:7px;
+    display: block;
+    font-size: 20px;
+    color:#151515;
+    background-image: url("/images/freebu32_2.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.35;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    height:48px;
+    }
+
+.log-in:hover {
+    font-weight: bold;
+    color:white;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition:0.5s;
+}
+
+#add{
+    height:70px;
+    width: 230px;
+    border:2px solid #cecdcd;
+}
+
+#ranking{
+    margin-top:20px;
+    width:230px;
+}
+
+.ud{
+    border: 1px solid #cecdcd;
+    PADDING: 3PX;
+}
+
+
+
+.clear{
+    clear:both;
+    }
+
+.clear hr{
+    display:none;
+    }
+
+#footer {
+    background-image:url("/images/header-line.png");
+    height:75px;
+}
+
+#site-info{
+    list-style-type: none;
+    text-align: center;
+    padding-right:15px;
+    padding-top:15px;
+    margin-right:7.5px;
+    text-decoration: none;
+}
+
+#site-info li{
+    text-align: left;
+    display: inline;
+    font-size: 16px;
+    margin:0 6px;
+    text-decoration: none;
+}
+
+.copyright{
+    text-align:center;
+}

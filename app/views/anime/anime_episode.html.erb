@@ -1,0 +1,17 @@
+<% content_for :head do %>
+  <meta charset="utf-8">
+  <meta name="description" content="animemory">
+  <meta name="keywords" content="アニメ,anime">
+  <%= javascript_include_tag "lib/jquery/jquery-1.9.1.min" %>
+  <%= javascript_include_tag "lib/plugin/jquery.carouFredSel-6.2.0-packed" %>
+  <%= stylesheet_link_tag "anime/detail.css" %>
+  <title>animemory</title>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Using default configuration
+
+    });
+  </script>
+<% end %>
+  <%= render :partial => "dtl_info" %>
+  <%= render :partial => "ep_comment" %>

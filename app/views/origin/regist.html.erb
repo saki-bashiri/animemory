@@ -1,0 +1,14 @@
+
+<h1>新規原作登録</h1>
+<div>
+  <%= form_tag (url_for(:action => "regist_conf"), :method => :post) do %>
+      <ul>
+        <li>作品名：<%= text_field_tag "origin[title]" %></li>
+        <li>コメント：<%= text_area_tag "origin[description]", "", :size => "60x20" %></li>
+        <li>
+          <%= select_tag "origin[original_type]", options_for_select( Origin::OriginType.to_a.each{|ar| ar[0], ar[1] = ar[1], ar[0]} ) %>
+        </li>
+        <li><%= submit_tag "確認", :name => "conf" %></li>
+      </ul>
+  <% end %>
+</div>

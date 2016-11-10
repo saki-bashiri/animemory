@@ -1,0 +1,28 @@
+<% content_for :head do %>
+<%= javascript_include_tag "account/quitting" %>
+<% end %>
+<% content_for :title do %>
+  アニメモリの退会確認
+<% end %>
+<div class="row-fluid amHightfixer">
+  <div class="span12">
+      <p class="amCategoryhead">アニメモリの退会確認</p>
+      <div class="row-fluid">
+        <div class="span12 well amlonginwell3 text-center">
+      <p>
+        退会されますとお使いのアカウントの復元はできません。<br/>
+        今までにされたコメントの削除などもできなくなります。<br/>
+        本当に退会されますか？
+      </p>
+
+      <%= link_to "キャンセル", create_url({:controller => "anime"}, {:https => false}) %>
+      &nbsp;
+      <div>
+        <%= form_tag create_url({:action => "quit"}, {:https => true}), {:method => :post} do %>
+          <p><%= submit_tag "退会する", :name => "commit", :id => "commit" %></p>
+        <% end %>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>

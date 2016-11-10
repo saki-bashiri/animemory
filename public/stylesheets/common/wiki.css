@@ -1,0 +1,48 @@
+span.strong{
+  font-weight: bold;
+}
+
+span.italic{
+  font-style: italic;
+}
+
+span.red{
+  color: #ff0000;
+}
+
+span.blue{
+  color: #0000ff;
+}
+
+span.green{
+  color: #00ff00;
+}
+
+span.orange{
+  color: #ff9900;
+}
+
+span.yellow{
+  color: #ffcc00;
+}
+
+span.pink{
+  color: #ffe9e8;
+}
+
+span.size120{
+  font-size: 120%;
+}
+
+span.size150{
+  font-size: 150%;
+}
+
+
+span.size80{
+  font-size: 80%;
+}
+
+span.size60{
+  font-size: 60%;
+}

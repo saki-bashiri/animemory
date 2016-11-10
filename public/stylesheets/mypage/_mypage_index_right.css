@@ -1,0 +1,18 @@
+.shared-narrow-add{
+  border:1px solid #ccc;
+  min-height:500px;
+}
+
+.shared-narrow-add div:first-child{
+  background-color:#ccc;
+  padding-left:5px;
+}
+
+.shared-narrow-add div:nth-child(2){
+  text-align:center;
+  padding:10px;
+}
+
+.shared-narrow-add div:nth-child(2) a{
+
+}

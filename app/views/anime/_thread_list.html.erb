@@ -1,0 +1,30 @@
+
+  <div class="row-fluid" id="thread">
+    <div class="span12">
+      <div class="row-fluid">
+      <% comments.each_with_index do |comment, i| %>
+        <div class="amCommenthead amThreadupdate">
+          <% if i == 0 %>
+          <p class="amCommentlistheadcomment">
+            <%= comment.anchor %>
+            <%= title %> by <%= user_nickname(comment.user) %> : <%= animetime(comment.created_at) %>
+          </p>
+          <p>
+            <%= br(comment.comment) %>
+          </p>
+        </div>
+          <% else %>
+        <div class="amCommentcontent">
+          <p class="amCommentlistcomment">
+            <%= comment.anchor %>
+            <%= user_nickname(comment.user) %> : <%= animetime(comment.created_at) %>
+          </p>
+          <p>
+            <%= br(comment.comment) %>
+          </p>
+        </div>
+          <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>

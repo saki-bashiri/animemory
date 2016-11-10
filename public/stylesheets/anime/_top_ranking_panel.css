@@ -1,0 +1,236 @@
+.top-ranking-panel{
+  background-color:#a5d6a5;
+  height: 275px;
+  display:block;
+  border-radius: 3px;
+}
+
+.top-ranking-panel div:first-child{
+	padding: 10px;
+	font-size: 14px;
+	color: #fff;
+	margin: 10px 10px 5px 15px;
+	outline: 1px dashed #fff;
+	outline-offset: -5px;
+	background-color: #48bb32;
+	display: inline-block;
+	width: 181px;
+}
+
+.top-ranking-panel div:first-child i{
+  margin-right: 3px;
+  margin-top: -2px;
+}
+
+.top-ranking-panel ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 5px 10px;
+	margin-left: 5px;
+}
+
+.top-ranking-panel ul li{
+	float:left;
+	position:relative;
+	margin: 1px 8px;
+}
+
+.top-ranking-panel ul li span.ranking-flag{
+  left:1px;
+  top:1px;
+	position:absolute;
+  padding: 1px 6px 12px 8px;
+	background-color:#48bb32;
+	display:inline-block;
+	width:10px;
+	height:10px;
+	color:white;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.top-ranking-panel ul li.rank1 span.ranking-flag{
+  padding: 10px 7px 10px 15px;
+	background-color:#c62a54;
+	width:20px;
+	height:20px;
+  font-size:20px;
+}
+
+.top-ranking-panel ul li.rank1{
+	margin-right:10px;
+	margin-left: 0;
+}
+
+.top-ranking-panel ul li.rank2,
+.top-ranking-panel ul li.rank3,
+.top-ranking-panel ul li.rank4{
+	margin-top: -50px;
+	margin-bottom:8px;
+	height: 123px;
+} 
+
+.top-ranking-panel ul li.rank2,
+.top-ranking-panel ul li.rank5{
+  margin-left: 5px;
+} 
+
+.top-ranking-panel ul li.rank4,
+.top-ranking-panel ul li.rank7{
+  margin-right: 5px;
+} 
+
+.top-ranking-panel ul li a img{
+		width:120px;
+		border: 1px solid #B4E4B1;
+}
+
+.top-ranking-panel ul li.rank1 a img{
+		width:200px;
+}
+
+.top-ranking-panel ul li a.anime-title{
+	background-image: url('/images/daily_info_dl_background.png');
+	bottom: 1px;
+	color: white;
+	display: inline-block;
+	padding: 1px 4px 0 3px;
+	position: absolute;
+	width: 115px;
+	font-size: 10px;
+	height: 40px;
+	line-height: 1.8;
+	letter-spacing: -0.5px;
+}
+
+.top-ranking-panel ul li.rank1 a.anime-title{
+	width: 192px;
+	height: 50px;
+	font-size: 14px;
+	padding: 2px 5px 3px;
+	line-height: 1.7;
+}
+
+.top-ranking-panel ul li.rank1 span.mymemory{
+  right: -130px;
+  width:70px;
+  bottom: 35px;
+}
+
+
+.top-ranking-panel ul li span.mymemory{
+	position:relative;
+	display:block;
+	bottom: 31px;
+	right: 0;
+	font:10px;
+}
+
+.top-ranking-panel ul li span.mymemory button,
+.top-ranking-panel ul li span.mymemory .nologin-mymemory-watch{
+	background-color: #dbcfd9;
+	padding: 0;
+	background-image: -moz-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -o-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#9E9D9D));
+	background-image: -webkit-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: linear-gradient(to bottom, #FFFFFF, #9E9D9D);
+	background-repeat: repeat-x;
+	border-color: #9E9D9D #dbcfd9 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius: 1px;
+	border: 1px solid #ccc;
+	color: rgb(95, 95, 95);
+	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size: 9px;
+	border: none;
+	box-shadow: 0px 0px 1px #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.top-ranking-panel ul li span.mymemory .nologin-mymemory-watch{
+	height: 18px;
+	width: 36px;
+}
+
+.top-ranking-panel ul li span.mymemory button{
+	height: 20px;
+	width: 38px;
+}
+
+.top-ranking-panel ul li span.mymemory a,
+.top-ranking-panel ul li span.mymemory button{
+	bottom: -27px;
+	position: absolute;
+}
+
+.top-ranking-panel ul li span.mymemory a{
+	background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  right: 43px;
+  bottom:-27px;
+}
+
+.top-ranking-panel ul li span.mymemory button,
+.top-ranking-panel ul li span.mymemory .nologin-mymemory-watch{
+	right: 3px;
+	font-size: 8px;
+	text-align: center;
+}
+
+.favorite{
+	background-image:url('/images/star.png');
+}
+
+.unfavorite{
+	background-image:url('/images/star_unfavorite.png');
+}
+
+.unfavorite:hover{
+	background-image:url('/images/star.png');
+}
+
+
+.top-ranking-panel ul li span.favorite-balloon,
+.top-ranking-panel ul li span.watch-balloon{
+	position:absolute;
+	top: -127px;
+	left:-5%;
+	z-index:5;
+	opacity:1!important;
+	background-color: #c62a54;
+	color:white;
+	font-size: 11px;
+	height:20px;
+	width:120px;
+	padding:5px 10px 5px 5px!important;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.top-ranking-panel ul li span.favorite-balloon:before,
+.top-ranking-panel ul li span.watch-balloon:before{
+  right: 20%;
+  bottom: -41%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -6px;
+}
+
+.top-ranking-panel ul li.rank1 span.favorite-balloon,
+.top-ranking-panel ul li.rank1 span.watch-balloon{
+	width:200px;
+  left: -136px;
+  top: -205px;
+}

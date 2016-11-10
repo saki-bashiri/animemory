@@ -1,0 +1,14 @@
+<% sites ||= [] %>
+
+<% content_for :head do %>
+<%= stylesheet_link_tag "_outside_link_list" %>
+<% end %>
+
+<span class="am-outside-link-wrap-cathead">オススメまとめサイト</span>
+<ul class="am-outside-links-wrap">
+  <% sites.each do |site| %>
+    <li><%= link_to site.site_name, site.url %></li>
+  <% end %>
+</ul>
+
+<%# 呼び出し元で呼ぶ render :partial => "outside_link_list", :locals => {:sites  => @outside_sites}  %>

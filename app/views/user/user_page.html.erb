@@ -1,0 +1,49 @@
+<%- content_for :head do -%>
+  <%= stylesheet_link_tag "user/user_page" %>
+<%- end -%>
+
+<% content_for :h1 do %>
+ 『もりべなおと』のページ
+<% end %>
+<% content_for :title do %>
+ 『もりべなおと』のページ
+<% end %>
+
+<div><img class="amCover" src="/images/testimage.jpg"></div>
+<div><img class="amOverlay" src="/images/overlay.png"></div>
+<div>
+  <div class="amProfilePicBoard">
+    <img class="amProfilePic" src="/images/testprofileimage.png" height="140" width="140">
+  </div>
+  <div class="amUserProfileWrap">
+    <span class="amShoulderName">おもしろくない世の中おもしろくすればいいさ</span>
+    <span class="amSubShoulderName">我が日常は目まぐるしく、息をついてる暇もなし、なにせ時間は過ぎてゆく、無為に過ごす手は無かろう</span>
+    <span class="amProfileUserName">もりべなおと</span>
+    <span class="amProfileUserSelfIntroduction">
+      仰げばとおとし我が師の恩<br>
+      教えのにわにもはやいくとせ、思えばいととしこの年月<br>
+      今こそ別れめいざさらば<br>
+      春はあけぼの。やうやう白くなり行く、山ぎは少しあかりて、紫だちたる雲の細くたなびきたる。<br>
+      夏は夜。月のころはさらなり。やみもなほ、ほたるの多く飛びちがひたる。<br>
+    </span>
+  </div>
+</div>
+<div class="row-fluid text-right">
+  <ul class="amUserCountTable">
+    <li class="amUserCount"><span class="amUserCountElement">マイメモリ</span><span class="amUserCountValue">30</span></li>
+    <li class="amUserCount"><span class="amUserCountElement">おきにいりアニメ</span><span class="amUserCountValue">12</span></li>
+    <li class="amUserCount"><span class="amUserCountElement">みたい</span><span class="amUserCountValue">5</span></li>
+    <li class="amUserCount"><span class="amUserCountElement">まとめ数</span><span class="amUserCountValue">30</span></li>
+    <li class="amUserCount"><span class="amUserCountElement">アクセス数</span><span class="amUserCountValue">2000</span></li>
+  </ul>
+</div>
+<div class="row-fluid amUserContentTabsWrap" id="Tabs">
+  <ul class="amUserContentTabs">
+    <li class="" id="amUserTabChosen"><a href="#" class="amUserContentTabLink">TOP</a></li>
+    <li class=""><a href="#" class="amUserContentTabLink">マイメモリ</a></li>
+    <li class=""><a href="#" class="amUserContentTabLink">おきにいり</a></li>
+    <li class=""><a href="#" class="amUserContentTabLink">みたい</a></li>
+    <li class=""><a href="#" class="amUserContentTabLink">まとめ</a></li>
+  </ul>
+  <div class="amUserTabsContentsDivider"></div>
+</div>

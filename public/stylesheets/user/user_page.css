@@ -1,0 +1,183 @@
+img{
+
+}
+
+img.amCover{
+  z-index: 0;
+}
+
+img.amOverlay,
+div.amProfilePicBoard,
+div.amProfilePicBoard img.amProfilePic{
+  position: absolute;
+}
+
+img.amOverlay{
+  width:971px;
+  height:416px;
+  top:0;
+  opacity: 20;
+  -webkit-transition: opacity .3s linear;
+  -moz-transition: opacity .3s linear;
+  -o-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+  filter: alpha(opacity=20);
+}
+
+div.amProfilePicBoard{
+  margin-left: 20px;
+  margin-top: -50px;
+  width: 150px;
+  height: 158px;
+  background-image: url("/images/profileimg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+
+img.amProfilePic{
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+
+div.amUserProfileWrap{
+  margin-left: 180px;
+}
+
+span.amShoulderName,
+span.amSubShoulderName,
+span.amProfileUserName,
+span.amProfileUserSelfIntroduction{
+  display: block;
+  position: absolute;
+}
+
+
+span.amShoulderName,
+span.amProfileUserName,
+span.amProfileUserSelfIntroduction{
+  font-weight: bold;
+
+}
+
+span.amShoulderName{
+  font-size: 13px;
+  color: #ffffff;
+  margin-top: -45px;
+}
+
+span.amSubShoulderName{
+  font-size: 10px;
+  color: #ffffff;
+  margin-top: -25px;
+}
+
+span.amProfileUserName{
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+span.amProfileUserSelfIntroduction{
+  font-size: 10px;
+  line-height: 1.25;
+  margin-top: 35px;
+  color: #908f90;
+}
+
+ul.amUserCountTable{
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 675px;
+  list-style-type: square;
+  display: block;
+  width: 275px;
+}
+
+div.amUserCountTable div{
+  margin-bottom: 1px;
+  border: 1px solid #908f90;
+  display: block;
+}
+
+span.amUserCountElement{
+  margin-left: 0;
+  display: inline-block;
+  font-weight: bold;
+}
+
+li.amUserCount{
+  display: block;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  color: #595960;
+  background-image: url("/images/imagetestusercount.gif");
+  background-size:contain;
+}
+
+span.amUserCountValue{
+  text-align: right!important;
+  display: run-in;
+  margin-top: -20px;
+}
+
+ul.amUserContentTabs{
+  margin-top: -50px;
+}
+
+ul.amUserContentTabs li{
+  display: inline-block;
+  width: 115px;
+  height: 50px;
+  margin: 0;
+  background-color: #ffffff;
+  border-left: 0.25px #D3D3D1;
+  border-right: 0.25px #D3D3D1;
+  border-bottom: 1px #D3D3D1;
+  -webkit-box-shadow: 0 0 3px rgba(211,211,209, 0.7);
+  -moz-box-shadow: 0 0 3px rgba(211,211,209, 0.7);
+  box-shadow: 0 0 3px rgba(211,211,209, 0.7);
+  text-align: center;
+}
+
+ul.amUserContentTabs li:hover{
+  background-color: #F9F9F4;
+}
+
+ul.amUserContentTabs li a{
+  line-height: 2px;
+  display: block;
+  padding-top:25px;
+  text-shadow: -1px -1px white, 1px 1px #D3D3D1;
+  font-weight: bold;
+  text-decoration: none;
+  color: #878182;
+  width: 110px;
+  height: 50px;
+  padding-left:;
+}
+
+div.amUserTabsContentsDivider{
+  margin-top: -9px;
+  background-image: url("/images/icons_rvwr_navi.png");
+  height: 15px;
+  background-repeat: repeat-x;
+}
+
+.amUserContentTabAfterClick{
+  background-color: #131313;
+}
+
+#amUserTabChosen{
+  background-image: url("/images/usersampletab.png");
+}
+
+#amUserTabChosen a{
+  text-shadow: -1px -1px #D3D3D1, 1px 1px #878182;
+  color: white;
+}

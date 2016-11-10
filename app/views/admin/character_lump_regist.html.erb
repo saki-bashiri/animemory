@@ -1,0 +1,62 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>キャラクター一括登録<% end %>
+<% content_for :title do %>キャラクター一括登録<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin">
+      <div>キャラクター一括登録</div>
+    </div>
+    <div class="amAdminWell">
+        <% if params[:conf].present? && params[:file].present? %>
+          <%= form_tag({:action => "character_lump_regist"}, :method => :post) do %>
+            <table>
+              <tr>
+                <td>アニメ</td>
+                <td>キャラクター名</td>
+                <td>ふりがな</td>
+                <td>声優</td>
+              </tr>
+              <% @characters.each do |character| %>
+                <%= hidden_field_tag "character[][anime_id]", character.anime_id %>
+                <%= hidden_field_tag "character[][name]", character.name %>
+                <%= hidden_field_tag "character[][kana]", character.kana %>
+                <%= hidden_field_tag "character[][artist_id]", character.artist_id %>
+                <tr>
+                  <td><%= character.anime.title %></td>
+                  <td><%= character.name %></td>
+                  <td><%= character.kana %></td>
+                  <td><%= character.artist.present? ? character.artist.name : "なし" %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td><%= submit_tag "登録", :name => "commit" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <% else %>
+          <%= form_tag({:action => "character_lump_regist"}, :method => :post, :multipart => true) do %>
+        <div class="amAdminTag">
+          <div class="button_wrapper">
+            <div class="button">
+              ファイルを選択
+            </div>
+            <%= file_field_tag("file") %>
+            ⬆をクリックしてファイルを選択しやがれ！
+          </div>
+          <div>
+
+          </div>
+          <div class="amAdminTag">
+            <%= submit_tag "登録内容の確認", :name => "conf" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,68 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>アニメ一括登録<% end %>
+<% content_for :title do %>アニメ一括登録<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+<%= render :partial => "index_list" %>
+
+  <div class="span9">
+      <div class="amBadge-Admin">
+        <div>アニメ一括登録</div>
+      </div>
+        <div class="amAdminWell">
+        <% if params[:conf].present? && params[:file].present? %>
+          <%= form_tag({:action => "anime_lump_regist"}, :method => :post) do %>
+            <table>
+              <tr>
+                <td>タイトル</td>
+                <td>ふりがな</td>
+                <td>放送開始日</td>
+                <td>放送終了日</td>
+                <td>映画か</td>
+                <td>話数</td>
+                <td>作曲者</td>
+                <td>作詞者</td>
+              </tr>
+              <% @animes.each_with_index do |anime, i| %>
+                <%= hidden_field_tag "anime[][title]", anime.title %>
+                <%= hidden_field_tag "anime[][kana]", anime.kana %>
+                <%= hidden_field_tag "anime[][started_on]", anime.started_on.strftime("%Y-%m-%d") rescue "" %>
+                <%= hidden_field_tag "anime[][finished_on]", anime.finished_on.strftime("%Y-%m-%d") rescue "" %>
+                <%= hidden_field_tag "anime[][movie_flg]", anime.movie_flg %>
+                <%= hidden_field_tag "anime[][ep_cnt]", anime.ep_cnt %>
+                <tr>
+                  <td><%= anime.title %></td>
+                  <td><%= anime.kana %></td>
+                  <td><%= anime.started_on.present? ? anime.started_on.strftime("%Y/%m/%d") : "なし" %></td>
+                  <td><%= anime.finished_on.present? ? anime.finished_on.strftime("%Y/%m/%d") : "なし" %></td>
+                  <td><%= anime.movie_flg == 1 ? "映画" : "放送" %></td>
+                  <td><%= anime.ep_cnt %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td><%= submit_tag "登録", :name => "commit" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <% else %>
+          <%= form_tag({:action => "anime_lump_regist"}, :method => :post, :multipart => true) do %>
+        <div class="amAdminTag">
+          <div class="button_wrapper">
+            <div class="button">
+              ファイルを選択
+            </div>
+              <%= file_field_tag("file") %>
+              ⬆をクリックしてファイルを選択しやがれ！
+          </div>
+        <div>
+
+          </div>
+          <div class="amAdminTag">
+            <%= submit_tag "登録内容の確認", :name => "conf" %>
+          </div>
+          <% end %>
+          <% end %>
+  </div>
+      </div>
+    </div>
+</div>

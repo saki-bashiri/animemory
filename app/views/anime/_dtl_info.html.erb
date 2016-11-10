@@ -1,0 +1,17 @@
+<% content_for :head do %>
+<%= javascript_include_tag "anime/_dtl_info", "common/mymemory" %>
+<%= stylesheet_link_tag "common/wiki" %>
+<% end %>
+
+<div class="span7">
+  <%= render :partial => "anime/dtl_main_pic_set", :locals => {
+    :anime => @anime, :anime_main_image => @anime_main_image, :episode => @episode, :mymemory => @mymemory } %>
+  <%= render :partial => "anime/dtl_mymemory_user", :locals => {
+    :favorites => @favorites, :watchings => @watchings, :watched_count => @watched_count } %>
+  <%= render :partial =>  "anime/dtl_anime_info", :locals => {:anime => @anime, :episode => @episode, :schedules => @schedules} %>
+</div>
+
+<div class="span5">
+	<%= render :partial => "shared/urging_user_for_login_and_mypage", :locals =>{:user => @user} -%>
+  <%= render :partial => "anime/dtl_episodes_group", :locals => {:anime => @anime}  %>  
+</div>

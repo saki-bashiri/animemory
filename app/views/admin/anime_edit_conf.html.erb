@@ -1,0 +1,95 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "common/wiki" %>
+  <%= javascript_include_tag "anime/edit_conf" %>
+<% end %>
+
+<% content_for :title do %>
+  <%= @anime.title %>の編集情報確認[アニメモリ]
+<% end %>
+
+<% content_for :h1 do %>
+  <%= @anime.title %>の編集情報確認
+<% end %>
+
+<div class="title">
+  <%= form_tag (url_for(:action => "anime_edit_conf"), :method => :post) do %>
+    <%= hidden_field_tag "rev", @revision.id || 0 %>
+    <%= hidden_field_tag "anime[id]", @anime.id %>
+    </div>
+    <div class="row-fluid">
+
+      <div class="span4">
+        <p class="amCategoryhead2">アニメタイトル<p>
+        <div class="row-fluid amUpperSpace2">
+          <div class="span12 well">
+            <div class="row-fluid">
+              <div class="span12 amEditconftitle"><span>タイトル：</span><%= @anime.title %>
+                <%= hidden_field_tag "anime[title]", @anime.title %></div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12 amEditconftitle"><span>かな：</span><%= @anime.kana %>
+                <%= hidden_field_tag "anime[kana]", @anime.kana %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="span4">
+        <p class="amCategoryhead2">作品タイプ<p>
+        <div class="row-fluid amUpperSpace2">
+          <div class="span12 well amEditanimeinfoconf">
+            <div class="row-fluid">
+              <div class="span12 amEditconftitle"><span>作品タイプ：</span><%= @anime.movie_flg ? "映画" : "映画ではない" %></div>
+              <%= hidden_field_tag "anime[movie_flg]", @anime.movie_flg %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="span4">
+        <p class="amCategoryhead2">放送開始日／終了日<p>
+        <div class="row-fluid amUpperSpace2">
+          <div class="span12 well">
+            <div class="row-fluid">
+              <div class="span12 input amEditconftitle"><span>放送開始日：</span><%= @anime.started_on.strftime("%Y/%m/%d") rescue  "" %></div>
+              <%= hidden_field_tag "anime[started_on]", @anime.started_on.strftime("%Y/%m/%d") rescue "" %>
+            </div>
+            <div class="span12 amEditconftitle"><span>放送終了日：</span><%= @anime.finished_on.strftime("%Y/%m/%d") rescue "" %></div>
+            <%= hidden_field_tag "anime[finished_on]", @anime.finished_on.strftime("%Y/%m/%d") rescue "" %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="amCategoryhead2">アニメモ／編集コメント<p>
+        <div class="row-fluid amUpperSpace2">
+          <div class="span12 well">
+            <div class="row-fluid">
+              <div class="span12 amEditanimemo amEditconftitle"><span>アニメモ：</span><br><%= wiki(@anime.outline) %>
+                <%= hidden_field_tag "anime[outline]", @anime.outline %>
+              </div>
+
+              <%= hidden_field_tag "anime[ep_cnt]", @anime.ep_cnt %>
+              <div>話数：<%= @anime.ep_cnt %></div>
+
+              <div class="row-fluid">
+                <div class="span12 amUpperSpaceadd2 amEditconftitle"><span>掲載：</span>&nbsp<%= Anime::Status::NAME[@anime.status] %></div>
+                <%= hidden_field_tag "anime[status]", @anime.status%>
+              </div>
+
+              <div class="row-fluid">
+                <div class="span12 amUpperSpaceadd2 amEditconftitle"><span>しょぼいカレンダーID：</span>&nbsp<%= @anime.shoboi_tid %></div>
+                <%= hidden_field_tag "anime[shoboi_tid]", @anime.shoboi_tid %>
+              </div>
+              <div class="span12 text-center amUpperSpaceadd"><%= submit_tag "戻る", :name => "back", :id => "back" %>
+                <%= submit_tag "編集", :name => "commit", :id => "commit" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

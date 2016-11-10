@@ -1,0 +1,15 @@
+<h1><%= @user ? @user.nickname : 0 %>さんのマイページ</h1>
+
+
+<table>
+  <% @comments.each do |comment| %>
+  <% anime = comment.anime %>
+  <tr>
+    <td><a href="<%= url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>"><%= anime.title %></a></td>
+    <td>
+    <%= comment.comment %><br />
+    <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+    </td>
+  </tr>
+  <% end %>
+</table>

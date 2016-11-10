@@ -1,0 +1,151 @@
+<%
+  anime ||= nil
+  episode ||= nil
+  user ||= nil
+  characters = anime.try(:characters) || []
+  staffs = anime.try(:staffs) || []
+  songs_by_type = anime.try(:songs_by_type) || {}
+  my_creator_ids ||= []
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_dtl_anime_info" %>
+  <%= javascript_include_tag "common/my_channel", "common/plus_minus", "anime/_dtl_anime_info" %>
+<% end %>
+
+<div class="dtl-anime-info">
+
+  <div class="dtl-info-broadcast-span">
+    <div>
+      <i class="icon-facetime-video"></i><strong><%= anime.title %> の放送期間</strong>
+    </div>
+      <%- if anime.started_on.present? || anime.finished_on.present? -%>
+        <span>
+          <%= anime.started_on.strftime("%Y年%m月") if anime.started_on.present? -%>
+          ～
+          <%= anime.finished_on.strftime("%Y年%m月") if anime.finished_on.present? -%>
+        </span>
+      <%- else -%>
+        <span class="no-data">登録されている放送時期の情報はまだありません。</span>
+      <%- end-%>
+  </div>
+
+  <div class="dtl-info-cast-list">
+    <div>
+      <i class="icon icon-user"></i><strong><%= anime.title %> の声優</strong>
+      <a class="cast-list dtl-info-plus-minus" href="#" data-count="<%= characters.count if characters.present? %>"></a>
+    </div>
+    <ul>
+      <%- if characters.present? -%>
+        <%- characters.sort_by(&:chara_sort).each do |character| -%>
+          <li>
+            <%= character.name -%>：
+            <%- if artist = character.creator -%>
+              <span><%= link_to artist.name, url_for(:controller => :creator, :action => :index, :crid => artist.id) -%><%= my_channel_button(artist.id, my_creator_ids.include?(artist.id), user) %></span>
+            <%- end -%>
+          </li>
+        <%- end -%>
+      <%- else -%>
+        <span>登録されているキャストの情報はまだありません。</span>
+      <%- end -%>
+    </ul>
+  </div>
+
+  <div class="dtl-info-cast-list">
+    <div>
+      <i class="icon icon-user"></i><strong><%= anime.title %> のスタッフ</strong>
+      <a class="staff-list dtl-info-plus-minus" href="#" data-count="<%= staffs.count if staffs.present? %>"></a>
+    </div>
+    <ul>
+      <%- if staffs.present? -%>
+        <% staffs.sort_by(&:creator_sort).group_by{|staff| staff.role}.each do |role, role_staffs| %>
+          <li>
+            <%= role.try(:name) -%>：
+            <span>
+              <% role_staffs.map do |staff| -%>
+                <%= link_to_if staff.creator.production_flg, staff.creator.name, url_for(:controller => :creator, :action => :index, :crid => staff.creator.id) %>
+                <%= my_channel_button(staff.creator.id, my_creator_ids.include?(staff.creator.id), user) %>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+      <%- else -%>
+        <span>登録されているスタッフの情報はまだありません。</span>
+      <%- end -%>
+    </ul>
+  </div>
+
+  <div class="dtl-info-song-list">
+    <div>
+      <i class="icon icon-music"></i><strong><%= anime.title %> の曲</strong>
+      <a class="song-list dtl-info-plus-minus" href="#" data-count="<%= songs_by_type.count if songs_by_type.present? %>"></a>
+    </div>
+    <%- if songs_by_type.present? -%>
+      <% [:op, :ed, :featured].each do |song_type| %>
+        <% songs = songs_by_type[song_type] %>
+        <i class="song-type"><%= Song.song_type_name(song_type) %></i>
+        <ul>
+          <% songs.each do |song| %>
+            <li>
+              "<%= song.title -%>"
+              <% song.artist_types.each do |artist_type| %>
+                <% if (artists = song.artists_by_artist_type(artist_type)).present? %>
+                  <span class="<%= artist_type.to_s %>"><%= artist_type.name %>: <span><%= artists.map(&:display_name).join(", ") -%></span></span>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    <%- else -%>
+      <span>登録されている曲情報はまだありません。</span>
+    <%- end -%>
+  </div>
+
+  <div class="dtl-info-tags">
+    <div>
+      <i class="icon-tags"></i>タグ
+    </div>
+    <ul>
+      <% anime.tags.each do |tag| %>
+        <li>
+          <%= link_to tag.name, url_for(:action => "list", :q => tag.name, :search_key => "tag") %>
+          <span class="delete-tag text-center">
+            <%= form_tag url_for(:action => "remove_tag"), {:method => :post, :id => "deltag_#{tag.id}"} do %>
+              <%= hidden_field_tag "anime_id", anime.id %>
+              <%= hidden_field_tag "tag_id", tag.id %>
+              <a href="#" class="delete-tag-btn" data-id="<%= tag.id %>">×</a>
+            <% end %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+    <div class="tag-buttons">
+      <a class="accordion-toggle" id="deltag-button" alt="タグを削除する">
+        <i class="icon-remove"></i>
+      </a>
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsetwo" id="addtag-button" alt="タグを追加する">
+        <i class="icon-tag"></i>
+      </a>
+    </div>
+    <div id="add-tag">
+      <%= form_tag url_for(:action => "add_tag", :anime => anime.id), :method => :post do %>
+        <%= text_field_tag "tag" -%>
+        <%= submit_tag "タグ登録" -%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="dtl-info-anime-wiki">
+    <div>
+      <i class="icon-pencil"></i>アニメモ
+      <a href="<%= url_for(:action => "edit", :aid => anime.id) %>" alt="アニメモを編集する">
+        <i class="icon-edit"></i>
+      </a>
+    </div>
+    <div>
+      <%= br(anime.outline) if anime.outline.present? %>
+    </div>
+  </div>
+  
+</div>

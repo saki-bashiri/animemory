@@ -1,0 +1,63 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>放送スケジュール一括登録<% end %>
+<% content_for :title do %>放送スケジュール一括登録<% end %>
+  <div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+    <%= render :partial => "index_list" %>
+
+    <div class="span9">
+      <div class="amBadge-Admin">
+        <div>放送スケジュール一括登録</div>
+      </div>
+      <div class="amAdminWell">
+        <% if params[:conf].present? %>
+          <%= form_tag({:action => "schedule_lump_regist"}, :method => :post) do %>
+            <table>
+              <tr>
+                <td>アニメ</td>
+                <td>エピソード</td>
+                <td>メディア</td>
+                <td>放送時刻</td>
+                <td>放送時間</td>
+              </tr>
+              <% @schedules.each_with_index do |schedule, i| %>
+                <%= hidden_field_tag "schedule[][epid]", schedule.episode_id %>
+                <%= hidden_field_tag "schedule[][medium_id]", schedule.medium_id %>
+                <%= hidden_field_tag "schedule[][on_air_time]", schedule.on_air_time.strftime("%Y-%m-%d %H:%M:%S") rescue "" %>
+                <%= hidden_field_tag "schedule[][span]", schedule.span %>
+                <tr>
+                  <td><%= schedule.anime.title %></td>
+                  <td><%= schedule.episode.episode %></td>
+                  <td><%= schedule.medium.name %></td>
+                  <td><%= animetime(schedule.on_air_time) %></td>
+                  <td><%= schedule.span %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td><%= submit_tag "登録", :name => "commit" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <% else %>
+          <%= form_tag({:action => "schedule_lump_regist"}, :method => :post, :multipart => true) do %>
+        <div class="amAdminTag">
+          <div class="button_wrapper">
+            <div class="button">
+              ファイルを選択
+            </div>
+            <%= file_field_tag("file") %>
+            ⬆をクリックしてファイルを選択しやがれ！
+          </div>
+          <div>
+
+          </div>
+          <div class="amAdminTag">
+            <%= submit_tag "登録内容の確認", :name => "conf" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

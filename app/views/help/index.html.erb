@@ -1,0 +1,55 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/help" %>
+<% end %>
+
+<% content_for :title do %>
+アニメモリについて
+<% end %>
+<% content_for :h1 do %>
+アニメモリについて
+<% end %>
+
+<div class="row-fluid amHelp">
+<div class="span12 well amHlepwell">
+  <blockquote class="amBlockquotefix">
+    <h3 class="Source Title amTitlefix">About</h3>
+  </blockquote>
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="btn-group-vertical">
+        <li><%= link_to("about us", :controller => "help" ) %></li>
+        <li><%= link_to("our policy", :controller => "help", :action => "policy" ) %></li>
+      </ul>
+    </div>
+    <div class="span10 amHlepcontents">
+
+      <div class>
+
+        <h3>
+          アニメモリは、よりよいアニメ生活のサポートを<br />
+          ポリシーにしています。<br>
+        </h3>
+        <ul class="text-warning">
+          <li>
+          アニメモリに掲載中の情報につきましては十分調査の上掲載をしておりますが、万全な保証はいたしかねます。<br>
+          最新の情報はアニメの公式サイトをご確認ください。
+          </li>
+
+          <li>
+          アニメモリに掲載している情報のご利用は利用者ご自身の判断と責任において行っていただきます。
+          </li>
+
+          <li>
+          アニメモリの利用に際して損害や不利益が発生した場合でも、運営団体は一切の責任を負いません。
+          </li>
+
+          <li>
+          必ず<%= link_to("アニメモリ利用規約", :controller => "help", :action => "policy" ) %>に同意いただいた上でご利用ください。
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<%
+  anime ||= nil
+  anime_main_image ||= nil
+  episode ||= nil
+  mymemory ||= nil
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_dtl_main_pic_set" %>
+<% end %>
+
+<div class="dtl-main-pic-set">
+  <% if anime_main_image.present? %>
+    <img src="<%= anime_image_path( anime_main_image.image_path(:path_512x288) ) %>" id="anime-image">
+  <% else %>
+    <%= image_tag("no_image.png", :size => "512x288", :id => "anime-image") -%>
+  <% end %>
+  <%= render :partial => "anime/dtl_anime_title_set", :locals => {
+    :anime => anime, :mymemory => mymemory
+  } %>
+  <%= render :partial =>  "anime/dtl_main_pic_set_buttons", :locals => {:anime => anime, :episode => episode } %>
+</div>

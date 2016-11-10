@@ -1,0 +1,32 @@
+<%
+current_animes ||= nil
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_top_current_animes" %>
+<% end %>
+
+<div class ="top-current-animes">
+  <div>
+    <i class="icon-white icon-facetime-video"></i>
+    あなたが今期「みてる」アニメは？
+  </div>
+  <ul>
+    <% current_animes.each do |anime| %>
+      <li>
+        <a href="<%= url_for(:action => :dtl, :anime => anime.id) %>" class="anime-title">
+          <%= cut_str(anime.title, 18) %>
+        </a>
+        <% image_path = anime.anime_image.try(:image_path, :path_100x100) || "images/no_image.jpg" %>
+        <a href="<%= url_for(:action => :dtl, :anime => anime.id) %>">
+          <%= image_tag(anime_image_path(image_path), :size => "100x100") %>
+        </a>
+        <% mymemory = Mymemory.new(:anime_id => anime.id ) %>
+        <span class="mymemory" data-aid="<%= anime.id %>">
+            <%= favorite_button(mymemory, :button => {:class => "mymemory-favorite"}, :balloon => {:class => "favorite-balloon"}, :nologin => {:class => "nologin-mymemory-favorite"}) %>
+          <%= watch_button(mymemory, :button => {:class => "mymemory-watch"}, :balloon => {:class => "watch-balloon"}, :nologin => {:class => "nologin-mymemory-watch"}) %>
+          </span>
+      </li>
+    <% end %>
+  </ul>
+</div>

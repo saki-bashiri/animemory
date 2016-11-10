@@ -1,0 +1,114 @@
+.mypage-notice{
+  color:#5C5C5C;
+}
+
+.mypage-notice div:first-child{
+	display:block;
+	border-bottom:2px solid #E4E9F2;
+  position:relative;
+  padding-left:5px;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.mypage-notice div:first-child img{
+	width: 30px;
+	height: 20px;
+	top: -1px;
+	position: absolute;
+}
+
+.mypage-notice div:first-child > span{
+	right: 5px;
+	position: absolute;
+	font-size:14px;
+}
+
+.mypage-notice ul{
+	padding: 5px 10px;
+	margin-left:0;
+	list-style-type: none;
+}
+
+.mypage-notice ul li{
+  margin:10px 0;
+  background-color: #FCF7F7;
+  padding:5px;
+  position: relative;
+  border-top:1px #EEE6E6 solid;
+}
+
+.mypage-notice ul li img{
+	width:198px;
+	height:108px;
+  border:2px #fff solid;
+}
+
+.mypage-notice ul li span.notice-title{
+	position: absolute;
+	top: 9px;
+	left: 230px;
+	display: inline-block;
+	width: 310px;
+	border-bottom: 2px solid #E2E2E2;
+	padding: 5px 45px 5px 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.mypage-notice ul li span.notice-content{
+	position: absolute;
+	top: 45px;
+	left: 230px;
+	display: inline-block;
+	width: 355px;
+	padding: 5px 10px;
+	font-size: 11px;
+}
+
+.mypage-notice ul li span.time-elapsed{
+	position: absolute;
+	bottom: 5px;
+	right: 15px;
+	display: block;
+	font-size: 12px;
+	color: #A7A7A7;
+}
+
+.mypage-notice ul li span.new-notice{
+	position: absolute;
+	top: 11.5px;
+	right: 30px;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	color: #c62a54;
+	padding: 2px 3px 1px 3px;
+	border-radius: 3px;
+	background-color: #F5D3D3;
+}
+
+.design-triangle{
+	width: 30px;
+  height: 30px;
+  top:0;
+  right:0;
+  background-size: contain;
+  background-image:url('/images/red_corner.png');
+  position: absolute;
+  display: block;
+}
+
+.mypage-notice ul > span.no-notice-yet{
+	display: inline-block;
+	text-align: center;
+	background: #FCF7F7;
+	padding: 50px;
+	margin-top: 30px;
+	line-height: 2;
+}
+
+.mypage-notice ul > span.no-notice-yet i{
+  margin-top: -1px;
+  margin-right: 1px;
+}

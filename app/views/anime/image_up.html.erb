@@ -1,0 +1,62 @@
+
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/image_up" %>
+<%= javascript_include_tag "lib/plugin/dropzone.js", "anime/image_up" %>
+<% end %>
+
+<%= content_for :title do %>
+<%= @anime.title %>の画像投稿・削除 [アニメモリ]
+<% end %>
+
+<%= content_for :h1 do %>
+<%= @anime.title %>の画像投稿・削除
+<% end %>
+
+<div class="span12">
+  <div class="image-upload">
+    <div><strong><i class="icon icon-upload"></i><%= link_to @anime.title, url_for(:action => "dtl", :anime => @anime.id) %>の画像投稿</strong><span>JPG画像を枠内へドラッグ&amp;ドロップか、枠内クリックで投稿できます。(※1枚の最大画像サイズ1MB、同時に２０枚まで)</span></div>
+    <div id="image-progress"></div>
+    <div class="image-palet">
+      <%= form_tag ( url_for(:controller => "image", :action => "anime_upload", :aid => @anime.id), {:method => :post, :multipart => true, :id => "upload", :class => "", 'data-url' => url_for(:controller => 'image', :action => 'anime_upload')} ) do %>
+        <%= hidden_field_tag "aid", @anime.id, :id => "aid" %>
+        <%= file_field_tag "file", "style" => "display:none;" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="image-delete">
+    <div><strong><i class="icon icon-remove"></i><%= link_to @anime.title, url_for(:action => "dtl", :anime => @anime.id) %>の画像削除</strong>
+      <span>消したい画像にチェックを入れて「削除」ボタンを押してください。</span>
+    </div>
+
+    <span class="image-delete-library">
+      <%= form_tag url_for(:controller => "image", :action => "anime_delete"), {:method => :post, :id => "delete"} do %>
+        <%= hidden_field_tag "aid", @anime.id %>
+        <% unless @user_images.empty? %>
+            <ul class="images">
+              <% @user_images.each do |image| %>
+                <li>
+                  <%= image_tag( anime_image_path(image.image_path(:path_200x200)), :class => "img-polaroid" ) %>
+                  <%= check_box_tag "image[]", image.id %>
+                </li>
+              <% end %>
+            </ul>
+            <span class="delete-submit"><%= submit_tag "削除", :name => "commit" %></span>
+        <% else %>
+          <span clas="no-result">
+            削除対象となる投稿画像がありません。
+          </span>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+
+  <div class="back-to-image-library"><%= link_to "#{@anime.title}の画像一覧に戻る", url_for(:action => "images", :aid => @anime.id) %>
+  </div>
+</div>
+
+
+
+
+
+

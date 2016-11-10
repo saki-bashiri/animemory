@@ -1,0 +1,37 @@
+<%
+  outside_summaries_left ||= []
+  outside_summaries_right ||= []
+  border = Time.zone.now - 6.hour
+%>
+<div class="am-top-outside-summary-cat-headder">他サイト新着まとめ</div>
+
+<ul class="am-outside-summary-wrap span5">
+  <% outside_summaries_left.each_with_index do |outside_summary, i| -%>
+    <li>
+      <a href="<%= outside_summary.url %>" target="_blank">
+        <%= cut_str(outside_summary.title, 16) %>
+      </a>
+      <span>&nbsp;[<%= cut_str(outside_summary.site_name, 8) %>]</span>
+      <% if outside_summary.posted_at > border %>
+        <%= image_tag("new-icon.gif") -%></br>
+      <% end %>
+    </li>
+  <% end -%>
+</ul>
+<ul class="am-outside-summary-wrap-right span6">
+  <% outside_summaries_right.each_with_index do |outside_summary, i| -%>
+
+    <li>
+      <a href="<%= outside_summary.url %>" target="_blank">
+        <%= cut_str(outside_summary.title, 19) %>
+      </a>
+      <span>&nbsp;[<%= cut_str(outside_summary.site_name, 10) %>]</span>
+      <% if outside_summary.posted_at > border %>
+        <%= image_tag("new-icon.gif") -%></br>
+      <% end %>
+    </li>
+  <% end -%>
+</ul>
+
+<!-- 呼び出しもとで書く↓ 
+<%#= render :partial => "outside_summary_list", :locals => {:outside_summaries_left => @outside_summaries_left, :outside_summaries_right => @outside_summaries_right} -%> -->

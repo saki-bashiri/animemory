@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  kana: MyString
+  outline: MyText
+  started_on: 2012-11-18
+  finished_on: 2012-11-18
+  totaol_episode: 1
+  movie_flg: false
+  tokusatsu_flg: false
+  status: 1
+  production_id: 1
+  fastest_weekday: 1
+  mylist_count: 1
+
+two:
+  title: MyString
+  kana: MyString
+  outline: MyText
+  started_on: 2012-11-18
+  finished_on: 2012-11-18
+  totaol_episode: 1
+  movie_flg: false
+  tokusatsu_flg: false
+  status: 1
+  production_id: 1
+  fastest_weekday: 1
+  mylist_count: 1

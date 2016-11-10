@@ -1,0 +1,20 @@
+<%
+  fav_ranks ||= []
+%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_top_anime_cartridges" %>
+<% end %>
+
+<div class="top-anime-cartridges">
+  <div>
+    <a href="<%= url_for (:controller => "account", :action => :auth_twitter) -%>"><i class="icon-white icon-circle-arrow-right"></i>Twitterアカウントではじめる</a>
+  </div>
+  <div>
+    <span>
+    視聴しているアニメの数が多くて、管理に困っている、&nbsp;そんなあなたへ。
+    </span>
+    <span>
+    アニメモリなら簡単に、楽しくアニメの視聴管理ができます。
+    </span>
+  </div>
+</div>

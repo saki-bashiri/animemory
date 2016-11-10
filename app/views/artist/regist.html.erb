@@ -1,0 +1,36 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag "lib/jquery-ui-1.10.2.custom.min" %>
+<%= javascript_include_tag "lib/jquery/jquery-1.9.1.min", "lib/jquery-ui/jquery-ui-1.10.2.custom.min" %>
+<script type="text/javascript">
+<!--
+$(function(){
+  $("#artist_birthday").datepicker({
+      dateFormat: 'yy/mm/dd',
+      changeYear: true,
+      yearRange: "-100:+10",
+      changeMonth: true
+  });
+});
+-->
+</script>
+<% end %>
+<h1>新規アーティスト登録</h1>
+<div>
+  <%= form_tag (url_for(:action => "regist_conf"), :method => :post) do %>
+      <ul>
+        <li><%= hidden_field_tag "artid", @artist.try(:id) %></li>
+        <li>名前：<%= text_field_tag "artist[name]", @artist.try(:name) %></li>
+        <li>ふりがな：<%= text_field_tag "artist[kana]", @artist.try(:kana) %></li>
+        <li>ニックネーム：<%= text_field_tag "artist[nickname]", @artist.try(:nickname) %></li>
+        <li>誕生日：<%= text_field_tag "artist[birthday]", (@artist.present? && @artist.birthday.present?) ? @artist.birthday.strftime("%Y/%m/%d") : "" %></li>
+        <li>グループですか？:<%= check_box_tag "artist[unit_flg]", "1", @unit_flg %>グループ</li>
+            <li>メンバー<%= text_field_tag "artist[unit_ids]", @artist.present? ? @artist.units.map(&:id).join(',') : "" %></li>
+        <li>コメント：<%= text_area_tag "artist[description]", @artist.try(:description) %></li>
+        <li>声優ですか？：<%= check_box_tag "artist[voice_actor_flg]", "1", @vactor_flg %>声優</li>
+        <li>歌手ですか？：<%= check_box_tag "artist[singer_flg]", "1", @singer_flg %>歌手</li>
+        <li>作曲者ですか？：<%= check_box_tag "artist[composer_flg]", "1", @composer_flg %>作曲者</li>
+        <li>作詞者ですか？：<%= check_box_tag "artist[songwriter_flg]", "1", @writer_flg %>作詞者</li>
+        <li><%= submit_tag "確認", :name => "conf" %></li>
+      </ul>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<script>
+<!--
+$(function(){
+  $("#on_air_date").datepicker({
+    currentText: '今日',
+    nextText: '来月',
+    prevText: '先月',
+    showMonthAfterYear: true,
+    monthNames: ['年&nbsp;1月','年&nbsp;2月','年&nbsp;3月','年&nbsp;4月','年&nbsp;5月','年&nbsp;6月','年&nbsp;7月','年&nbsp;8月','年&nbsp;9月','年&nbsp;10月','年&nbsp;11月','年&nbsp;12月'],
+    dayNames: ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'],
+    dayNamesMin: ['日','月','火','水','木','金','土'],
+    firstDay: 1,
+    dateFormat: 'yy-mm-dd'
+  });
+});
+-->
+</script>
+
+<h1>スケジュール新規登録</h1>
+<% now = Time.zone.now %>
+
+<%= form_tag url_for(:action => "schedule_register_conf"), :method => :post do %>
+<%= hidden_field_tag "anime", @anime.id %>
+<p>放送開始時刻
+<%= text_field_tag "on_air_time[date]", Date.today, :id => "on_air_date" %>
+<%= select_tag("on_air_time[hour]",options_for_select((5..28).to_a, now.hour)) %>時
+<%= select_tag("on_air_time[minute]",options_for_select((0..60).to_a, now.min)) %>分
+</p>
+<p>メディア <%= select_tag("medium",options_for_select(@media)) %></p>
+
+<p>
+  <div id="anime_title">
+  </div>
+</p>
+<p><%= link_to @anime.title, url_for(:controller => "anime", :action => "dtl", :anime => @anime.id) %></p>
+  <% if false %>
+<p>エピソードID:<%= link_to (@ep.subtitle.present? ? @ep.subtitle : "#{@ep.anime.title} 第#{@ep.episode}話" ), url_for(:controller => "anime", :action => "dtl", :epid => @ep.id )  %></p>
+<% end %>
+<p>放送時間<%= select_tag("span",options_for_select((1..120).to_a, 30)) %>分</p>
+<p><%= submit_tag "新規作成" %></p>
+<% end %>

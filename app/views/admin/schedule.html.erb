@@ -1,0 +1,68 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>放送スケジュール管理<% end %>
+<% content_for :title do %>放送スケジュール管理<% end %>
+<% now = Time.zone.now %>
+<div class="row-fluid amAdminBody2" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin2">
+        <div>放送スケジュール管理</div>
+    </div>
+    <div class="amBadge-Admin">
+      <%= form_tag({:action => "schedule"}, :method => :get) do %>
+      <div class="amAdminSearch">
+        <span><span>アニメタイトル</span><%= text_field_tag "q", params[:q] %></span>
+        <span><span>アニメID</span><%= text_field_tag "aid", params[:aid] %></span>
+        <span class="amAdminEpInput"><span>エピソード</span><%= text_field_tag "ep", params[:episode] %>話</span>
+      </div>
+      <div class="text-center amAdminInput"><%= submit_tag "検索", :name => "search" %></div>
+      <% end %>
+    </div>
+
+    <div class="row-fluid amAdminCountWrap">
+      <span class="text-left span6 amSearchResultLeft"><%= page_entries_info(@schedules) %></span>
+      <span class="text-right span6 amSearchResultRight"><%= paginate(@schedules) %></span>
+    </div>
+
+    <div class="row-fluid">
+
+      <table class="amAdminTableWrap2">
+        <tr class="amAdminTableHead">
+          <th class="amAdminEp">ID</th>
+          <th class="amAdminAnimeTitleSchedule">アニメタイトル</th>
+          <th class="amAdminEp">Ep(話)</th>
+          <th class="amAdminAnimeMedia">メディア</th>
+          <th class="amAdminAnimeBroadcastDate">放送日</th>
+          <th class="amAdminAnimeBroadcastTime">時刻(時)</th>
+          <th class="amAdminAnimeBroadcastTime">時刻(分)</th>
+          <th class="amAdminAnimeBroadcastTime">放送時間</th>
+          <th class="amAdminAnimeUpdate2">更新</th>
+          <th class="amAdminAnimeUpdate2">保留/復帰</th>
+        </tr>
+          <% @schedules.each do |schedule| %>
+            <% episode = schedule.episode %>
+            <% anime = episode.anime %>
+            <% medium = schedule.medium %>
+            <%= form_tag({:action => "schedule"}, :method => :post) do %>
+              <%= hidden_field_tag "id", schedule.id %>
+          <tr class="amAdminTable <%= cycle("even","odd") %>">
+            <% onair_time = schedule.on_air_time %>
+                <td class="amAdminEpElement"><%= schedule.id %></td>
+                <td><%= link_to cut_str(anime.title, 11), url_for(:controller => "anime", :action => "dtl", :anime => anime.id), :class => "amAdminAnimeTitleSchedule" %></td>
+                <td><%= link_to episode.episode, url_for(:controller => "anime", :action => "dtl", :epid => episode.id), :class => "amAdminEpElement" %></td>
+                <td class="amAdminMedia"><%= medium.name %></td>
+                <td class="amAdminBroadcastDate"><%= text_field_tag "date",( onair_time - 5.hours ).strftime("%Y/%m/%d"), :class => "on_air_date" %></td>
+                <td class="amAdminBroadcastTime"><%= select_tag("hour",options_for_select((5..28).to_a, onair_time.hour < 5 ? onair_time.hour + 24 : onair_time.hour)) %></td>
+                <td class="amAdminBroadcastTime"><%= select_tag("min",options_for_select((0..60).to_a, onair_time.min)) %></td>
+                <td class="amAdminBroadcastTime"><%= select_tag("span",options_for_select((1..120).to_a, schedule.span)) %></td>
+                <td class="amAdminAnimeScheduleSubmit"><%= submit_tag "更新", :name => "commit" %></td>
+                <td class="amAdminAnimeScheduleSubmit"><%= submit_tag (schedule.status == 1 ? "保留" : "復帰"), :name => (schedule.status == 1 ? "draft" : "open") %></td>
+          </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>

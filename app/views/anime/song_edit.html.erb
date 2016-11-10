@@ -1,0 +1,26 @@
+<h1>曲編集</h1>
+
+<%= form_tag url_for(:action => "song_edit_conf"), :method => :post do %>
+  <p><%= hidden_field_tag "song[id]", @song.id %></p>
+  <p>曲名<%= text_field_tag "song[title]", @song.title %></p>
+
+  <p><% singers_for_select = @singers.map{|singer| [singer.name, singer.id] } %></p>
+  <p>歌手<%= select_tag "song[singer_id]", options_for_select(singers_for_select) %>
+    <%= link_to "新規歌手登録", url_for(:action => "singer_register", :from_action => params[:action], :song_id => @song.id) %>
+  </p>
+
+  <p><% songwriters_for_select = @songwriters.map{|songwriter| [songwriter.name, songwriter.id] } %></p>
+  <p>作詞者<%= select_tag "song[songwriter_id]", options_for_select(songwriters_for_select) %>
+    <%= link_to "新規作詞者登録", url_for(:action => "songwriter_register", :from_action => params[:action], :song_id => @song.id) %>
+  </p>
+
+  <p><% composers_for_select = @composers.map{|composer| [composer.name, composer.id] } %></p>
+  <p>作曲者<%= select_tag "song[composer_id]", options_for_select(composers_for_select) %>
+    <%= link_to "新規作曲者登録", url_for(:action => "composer_register", :from_action => params[:action], :song_id => @song.id) %>
+  </p>
+
+  <p>曲のタイプ<%= select_tag "song[song_type]", options_for_select((0..3), @song.song_type) %></p>
+  <p>メモ<%= text_area_tag "song[description]", @song.description %></p>
+
+  <%= submit_tag "編集", :name => "conf" %>
+<% end %>

@@ -1,0 +1,25 @@
+<% unless params[:action] == 'intro_mychannel' || @new_register_flg %>
+  <div class="layout-header-form swrfixed" data-action="<%= params[:action] -%>">
+    <%= form_tag url_for(:controller => :anime, :action => :list), {:method => :get, :id => "search-form"} do %>
+      <ul class="layout-nav-grop am-btn-group" data-toggle="buttons-radio">
+        <li><button type="button" class="btn active" data-key="word">作品</button></li>
+        <li><button type="button" class="btn" data-key="tag">タグ</button></li>
+        <li><button type="button" class="btn" data-key="cv">声優</button></li>
+        <li>
+          <%= hidden_field_tag "search_key", "word", :id => "hidden_key" %>
+          <%= text_field_tag "q", params[:q].to_s, :size => "32" %>
+        </li>
+        <li><%= submit_tag "検索" %></li>
+      </ul>
+      <%# tweet button %>
+      <div class="layout-header-tweet">
+        <a href="https://twitter.com/share" class="twitter-share-button text" data-text="アニメモリ" data-lang="ja" data-hashtags="アニメ" data-url="http://animemory.jp/">ツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      <%# RSS %>
+      <div class="layout-header-rss">
+      　　<%= link_to "", url_for(:controller => "xml", :action => "matome", :format => "rss") -%>
+    　</div>
+    <% end %>
+  </div>
+<% end %>

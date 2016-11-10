@@ -1,0 +1,54 @@
+<%
+  animes ||= []
+  mymemory_hash ||= {}
+  user ||= nil
+%>
+
+
+<% content_for :head do %>
+ <%= stylesheet_link_tag "anime/list" %>
+ <%= javascript_include_tag "anime/list" %>
+<%- end -%>
+
+<div class="anime-list">
+  <div class="anime-list-title"><i class="icon-white icon-list"></i>検索結果</div>
+  <% unless animes.empty? %>
+    <div class="paginate">
+      <span class="anime-count">（ <%= page_entries_info(animes) %> ）</span>
+      <%= paginate(animes) %>
+      <%= mymemory_js_data %>
+    </div>
+    <ul>
+      <%- animes.each do |anime| -%>
+        <li id="<%= anime.id.to_s %>">
+          <a href="<%= url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>"><img src="<%= anime_image_path(anime.anime_image.present? ? anime.anime_image.image_path(:path_100x100) : "/images/no_image.jpg") %>" class="img-polaroid" data-noimage="<%= anime_image_path("/images/no_image.jpg") %>" width="100" height="100"></a>
+
+          <span class="anime-title"><%= link_to( cut_str(anime.title.to_s, 34), url_for(:action => "dtl", :anime => anime.id) ) %></span>
+
+          <span class="anime-status">
+            <span><span class="mark-up mark-up-favo">★</span><%= anime.anime_score.try(:favorite_count).to_i -%></span>
+            <span><span class="mark-up mark-up-watching">みてる</span><%= anime.anime_score.try(:watching_count).to_i -%></span>
+            <span><span class="mark-up mark-up-watched">みた</span><%= anime.anime_score.try(:watched_count).to_i -%></span>
+          <span>
+          <span class="mymemory" data-aid="<%= anime.id %>">
+            <% mymemory = mymemory_hash[anime.id].presence || Mymemory.new(:anime_id => anime.id, :user_id => user.try(:id)) %>
+            <%= favorite_button(mymemory, :button => {:class => "mymemory-favorite"}, :balloon => {:class => "favorite-balloon"}, :nologin => {:class => "nologin-mymemory-favorite"}) %>
+            <%= watch_button(mymemory, :button => {:class => "mymemory-watch"}, :balloon => {:class => "watch-balloon"}, :nologin => {:class => "nologin-mymemory-watch"}) %>
+          </span>
+          <span class="animemo"><span>アニメモ : </span><%= cut_str(anime.outline, 95) -%></span>
+          <span class="tags"><span>Tags :　</span>
+            <% anime.tags.each_with_index do |tag, i| %>
+              <% break if i == 5 %>
+              <%= link_to( tag.name.to_s, url_for(:action => "list", :search_key => "tag", :q => tag.name.to_s)) -%>
+            <%- end -%>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+    <div class="paginate-bottom"><span><%= paginate(animes) %></span></div>
+  <% else %>
+    <ul>
+      <li style="text-align:center;"> <i class="icon icon-info-sign"></i>　Hit ０件です。 別のキーワードで検索してください。</li>
+    </ul>
+  <% end %>
+</div>

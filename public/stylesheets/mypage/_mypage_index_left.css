@@ -1,0 +1,172 @@
+.mypage-index-left{
+  padding-bottom: 10px;
+  position: relative;
+  background-color: #a5d6a5;
+  border-radius: 3px;
+  min-height: 50px;
+}
+
+.mypage-index-left div:first-child{
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px;
+  margin-top: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -5px;
+  background-color: #48bb32;
+  position: absolute;
+  display: block;
+  width: 360px;
+}
+
+.mypage-index-left div:first-child i{
+  margin-right: 3px;
+}
+
+.mypage-index-left ul{
+  display: inline-block;
+  font-size: 12px;
+  list-style-type: none;
+  margin: 60px 10px 0 10px;
+  background-color: #fff;
+  height: auto;
+  width: 369px;
+  padding:5px;
+}
+
+.mypage-index-left ul .onair-now,
+.mypage-index-left ul .onair-tobe,
+.mypage-index-left ul .onair{
+  display: inline-block;
+  padding: 1px 5px;
+  color:#fff;
+  font-size:11px;
+  margin:5px;
+}
+
+.mypage-index-left ul .onair-now{
+  background-color: #c62a54;
+}
+
+.mypage-index-left ul .onair{
+  background-color: #ccc;
+  color:#000;
+}
+
+.mypage-index-left ul .onair-tobe{
+  background-color: #48bb32;
+}
+
+.mypage-index-left ul li{
+  display:block;
+  background-color: honeydew;
+  border: 1px solid #DDF0E0;
+  margin: 5px;
+  position:relative;
+  height: 115px;
+}
+
+.mypage-index-left ul li:hover{
+  background-color: #a5d6a5;
+}
+
+.mypage-index-left ul li:hover span a{
+  color: #fff;
+}
+
+.mypage-index-left ul li .ep-memory-button{
+  position: absolute;
+  top: 80px;
+  right: -110px;
+  padding:0 5px;
+  background-color: #dbcfd9;
+  background-image: -moz-linear-gradient(top, #ffffff, #9E9D9D);
+  background-image: -o-linear-gradient(top, #ffffff, #9E9D9D);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#9E9D9D));
+  background-image: -webkit-linear-gradient(top, #ffffff, #9E9D9D);
+  background-image: linear-gradient(to bottom, #ffffff, #9E9D9D);
+  background-repeat: repeat-x;
+  border-color: #9E9D9D #9E9D9D #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  color: rgb(95, 95, 95);
+  display: inline-block;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  font-size: 11px;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  border-radius: 3px;
+　text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  width: 50px;
+}
+
+.mypage-index-left ul li .episode-memory-balloon{
+  position: absolute;
+  width: 100px;
+  background-color: #c62a54;
+  color: white;
+  font-size: 11px;
+  top: 40px;
+  right: -110px;
+  padding: 5px 2px;
+  height: 20px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.mypage-index-left ul li .episode-memory-balloon:after{
+  right: 5%;
+  bottom: -40%;
+  border: solid transparent;
+  content: " ";
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -5px;
+}
+
+.mypage-index-left ul li span{
+  display: inline-block;
+  position: absolute;
+  width: 238px;
+  top: 5px;
+  font-size: 11px;
+}
+
+.mypage-index-left ul li a img{
+  margin:5px;
+  display:inline-block;
+  border:1px solid #E7E3E3;
+}
+
+.nothing{
+  padding:20px 0;
+  text-align:center;
+  display: block;
+}
+
+.nothing i{
+  display: inline-block;
+  margin: -1px 3px;
+}
+
+.mypage-index-left ul li .ep-memory-button.watched, 
+.mypage-index-left ul li .ep-memory-button.watching {
+background-image: none!important;
+border: 1px #fff inset!important;
+border-radius: 4px!important;
+color: white!important;
+font-weight: normal!important;
+text-shadow: none!important;
+}
+
+.mypage-index-left ul li .ep-memory-button.watched{
+background-color: #c62a54!important; 
+}

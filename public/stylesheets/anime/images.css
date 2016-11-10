@@ -1,0 +1,58 @@
+.image-library{
+  display: block;
+  margin:0;
+}
+
+.image-library div{
+ border-bottom: 2px solid #E4E9F2;
+ color: #5C5C5C;
+ font-size: 14px;
+ padding-bottom: 5px;
+ padding-right: 5px;
+ position:relative;
+ text-align:center;
+}
+
+.image-library div i{
+  padding-left: 3px;
+  margin-top:-1px;
+  display: inline-block;
+}
+
+.image-library span.buttons{
+  display: inline-block;
+  margin-top: 15px;
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+}
+
+.image-library span.buttons > a{
+  display: inline-block;
+  border: 0;
+  padding: 6px 15px 5px 15px;
+  background-color: #E76587;
+  color: #fff;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
+  text-decoration: none;
+  width: 100px;
+}
+
+.image-library span.buttons > a:hover{
+  background-color: #c62a54;
+}
+
+.image-library .images{
+  padding: 5px 2px;
+  display: block;
+}
+
+.image-library .images a{
+  text-decoration: none;
+  margin: 5px 2px;
+  display:inline-block;
+}
+
+
+

@@ -1,0 +1,97 @@
+.mypage-can-watch{
+  color:#5C5C5C;
+}
+
+.mypage-can-watch div:first-child{
+	display: block;
+	border-bottom: 2px solid #E4E9F2;
+	position: relative;
+	padding-left: 5px;
+	margin-top: 5px;
+	font-size: 15px;
+	width: 795px;
+}
+
+.mypage-can-watch div:first-child span{
+	display: inline-block;
+	margin-left: 35px;
+}
+
+.mypage-can-watch div:first-child img{
+  margin: -6px 5px 0px 0;
+  height: 21px;
+}
+
+.mypage-can-watch > ul.anime-list{
+	padding: 5px 10px;
+	margin-left:0;
+	list-style-type: none;
+}
+
+.mypage-can-watch > ul.anime-list > li{
+	display: inline-block;
+	position: relative;
+	float: left;
+	line-height: 1.1;
+	margin: 7px 7px;
+	text-align: center;
+	background-color: #FCF7F7;
+	width: 116px;
+	height: 136px;
+	padding-top: 5px;
+	border-radius: 3px;
+}
+
+.mypage-can-watch > ul > li > a > img{
+	border: 1px solid #FFFFFF;
+	height: 100px;
+	width: 100px;
+}
+
+.mypage-can-watch > ul > li a.anime-title{
+	background-image: url("/images/overlay_anime_casettle.png");
+	bottom: 35px;
+	left: 8px;
+	color: white;
+	display: inline-block;
+	padding: 23px 3px 3px;
+	position: absolute;
+	width: 94px;
+	background-size: contain;
+	font-size: 11px;
+}
+
+
+.mypage-can-watch > ul > li > ul.media-name{
+	position:absolute;
+  text-align:left;
+  font-size:10px;
+  display:block;
+	left: 4px;
+	top: 3px;
+  margin:0;
+  padding:0;
+}
+
+.mypage-can-watch > ul > li > ul.media-name li{
+	line-height: 1.1;
+	margin: 0;
+	padding: 4px 3px 2px;
+	display: inline-block;
+	height: 10px;
+	background-image: url('/images/daily_info_dl_background.png');
+	text-align: left;
+	color: #fff;
+	border-radius:2px;
+}
+
+.nothing{
+  padding:20px 0;
+  text-align:center;
+  display: block;
+}
+
+.nothing i{
+  display: inline-block;
+  margin: -1px 3px;
+}

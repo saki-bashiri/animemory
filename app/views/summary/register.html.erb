@@ -1,0 +1,126 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "lib/plugin/jquery.selection.js", "common/wiki", "lib/plugin/jquery.exresize.js", "summary/register" %>
+  <%= stylesheet_link_tag "summary/register" %>
+<% end %>
+
+<% content_for :h1 do %>
+<%= @thread.subject %>　からまとめをつくる
+<% end %>
+
+<% content_for :title do %>
+<%= @thread.subject %>　からまとめをつくる
+<% end %>
+<h3 class="am-summary-register-source-title">『<%= @thread.subject %>』から<%= @anime.title %><%= @episode.present? ? " #{@episode.episode}話の" : "" %>まとめをつくる</h3>
+<div>
+
+</div>
+<span class="am-summary-edit-instruction text-center">まとめのつくり方</span>
+<div class="am-summary-instruction-contents">
+  <ol>
+    <li><span>＜まとめタイトル入力＞</span>編集パレット（右）上で、まとめタイトルを入力してください。（必須）<br />
+    ※タイトルは200文字以内となります。</li>
+    <li><span>＜メイン画像選択＞</span>まとめの一番上に表示する画像を選んでください。不要な場合はnoimageを選んでください。（必須）</li>
+    <li><span>＜まとめ対象レス選択＞</span>ソースパレット（左）から編集パレット（右）に編集したいレスをドラッグ＆ドロップしてください。</li>
+    <li><span>＜まとめ対象レス編集＞</span>色や大きさを変えたい場合は、マウスドラッグにて対象箇所を選択した状態で、テキストエリア上部のボタンを押してください。<br />
+    ※色と大きさを同時に変えたい場合は、[色:[大きさ:（レス内容）]]の順で括ってください。（例... [color:green [size:32  特大の緑文字]] )<br />
+    ※まとめに使うレス数は100までにしてください。<br />
+    <li><span>＜まとめ確認画面へ＞</span>編集が完了しましたら、「確認画面へ」ボタンを押してください。</li>
+  </ol>
+</div>
+<div class="row-fluid">
+  <div class="span5 am-thread-source">
+    <span class="text-center">ソースパレット</span>
+    <div id="left" class="am-source-palet">
+      <div class="am-source-buttons">
+        <%= link_to "画像アップロード", url_for(:controller => "anime", :action => "image_up", :aid => @anime.id), :target => "_blank", :class=> "am-image-upload" %>
+        <div class="arrowright"></div>
+        <a href="#" id="image-refresh" data-aid="<%= @anime.id %>" data-url="<%= url_for(:action => "ajax_image_refresh") %>">画像アップデート</a>
+      </div>
+      <ul id="image-source">
+        <%= render :partial => "image_box", :locals => {:anime_images => @anime_images} %>
+      </ul>
+      <ul id="source">
+        <% @thread.thread_responses.each do |res| %>
+          <li class="comment wiki-area">
+            <div><%= res.anchor %> : <%= res.name %> ID: <%= res.post_cd %> : <%= res.posted_at.strftime("%Y/%m/%d %H:%M:%S") %></div>
+            <div class="content wiki-text"><%= br(res.content) %></div>
+            <%= hidden_field_tag "summary[][anchor]", res.anchor %>
+            <%= hidden_field_tag "summary[][name]", res.name %>
+            <%= hidden_field_tag "summary[][post_cd]", res.post_cd %>
+            <%= hidden_field_tag "summary[][posted_at]", res.posted_at.try(:strftime, "%Y/%m/%d %H:%M:%S") %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="span7" id="right">
+    <span class="text-center alert-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;編集パレット
+    　<a id="am-howto-link" href="<%= url_for :action => "summary_howto" -%>" class="btn pull-right">まとめの作り方</a>
+    </span>
+    <%= form_tag url_for(:action => @summary.present? ? "editing" : "registering"), :method => :post do %>
+      <%= hidden_field_tag "tid", @thread.id %>
+      <%= hidden_field_tag "aid", @anime.id %>
+      <%= hidden_field_tag "epid", @episode.id if @episode.present? %>
+      <% if @summary.present? %>
+        <%= hidden_field_tag "sid", @summary.id %>
+      <% end %>
+      <div class="am-drag-and-drop">
+        <div class="am-summary-title-wrap">
+          <div class="am-summary-title">
+            ■タイトル:&nbsp;<%= text_field_tag "title", @title, :id => "title", :class =>"am-summary-title-form" %>
+          </div>
+        </div>
+        <div class="am-summary-content">■まとめ本文:</div>
+        <%= hidden_field_tag "summary[][content]", "", :id => nil %>
+        <ul id="summary">
+          <% if @main_image.present? && @top_images.is_a?(Array) %>
+            <%= render :partial => "image_box", :locals => {:anime_images => @top_images.unshift(@main_image)} %>
+          <% end %>
+
+          <% if @summary_contents.present? %>
+            <% @summary_contents.each do |content| %>
+              <li class="comment wiki-area">
+                <%= text_area_tag "summary[][content]", content[:content], :class => "content wiki-text" %>
+                <%= render :partial => "image_box", :locals => {:anime_images => content[:images]} %>
+                <%= hidden_field_tag "summary[][anchor]", content[:anchor] %>
+                <%= hidden_field_tag "summary[][name]", content[:name] %>
+                <%= hidden_field_tag "summary[][post_cd]", content[:post_cd] %>
+                <%= hidden_field_tag "summary[][posted_at]", content[:posted_at] %>
+              </li>
+            <% end %>
+          <% end %>
+          <li class="am-white-space">ここにドラッグ＆ドロップしてね</li>
+        </ul>
+        <div>
+          <p>■コメント</p>
+          <%= text_area_tag "description", @description, :id => "description", :class => "wiki-text" %>
+        </div>
+
+        <div class="text-center am-wiki-buttons-wrap-below">
+          <span class="am-tool-box-head">まとめ確認へ</span>
+          <% if @summary.blank? %>
+            <div>
+              <a href="https://twitter.com/animemory">@animemory</a><br />経由で発信<%= check_box_tag "twitter_post_flg", params[:twitter_post_flg].present? ? params[:twitter_post_flg] : "1", :id => "twitter_post_flg" %>
+            </div>
+          <% end %>
+          <%= submit_tag "確認画面へ", :name => "conf", :id => "conf" %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+      
+<div class="text-center am-wiki-buttons-wrap">
+  <span class="am-tool-box-head">ツールボックス</span>
+  <div class="wiki-buttons">
+    <span>文字色選択<span>
+    <%= button_tag "", :class => "color-button red", "data-color" => "red", :type => "button" %>
+    <%= button_tag "", :class => "color-button blue", "data-color" => "blue", :type => "button" %>
+    <%= button_tag "", :class => "color-button green", "data-color" => "green", :type => "button" %><br />
+    <span class="am-tool-cat-head">文字サイズ調整<span>
+    <%= select_tag "wiki_size", options_for_select([16, 24, 32]), :class => "wiki-size" %>
+    <%= button_tag "変更", :class => "size-button", :type => "button" %>
+  </div>
+</div>
+

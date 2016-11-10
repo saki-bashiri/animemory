@@ -1,0 +1,38 @@
+<% content_for :title do %>
+  アニメモリ-animemory-
+<% end %>
+<% content_for :head do %>
+<meta charset="utf-8" xmlns="http://www.w3.org/1999/html">
+<meta name="description" content="新番組のアニメ、好きなアニメを効果的に視聴管理してみませんか。アニメモリはあなたのアニメ視聴をサポートします。">
+<meta name="keywords" content="アニメ,視聴管理,おすすめアニメ,新アニメ,<%= Time.now.year %>,お気に入り">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@animemory">
+<meta name="twitter:title" content="animemory.jp">
+<meta name="twitter:description" content="新番組のアニメ、好きなアニメを効果的に視聴管理してみませんか。アニメモリはあなたのアニメ視聴をサポートします。">
+<meta name="twitter:creator" content="@animemory">
+
+<%= stylesheet_link_tag "anime/top" %>
+<%= javascript_include_tag "anime/index.js" %>
+<% end %>
+
+<%- content_for :h1 do -%>
+  アニメの視聴管理 -アニメモリ-
+<%- end -%>
+
+<div class="row-fluid">
+  <div class="span4">
+    <%= render :partial => "anime/top_anime_cartridges" %>
+  </div>
+  <div class="span8">
+    <%= render :partial => "anime/top_ranking_panel", :locals => {:top_watching_animes => @top_watching_animes} %>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span10">
+    <%= render :partial => "top_current_animes", :locals => {:current_animes => @current_animes} -%>
+  </div>
+  <div class="span2">
+    <%= render :partial => "shared/narrow_add" %>
+  </div>
+</div>

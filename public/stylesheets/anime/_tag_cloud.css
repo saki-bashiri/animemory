@@ -1,0 +1,68 @@
+.tag-cloud{
+	margin-top:10px;
+	padding-bottom: 10px;
+	position: relative;
+	background-color: #a5d6a5;
+	height: 210px;
+	border-radius: 3px;
+}
+
+.tag-cloud div{
+	padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px;
+  margin-top: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -5px;
+  background-color: #48bb32;
+  position: absolute;
+  display: block;
+  width: 90%;
+}
+
+.tag-cloud div i{
+  margin-right: 3px;
+}
+
+.tag-cloud ul{
+	display: block;
+	font-size: 11px;
+	list-style-type: none;
+	padding: 10px 5px 5px;
+	top: 50px;
+	position: absolute;
+	background-color: #fff;
+	margin: 10px;
+	width: 92%;
+	text-decoration: none;
+	text-align: center;
+	height:137px;
+	overflow: hidden;
+}
+
+.tag-cloud ul li{
+  display:inline-block;
+  margin:3px 1px;
+}
+
+.tag-cloud ul li:hover{
+}
+
+.tag-cloud ul li a{
+	background-color: whitesmoke;
+	border: 1px dashed #949494;
+	color: rgb(95, 95, 95);
+	padding:0 5px;
+	display: block;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.tag-cloud ul li a:hover{
+	background-color: #48bb32;
+	border: 1px solid #949494;
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}

@@ -1,0 +1,33 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "mypage/_mypage_top_personal_cover" %>
+<% end %>
+
+<%
+  user ||= nil
+%>  
+
+<%- content_for :h1 do -%>
+  アニメの視聴管理 -アニメモリ-
+<%- end -%>
+
+<div class="mypage-top-personal-cover">
+	<% profile_background_image_url = user.profile_background_image_url.presence || "/images/testimage.png" %>
+	<div class="personal-cover-image" style="background-image:url('<%= profile_background_image_url %>')!important;">
+  </div>
+	<div>
+		<% profile_image_url = user.profile_image_url.presence || "/images/testprofileimage.png" %>
+	  <%= image_tag(profile_image_url, :class => "personal-cover-image") %>
+	</div>
+	<%# ↓のdiv はデザイン的に意味があるから消さないで %>
+	<div></div>
+	<span class="nickname"><%=  user.nickname %></span>
+	<span class="user-stats">
+    <table>
+    	<tbody>
+    		<tr><td>みてる</td><td>みた</td><td>★</td></tr>
+    		<tr><td><%= user.user_count.try(:watching_count) %></td><td><%= user.user_count.try(:watched_count) %></td><td><%= user.user_count.try(:favorite_count) %></td></tr>
+    	</tbody>
+    </table>
+	</span>
+	<%= render :partial => "mypage_link_set" %>
+</div>

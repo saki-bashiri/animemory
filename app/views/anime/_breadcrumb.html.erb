@@ -1,0 +1,53 @@
+<%
+  anime   ||= nil
+  episode ||= nil
+  creator ||= nil 
+%>
+
+<ol class="amBreadcrumb amBreadcrumbText span12">
+  <% if params[:controller] == "anime" && params[:action] != 'index' || params[:controller] == "creator" %>
+    <li>
+      <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="<%= url_for(:controller => "anime", :action => "index") %>" itemprop="url">
+          <span itemprop="title"><i class="icon icon-home"></i></span>
+        </a>
+      </span>
+    </li>
+    <% if params[:controller] == 'anime' %>
+      <% if params[:action] == "list" %>
+        <li>
+          <span class="devider">&raquo;</span>
+          <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <strong itemprop="title" class="am-breadcrumb-content">
+              <% if params[:q].present? %>
+                &nbsp;<%= params[:q].to_s %>の検索結果
+              <% else %>
+                &nbsp;アニメ一覧
+              <% end %>
+            </strong>
+          </span>
+        </li>
+      <% elsif ["dtl", "thread", "revision", "images", "image_up", "edit", "edit_conf", "main_image_edit"].include?(params[:action]) && anime.present? %>
+        <li>
+          <span class="devider">&raquo;</span>
+            <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+              <strong itemprop="title" class="am-breadcrumb-content">
+                &nbsp;<%= anime.title %>
+              </strong>
+          </span>
+        </li>
+      <% end %>
+    <% elsif params[:controller] == 'creator' %>
+      <% if params[:action] == 'index' %>
+        <li>
+          <span class="devider">&raquo;</span>
+          <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <strong itemprop="title" class="am-breadcrumb-content">
+              <span itemprop="title"><%= creator.name %>&nbsp;[<%= creator.labels.map{|label| label.name}.join("・") %>]</span>
+            </strong>
+          </span>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %> 
+</ol>

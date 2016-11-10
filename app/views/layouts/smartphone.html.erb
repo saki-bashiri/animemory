@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= yield :title %></title>
+  <%= yield :ogp %>
+  <%= stylesheet_link_tag  "anime/bootstrap", "common/smartphone" %>
+  <%= javascript_include_tag "lib/jquery/jquery-1.9.1.min", "lib/jquery-ui/jquery-ui-1.10.2.custom.min", "anime/bootstrap.min" %>
+  <%= yield :head %>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-42100169-1', 'animemory.jp');
+    ga('send', 'pageview');
+  </script>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=yes">
+</head>
+<body>
+<h1 id="am-header" data-action="<%= h params[:action] %>" class="am-theme-color-green" xmlns="http://www.w3.org/1999/html">
+  <span><%= content_for :h1 %></span>
+</h1>
+
+<header class="text-center">
+  <%= render :partial => "smartphone/header" %>
+</header>
+
+<div class="container-fluid">
+  <%= yield %>
+</div>
+
+<footer>
+  <%= render :partial => "smartphone/footer" %>
+</footer>
+
+</body>
+</html>

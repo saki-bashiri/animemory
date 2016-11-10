@@ -1,0 +1,39 @@
+<% content_for :head do %>
+<% end %>
+
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+  <div class="span9">
+    <div class="amBadge-Admin2">
+      <div>アカウント管理</div>
+    </div>
+    <div class="row-fluid amAdminBody">
+      <ol class="am-admin-content-list">
+        <div class="am-admin-th">
+          <span class="am-admin-th-cat">名前</span>
+          <span class="am-admin-th-mini-cat">登録日</span>
+          <span class="am-admin-th-cat">管理者権限</span>
+          <div>
+            <% @users.each do |user| %>
+              <li class="<%= cycle("even","odd") %>">
+                <span><%= user.nickname %></span>
+                <span><%= user.created_at.try(:strftime, "%Y-%m-%d %H:%M:%S") %></span>
+                <span><%= user.admin_status_name %></span>
+                <%= form_tag ({:action => "account_edit"}, :class => "am-admin-outside-input") do %>
+                  <%= hidden_field_tag "uid", user.id %>
+                  <%= hidden_field_tag "admin_status", User::AdminStatus::ADMIN %>
+                  <%= submit_tag "管理者権限付与", :name => User::AdminStatus::ADMIN, :class => "am-admin-outside-input-show" %>
+                <% end %>
+                <%= form_tag ({:action => "account_edit"}, :class => "am-admin-outside-input") do %>
+                  <%= hidden_field_tag "uid", user.id %>
+                  <%= hidden_field_tag "admin_status", User::AdminStatus::NOT_ADMIN %>
+                  <%= submit_tag "管理者権限剥奪", :name => User::AdminStatus::NOT_ADMIN %>
+                <% end %>
+              </li>
+            <% end %>
+          </div>
+        </div>
+      </ol>
+    </div>
+  </div>
+</div>

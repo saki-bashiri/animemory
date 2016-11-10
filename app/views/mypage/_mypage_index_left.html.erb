@@ -1,0 +1,49 @@
+<%
+  schedule_hash ||= {:now_on_air => [], :before_on_air => []}
+  episode_memory_hash ||= {}
+  mymemory_hash ||= {}
+%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "mypage/_mypage_index_left" %>
+  <%= javascript_include_tag "common/episode_memory", "mypage/_mypage_index_left" %>
+<% end %>
+
+<div class="mypage-index-left">
+  <div><i class="icon-white icon-eye-open"></i>みてるアニメ(放送スケジュール)</div>
+  <%
+    on_air_type_name = {:now_on_air => "現在放送中", :before_on_air => "本日放送予定", :done => "放送終了"}
+    on_air_span_class = {:now_on_air => "onair-now", :before_on_air => "onair-tobe", :done => "onair"}
+  %>
+  <%= episode_memory_js_data %>
+  <ul>
+    <% if schedule_hash.values.flatten.present? -%>
+      <% [:now_on_air, :before_on_air, :done].each do |on_air_key| %>
+        <% next if schedule_hash[on_air_key].blank? %>
+        <span class="<%= on_air_span_class[on_air_key] %>"><%= on_air_type_name[on_air_key] %></span>
+        <% schedule_hash[on_air_key].each do |schedule| %>
+          <% episode = schedule.episode %>
+          <% anime   = schedule.anime %>
+          <% media   = schedule.medium %>
+          <% mymemory = mymemory_hash[anime.id] %>
+          <% episode_memory = episode_memory_hash[episode.id] || EpisodeMemory.new(:episode_id => episode.id, :anime_id => anime.id, :user_id => user.try(:id) ) %>
+          <li>
+            <%= link_to image_tag(anime_image_path( anime.anime_image.try(:image_path, :path_100x100) )), url_for(:controller => :anime, :action => :dtl, :anime => anime.id) -%>
+            <span>
+              <%= link_to anime_with_episode(anime, episode), url_for(:controller => :anime, :action => :dtl, :anime => anime.id) -%><br />
+              <%= media.name -%>: <%= schedule.display_on_air_time -%>
+              <%= "（再）" if schedule.repeat_flg %>
+              <% if mymemory.present? && mymemory.favorite_flg  %>
+                <br /><%= image_tag("star.png", :width => 25, :height => 25) %>
+              <% end %>
+            </span>
+            <p>
+              <%= episode_memory_button(episode_memory, @user, episode, :class => "ep-memory-button") %>
+            </p>
+          </li>
+        <%- end -%>
+      <%- end -%>
+    <%- else -%>
+      <span class="nothing"><i class="icon icon-info-sign"></i>本日放送予定の「みてる」アニメはありません。</span>
+    <%- end -%>
+  </ul>
+</div>

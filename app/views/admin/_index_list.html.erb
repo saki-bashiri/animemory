@@ -1,0 +1,55 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "admin/admin" %>
+<% end %>
+<% content_for :title do %>アニメモリ管理画面<% end %>
+<div class="span3">
+  <div class="badge-warning">管理画面メニュー</div>
+  <div class="amAdminWell well">
+    <ul class="amAdminMenu">
+      <li>アニメ
+        <ul>
+          <li><%= link_to "アニメ管理", url_for(:action => "anime") %></li>
+          <li><%= link_to "アニメ一括登録", url_for(:action => "anime_lump_regist") %></li>
+        </ul>
+      </li>
+      <li>キャラ
+        <ul>
+          <li><%= link_to "キャラ管理", url_for(:action => "character") %></li>
+          <li><%= link_to "キャラ一括登録", url_for(:action => "character_lump_regist") %></li>
+        </ul>
+      </li>
+      <li>アーティスト<span>(声優/歌手/作曲・作詞者)</span>
+        <ul>
+          <li><%= link_to "アーティスト管理", url_for(:action => "artist") %></li>
+          <li><%= link_to "アーティスト一括登録", url_for(:action => "artist_lump_regist") %></li>
+        </ul>
+      </li>
+      <li>放送スケジュール
+        <ul>
+          <li><%= link_to "放送スケジュール管理", url_for(:action => "schedule") %></li>
+          <li><%= link_to "放送スケジュール一括登録", url_for(:action => "schedule_lump_regist") %></li>
+        </ul>
+      </li>
+      <li>しょぼいカレンダー
+        <ul>
+          <li><%= link_to "しょぼいカレンダー", url_for(:action => "shoboi_missing_anime") %></li>
+        </ul>
+      </li>
+      <li>外部サイト
+        <ul>
+          <li><%= link_to "外部サイト", url_for(:action => "outside_site_list") %></li>
+        </ul>
+      </li>
+      <li>アカウント管理
+        <ul>
+          <li><%= link_to "ユーザー", url_for(:action => "account") %></li>
+        </ul>
+      </li>
+      <li>放送局
+        <ul>
+          <li><%= link_to "放送局", url_for(:action => "media_list") %></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

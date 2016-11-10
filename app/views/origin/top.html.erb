@@ -1,0 +1,38 @@
+<h1 xmlns="http://www.w3.org/1999/html"><%= @origin.title %>（原作）の情報</h1>
+
+<table>
+  <tr>
+    <td>
+      作品名
+    </td>
+    <td>
+      <%= @origin.title %>
+    </td>
+  </tr>
+  <tr>
+    <td>原作タイプ</td>
+    <td>
+      <%= Origin::OriginType[@origin.original_type] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+    <td>
+      <%= @origin.description %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <ul>
+        <% @animes.each do |anime| %>
+            <li>
+            <%= link_to anime.title, url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>
+            </li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>

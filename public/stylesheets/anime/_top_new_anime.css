@@ -1,0 +1,45 @@
+.am-new-anime-wrap{
+  margin-left: 20px!important;
+}
+
+.am-new-anime-thumbnail{
+  height: 108px;
+  margin: 5px 0 5px 3px!important;
+  position: relative;
+  border-bottom: 1px dashed #999999;
+}
+
+.am-new-anime-thumbnail a:nth-child(2){
+  display: inline-block;
+  width: 220px;
+  position: absolute;
+  left:107px;
+  color: #aa364e;
+  font-weight: bold;
+}
+
+.am-new-anime-thumbnail span a{
+  display: inline-block;
+  width: 205px;
+  position: absolute;
+  left: 20px;
+  top:10px;
+  font-size: 13px;
+}
+
+.am-new-anime-thumbnail a img{
+  border: 1px solid #d0d0d0;
+}
+
+.am-new-anime-thumbnail span{
+  margin-top: 0;
+  display: inline-block;
+  width: 230px;
+  height: 100px;
+  background-size: 100%;
+  background-image: url("/images/am-top-fukidashi.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  top:20px;
+  left:90px;
+}

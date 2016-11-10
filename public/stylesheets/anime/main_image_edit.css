@@ -1,0 +1,73 @@
+.main-image-edit{
+	display: block;
+	text-align:center;
+	margin:0;
+}
+
+.main-image-edit{
+	margin-top:-10px;
+}
+
+.main-image-edit > div:first-child{
+  margin: 0 0 10px -20px;
+  border-bottom: 2px solid #E4E9F2;
+  color: #5C5C5C;
+  font-size: 14px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.main-image-edit > div:first-child i{
+	margin: 0 0 0 -10px;
+	padding-left: 8px;
+	display: inline-block;
+}
+
+.main-image-edit > div:first-child span{
+  display: block;
+  font-size:12px;
+  color: #C5C5C5;
+}
+
+.main-image-edit  #submit-button{
+  position: absolute;
+	display: inline-block;
+  border:0;
+  padding:6px 20px 5px 20px;
+  background-color: #E76587;
+  color: #fff;
+  border-radius:3px;
+  text-decoration: none;
+  right: 50px;
+	top: 190px;
+}
+
+.main-image-edit > div:first-child a.image-upload:hover,
+#submit-button:hover{
+	background-color: #c62a54;
+}
+
+.main-image-edit ul{
+	list-style-type: none;
+	margin-left:0;
+	text-align: left;
+}
+
+.main-image-edit ul li{
+	display: inline-block;
+	margin: 7.5px;
+	text-align: center;
+}
+
+a.image-upload{
+	display: inline-block;
+  border:0;
+  padding:6px 20px 5px 20px;
+  background-color: #E76587;
+  color: #fff;
+  border-radius:3px;
+  text-decoration: none;
+  right: 10px;
+  top: 5px;
+}
+

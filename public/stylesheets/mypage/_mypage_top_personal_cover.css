@@ -1,0 +1,111 @@
+.mypage-top-personal-cover{
+	background-color: transparent;
+	height: 340px;
+	margin: 0 0 70px 0;
+	position: relative;
+}
+
+.mypage-top-personal-cover div:first-child{
+	position: absolute;
+	z-index: 0;
+	left: 0;
+	top:0;
+	width: 100%;
+}
+
+.mypage-top-personal-cover div.personal-cover-image{
+  background-repeat: repeat-x;
+	display: block;
+	width: 974px;
+	height: 340px;
+	background-position-y: 40%;
+	background-size: cover;
+}
+
+.mypage-top-personal-cover div:nth-child(2){
+	position: absolute;
+	background-image: url('/images/personal_thum.png');
+	background-size: 100%;
+	width: 200px;
+	height: 205px;
+	bottom: -55px;
+	left: 20px;
+	z-index: 4;
+}
+
+.mypage-top-personal-cover div:nth-child(2) img{
+	width: 185px;
+	height: 185px;
+	margin: 7px 6px 6px 7px;
+	border: 1px solid #ccc;
+}
+
+.mypage-top-personal-cover div:nth-child(3){
+	position: absolute;
+	background-image: url('/images/overlay.png');
+	background-size: 50% 100%;
+	bottom: 0;
+	width: 100%;
+	display: inline-block;
+	height: 150px;
+	z-index: 2;
+	right: 0;
+}
+
+.mypage-top-personal-cover > span.nickname{
+	position: absolute;
+	z-index: 3;
+	font-weight: bold;
+	bottom: 15px;
+	width: 360px;
+	line-height: 1.2;
+	left: 240px;
+  font-size: 18px;
+	color: #fff;
+}
+
+.mypage-top-personal-cover > span.user-stats{
+	position: absolute;
+	z-index: 3;
+	bottom: 15px;
+	width: 200px;
+	height: 55px;
+	right: 15px;
+	border-radius:5px;
+  font-size: 18px;
+	color: #ccc;
+	background-image: url('/images/transparent_white.png');
+	background-repeat:repeat; 
+	padding:5px;
+	text-align: left;
+}
+
+.mypage-top-personal-cover > span.user-stats table{
+}
+
+.mypage-top-personal-cover > span.user-stats tr:first-child{
+	color: #5C5C5C;
+  font-size: 12px;
+}
+
+.mypage-top-personal-cover > span.user-stats tr td{
+	display: inline-block;
+	width:44px;
+  padding: 3px 10px;
+  margin-left: 0;
+}
+
+.mypage-top-personal-cover > span.user-stats tr:nth-child(2) td{
+	color:#c62a54;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*応急処置*/
+
+.narrow-add{
+	margin-top: 0!important;
+}
+
+
+

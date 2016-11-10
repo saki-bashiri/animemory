@@ -1,0 +1,136 @@
+<% content_for :h1 do %>
+　<%= @summary.present? ? "まとめ編集確認画面" : "作成まとめ確認画面" %>
+<% end %>
+
+<% content_for :head do %>
+  <%= javascript_include_tag "common/wiki" %>
+  <%= stylesheet_link_tag "summary/index", "summary/thread_list" %>
+<% end %>
+
+<div class="row-fluid">
+
+  <div class="span3 text-center">
+    <div class="text-center">
+      <img src="<%= anime_image_path(@main_image.present? ? @main_image.image_path(:path_200x200) : "/images/no_image_200x200.jpg" ) %>" id="anime-image" class="img-polaroid">
+    </div>
+    <div class="am-anime-dtl-register-buttons">
+      <a href="#" class="amSpecialbtn btn-large">
+        アニメ詳細へ
+      </a>
+    </div>
+  </div>
+
+  <div class="span9 am-summary-index-summary-contents">
+    <div class="am-summary-index-title-for-summary text-left">
+      <%= @title %>
+    </div>
+    <div class="am-summary-index-title-for-anime-fix text-right">
+      <span>引用元：<%= @thread.try(:subject) %></span>
+      <span>関連アニメ：<a href="#" id="am-anime-title" class="text-left"><%= anime_with_episode(@anime, @episode) -%></a></span>
+    </div>
+    <% if @main_image.present? %>
+      <div class="am-summary-index-main-pic text-center">
+        <a href="<%= anime_image_path(@main_image.image_path(:path_512x288)) %>" class="summary-image">
+          <%= image_tag( anime_image_path(@main_image.image_path(:path_512x288)), :class =>"img-polaroid" ) %>
+        </a>
+      </div>
+    <% end %>
+    <div class="row-fluid am-new-summary-wrap am-normal-background">
+    <div>アニメモリ新着まとめ</div>
+    <ul>
+      <%- 5.times do %>
+      <li>
+        <a href="#">
+        　<%= "※" * 40 %>.......
+        </a>
+      </li>
+      <%- end -%>
+    </ul>
+    </div>
+    <div class="row-fluid text-center am-summary-index-sub-pic">
+      <% @top_images.each do |top_image| %>
+        <a href="<%= anime_image_path(top_image.image_path(:path_512x288)) %>" class="summary-image">
+          <%= image_tag( anime_image_path(top_image.image_path(:path_512x288)), :class =>"img-polaroid" ) %>
+        </a>
+      <% end %>
+    </div>
+    <ul class="am-summary-index-responses">
+      <% @summary_contents.each do |content| %>
+        <li class="am-summary-index-responses-title">
+          <%= "#{content[:anchor]}:" -%>
+          <a class="am-summary-res-nickname"><%= "#{content[:name]}" -%></a>
+          <%= "#{content[:posted_at]} :" -%>
+          <a class="am-summary-res-identification"><%= "#{content[:post_cd]}" -%></a><br/>
+        </li>
+        <li>
+          <%= wiki(content[:content]) %>
+        </li>
+        <li>
+          <span>
+            <% content[:images].each do |anime_image| %>
+              <a href="<%= anime_image_path(anime_image.image_path(:path_512x288)) %>" class="summary-image">
+                <%= image_tag( anime_image_path(anime_image.try(:image_path, :path_512x288)) ) %>
+              </a>
+            <% end %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+    <%- if @description.present? -%>
+      <div class="row-fluid am-summary-index-comment">
+        <div>
+          <p><%= wiki(@description) -%></p>
+        </div>
+      </div>
+    <%- end -%>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div>
+      <%= form_tag url_for(:action => @summary.present? ? "editing" : "registering"), :method => :post do %>
+        <%= hidden_field_tag "title", @title %>
+        <%= hidden_field_tag "tid", @thread.id %>
+        <%= hidden_field_tag "aid", @anime.id %>
+        <%= hidden_field_tag "epid", @episode.id if @episode.present? %>
+        <% if @summary.present? %>
+          <%= hidden_field_tag "sid", @summary.id %>
+        <% end %>
+        <%# top_image用の空content %>
+        <%= hidden_field_tag "summary[][content]", "" %>
+        <% if @main_image.present? %>
+          <%= hidden_field_tag "summary[][image_ids][]", @main_image.id %>
+        <% end %>
+        <% if @top_images.present? %>
+          <% @top_images.each do |top_image| %>
+            <%= hidden_field_tag "summary[][image_ids][]", top_image.id %>
+          <% end %>
+        <% end %>
+        <% @summary_contents.each do |content| %>
+          <%= hidden_field_tag "summary[][content]", content[:content] %>
+          <%= hidden_field_tag "summary[][anchor]", content[:anchor] %>
+          <%= hidden_field_tag "summary[][name]", content[:name] %>
+          <%= hidden_field_tag "summary[][post_cd]", content[:post_cd] %>
+          <%= hidden_field_tag "summary[][posted_at]", content[:posted_at] %>
+          <% if content[:images].present? %>
+            <% content[:images].each do |image| %>
+              <%= hidden_field_tag "summary[][image_ids][]", image.id %>
+            <% end %>
+          <% else %>
+            <%= hidden_field_tag "summary[][image_ids][]", nil %>
+          <% end %>
+        <% end %>
+        <%= hidden_field_tag "description", @description %>
+        <%= hidden_field_tag "twitter_post_flg", (@twitter_post_flg ? "1" : "") %>
+        <div class="text-center">
+          <div>
+            <% if @twitter_post_flg %>
+              <a href='https://twitter.com/animemory'>@animemory</a> に載せる
+            <% end %>
+          </div>
+          <span><%= submit_tag "もどる", :name => "back", :class => "am-summary-create" %></span>
+          <span><%= submit_tag @summary.present? ? "編集する" : "まとめを作る", :name => "commit", :class => "am-summary-create" %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

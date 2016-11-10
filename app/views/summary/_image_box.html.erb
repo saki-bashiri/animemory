@@ -1,0 +1,7 @@
+<% anime_images ||= [] %>
+<% anime_images.each do |image| %>
+<li class="image_source img-polaroid">
+  <label for="<%= "image_id_#{image.id}" %>"><%= image_tag( anime_image_path(image.image_path(:path_100x100)) ) %></label>
+  <%= hidden_field_tag "summary[][image_ids][]", image.id, :id => nil %>
+</li>
+<% end -%>

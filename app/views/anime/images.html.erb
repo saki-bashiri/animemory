@@ -1,0 +1,33 @@
+<%= content_for :head do %>
+<%= stylesheet_link_tag "anime/images", "lib/jquery-colorbox/colorbox" %>
+<%= javascript_include_tag "lib/plugin/jquery.colorbox-min", "anime/images" %>
+<% end %>
+
+<%= content_for :title do %>
+　　<%= @anime.title %>の投稿画像一覧 [アニメモリ]
+<% end %>
+
+<%= content_for :h1 do %>
+　　<%= @anime.title %>の投稿画像一覧
+<% end %>
+
+
+  <div class="spa12">
+    <div class="image-library">
+      <div><strong><i class="icon icon-picture"></i>
+        <%= link_to @anime.title, url_for(:action => "dtl", :anime => @anime.id) %>の投稿画像一覧</strong>
+        <span class="buttons">
+          <%= link_to "画像投稿画面", url_for(:action => "image_up", :aid => @anime.id) %>
+          <%= link_to "メイン画像選択", url_for(:action => "main_image_edit", :aid => @anime.id) %>
+        </span>
+      </div>
+      <span class="images">
+        <% @images.each do |image| %>
+          <a href="<%= anime_image_path(image.image_path(:path)) %>" class="image">
+            <%= image_tag( anime_image_path(image.image_path(:path_200x200)), :size =>"175x175", :class => "img-polaroid") %>
+          </a>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</div>

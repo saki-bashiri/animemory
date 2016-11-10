@@ -1,0 +1,31 @@
+<%
+  top_watching_animes ||= []
+%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_top_ranking_panel" %>
+  <%= javascript_include_tag "common/mymemory", "anime/_top_ranking_panel" %>
+<% end %>
+
+<div class="top-ranking-panel">
+	<div><i class="icon-white icon-flag"></i>人気のアニメランキング</div>
+  <%= mymemory_js_data %>
+  <ul>
+    <% top_watching_animes.each_with_index do |anime, index| %>
+      <li class="<%= "rank#{index + 1}" %>">
+        <span class="ranking-flag"><%= index + 1 %></span>
+        <a href="<%= url_for(:action => :dtl, :anime => anime.id) %>" class="anime-title">
+          <%= cut_str(anime.title, 18) %>
+        </a>
+        <% image_path = anime.anime_image.try(:image_path, :path_200x200) || "images/no_image_200x200.jpg" %>
+        <a href="<%= url_for(:action => :dtl, :anime => anime.id) %>">
+          <%= image_tag(anime_image_path(image_path), :size => "200x200") %>
+        </a>
+        <% mymemory = Mymemory.new(:anime_id => anime.id) %>
+        <span class="mymemory" data-aid="<%= anime.id %>">
+          <%= favorite_button(mymemory, :button => {:class => "mymemory-favorite"}, :balloon => {:class => "favorite-balloon"}, :nologin => {:class => "nologin-mymemory-favorite"}) %>
+          <%= watch_button(mymemory, :button => {:class => "mymemory-watch"}, :balloon => {:class => "watch-balloon"}, :nologin => {:class => "nologin-mymemory-watch"}) %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>

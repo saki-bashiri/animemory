@@ -1,0 +1,504 @@
+.am-summary-register-source-title{
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+.am-thread-source h3{
+  font-size: 17px;
+}
+
+.source{
+ margin-left:-20px !important;
+}
+
+.wiki-area{
+  display: block;
+  list-style-type: none;
+  margin-top: 15px;
+  margin-left:-5px;
+  margin-bottom: 15px;
+  color: #404040;
+  border-bottom: 1px dashed #fbb450;
+  border-top: 1px dashed #fbb450;
+  cursor: move;
+  background-image: url('/images/am_summary_pics_board.png');
+}
+
+#right{
+  display: block;
+  min-height: 200px;
+}
+
+textarea{
+  width: 540px;
+  max-width: 540px;
+}
+
+.am-thread-source{
+  padding-left: 0;
+}
+
+.am-source-palet, .am-drag-and-drop, .am-summary-instruction-contents{
+  border: 1px solid #e3e3e3;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.am-source-palet{
+  min-height: 110px;
+  padding: 5px 15px;
+  margin-bottom: 20px;
+  background-color: #fffff;
+}
+
+.am-source-buttons{
+  clear:both;
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:10px;
+  margin-left: -3px;
+}
+
+a#image-refresh,
+.am-image-upload{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #079400;
+  padding: 3px 7px;
+  background: -moz-linear-gradient(
+    top,
+    #ffffff 0%,
+    #ffffff 50%,
+    #b5b5b5);
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    from(#ffffff),
+    color-stop(0.50, #ffffff),
+    to(#b5b5b5));
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -moz-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  -webkit-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 3px rgba(255,255,255,1);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.2),
+    0px 1px 0px rgba(255,255,255,1);
+  text-decoration:none!important;
+  border: 3px solid #48bb32;
+  display:inline-block;
+}
+
+a#image-refresh:hover,
+.am-image-upload:hover{
+  color: #0BC701;
+}
+
+.am-image-upload{
+
+}
+
+a#image-refresh{
+
+}
+
+.arrowright{
+background: #d1c5cf;
+font-size: 12px;
+position: relative;
+width: 1em;
+height: 9px;
+display: inline-block;
+margin-left: 5px;
+margin-right: 12px;
+}
+
+.arrowright::before{
+bottom: -6px;
+left: 0.8em;
+position: absolute;
+border-left: 10px solid #d1c5cf;
+border-top: 10px solid rgba(44, 44, 44, 0);
+border-bottom: 10px solid rgba(44, 44, 44, 0);
+content: "";
+}
+
+ul#image-source{
+  margin:0 0 0 4px;
+  list-style-type:none;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d1c5cf;
+}
+
+
+ul#image-source li{
+  display:inline-block;
+  margin:4px;
+  padding-bottom: 0!important;
+}
+
+
+ul#image-source li label{
+  cursor: move;
+}
+
+.am-drag-and-drop{
+  min-height: 300px;
+  padding: 19px;
+  margin-bottom: 10px;
+  background-image: url('/images/am_summary_pics_board.png');
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.am-drag-and-drop span{
+  margin-bottom: 10px;
+}
+
+.am-drag-and-drop .wiki-area{
+  margin-top: 5px;
+  margin-bottom: -5px;
+  color: #404040;
+  border-top: 1px dashed #fbb450;
+  border-bottom: none;
+  cursor: move;
+}
+
+#summary .wiki-area{
+  margin-left:  -16px;
+  color: #079400;
+}
+
+.am-summary-pics-palet{
+  display: block;
+  height: auto;
+  width:auto;
+  margin-bottom: 5px;
+}
+
+.am-summary-pics-palet div{
+  margin: 2px;
+}
+
+.am-summary-instruction-contents{
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 13px;
+  min-height: 80px;
+  background-color: #ffffff;
+}
+
+.am-summary-instruction-contents ol li span {
+  font-weight: bolder;
+  font-size: 13px;
+  color: #f60000;
+}
+
+.am-summary-edit-instruction, .am-thread-source span, #right span{
+  padding: 5px 0 0 0;
+  display: block;
+  height: 25px;
+  font-size: 17px;
+  margin-bottom: 3px;
+  list-height:1;
+}
+
+.am-summary-edit-instruction{
+  width: 974px !important;
+  background-color: #c62a54;
+  color: #ffffff;
+  font-weight:bold;
+}
+
+.am-thread-source span, #right span{
+  background: #48bb32;
+  color: #ffffff;
+  font-weight:bold;
+}
+
+.am-white-space{
+  height: 50px;
+  color: #FBB41C;
+  margin: 10px 5px 10px 15px;
+  padding: 55px 20px 25px 25px;
+  font-weight: bold;
+  font-size: 30px!important;
+  display: block;
+  border: 2px dashed #fbb450;
+  background-color: #ffffff;
+}
+
+.am-img-white-space{
+  height: 75px;
+  color: #FBB41C;
+  margin: 10px 5px 10px 0;
+  padding: 15px 20px 25px 25px;
+  font-weight: bold;
+  font-size: 12px!important;
+  display: block;
+  border: 2px dashed #fbb450;
+  background-color: #ffffff;
+  width: 310px;
+}
+
+#source, #summary{
+  font-size: 13px;
+  list-style-type: none;
+}
+
+#source{
+  margin-left: 2px;
+  padding-top: 1px;
+  clear: both;
+}
+
+#source li.image_source{
+  margin: 5px;
+  padding-bottom: 0!important;
+  display: inline-block;
+}
+
+#source li.image_source label{
+  cursor: move;
+}
+
+#summary{
+  margin-left: 0px;
+}
+
+#summary li.image_source{
+  margin: 8px 9px;
+  padding-bottom: 0!important;
+  display: inline-block;
+  position:relative;
+}
+
+#summary li.image_source label{
+  cursor: move;
+}
+
+
+#summary li.wiki-area div{
+  margin-left: 7px;
+}
+
+input[type="text"]{
+  height:10px;
+  width:350px;
+}
+.am-summary-main-img{
+  position:absolute;
+  bottom:2px;
+  right:4px;
+  font-size:11px!important;
+  background-color: rgba(198, 42, 84, 0.7)!important;
+}
+
+.am-wiki-buttons-wrap{
+  position:fixed;
+  top:133px;
+  width:120px;
+  padding-bottom:15px;
+  color:white;
+  background: #CCC9C9;
+  background: -moz-linear-gradient(top, #CCC9C9 0%, #636161 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCC9C9), color-stop(100%,#636161));
+  background: -webkit-linear-gradient(top, #CCC9C9 0%,#636161 100%);
+  background: -o-linear-gradient(top, #CCC9C9 0%,#636161 100%);
+  background: -ms-linear-gradient(top, #CCC9C9 0%,#636161 100%);
+  background: linear-gradient(to bottom, #CCC9C9 0%,#636161 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCC9C9', endColorstr='#636161',GradientType=0 );
+}
+
+.am-tool-box-head{
+  display:block;
+  margin-bottom:5px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid white;
+  font-size:14px !important;
+  text-shadow: none !important;
+  font-weight:normal !important;
+  background: #777777 !important;
+  background: -moz-linear-gradient(top, #777777 0%, #000000 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#777777), color-stop(100%,#000000)) !important;
+  background: -webkit-linear-gradient(top, #777777 0%,#000000 100%) !important;
+  background: -o-linear-gradient(top, #777777 0%,#000000 100%) !important;
+  background: -ms-linear-gradient(top, #777777 0%,#000000 100%) !important;
+  background: linear-gradient(to bottom, #777777 0%,#000000 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777777', endColorstr='#000000',GradientType=0 ) !important;
+}
+
+.am-tool-cat-head{
+  margin-top:10px;
+}
+
+.am-wiki-buttons-wrap-below{
+  position:fixed;
+  top:283px;
+  width:120px;
+  padding-bottom:15px;
+  color:white;
+  font-size: 14px !important;
+  background: #CCC9C9 !important;
+  background: -moz-linear-gradient(top, #CCC9C9 0%, #636161 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#CCC9C9), color-stop(100%,#636161)) !important;
+  background: -webkit-linear-gradient(top, #CCC9C9 0%,#636161 100%) !important;
+  background: -o-linear-gradient(top, #CCC9C9 0%,#636161 100%) !important;
+  background: -ms-linear-gradient(top, #CCC9C9 0%,#636161 100%) !important;
+  background: linear-gradient(to bottom, #CCC9C9 0%,#636161 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCC9C9', endColorstr='#636161',GradientType=0 ) !important;
+}
+
+.am-wiki-buttons-wrap-below div{
+  font-size:13px;
+}
+
+.am-wiki-buttons-wrap-below div a{
+  color: #0D45A8;
+  font-weight: bold;
+  font-size:14px;
+}
+
+.wiki-buttons{
+  margin-left:3px;
+}
+
+.wiki-buttons span{
+  display:block;
+  color:white;
+  font-size:12px;
+}
+
+.wiki-buttons .color-button{
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+
+.wiki-buttons .red{
+  background-color: red;
+}
+
+.wiki-buttons .blue{
+  background-color: #0000ff;
+}
+
+.wiki-buttons .green{
+  background-color: green;
+}
+
+.wiki-buttons .size-button{
+  width: 39px;
+  padding: 3px;
+  line-height:1;
+  font-weight: bold;
+  word-break:keep-all!important;
+}
+
+.am-summary-title-wrap{
+  display: block;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.am-summary-title{
+  display: inline-block;
+  font-size: 15px;
+  height: 20px;
+}
+
+.am-summary-title input[type="text"]{
+  width: 427px;
+  height: 18px;
+}
+
+.am-summary-title-form{
+  font-size: 100%;
+  margin-top: 8px;
+}
+
+.am-summary-content{
+  display: block;
+  margin-bottom: 10px;
+  clear: both;
+}
+
+#conf{
+  height: 30px;
+  width: 90px;
+  font-weight: bold; 
+}
+
+.am-edit-palet-control{
+  margin-left: 15px;
+  display: inline!important;
+  font-size: 12px!important;
+  color: black!important;
+}
+
+.wiki-size{
+  height: 20px;
+  width: 50px;
+  margin-bottom: 0;
+  margin-left: 3px;
+}
+
+input[type="radio"]{
+  opacity: 0;
+  position: absolute;
+}
+
+.am-summary-pics{
+  margin-left: 25px;
+}
+
+.am-summary-pics div div label img{
+  height: 100px;
+  width: 100px;
+  margin-top: 24px;
+  margin-left: 1px;
+  border: 1px solid #b5b5b5 !important;
+}
+
+.am-summary-pics div div label{
+  width: 120px;
+  height: 133px;
+}
+
+.am_main_image{
+  background-image: url('/images/main-image-selected.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
+#conf {
+  margin-top: 10px;
+  margin-bottom: 0;
+  word-break:keep-all;
+}
+
+#am-howto-link{
+}
+
+.alert-block .btn {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 5px;
+}
+
+#description{
+  width:127% !important;
+  margin-left: -16px;
+}
+

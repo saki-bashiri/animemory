@@ -1,0 +1,20 @@
+<%
+channel_creators ||= []
+%>
+
+<% content_for :head do %>
+ <%= stylesheet_link_tag "mypage/_notice_target_select" %>
+ <%= javascript_include_tag "mypage/_notice_target_select" %>
+<%- end -%>
+
+<div class="notice-target-select" data-selected="<%= params[:crid] -%>">
+	<div><i class="icon icon-bookmark"></i>キーワード絞り込み</div>
+	<ul>
+		<li class="active"><%= link_to("すべてのキーワード", :controller => "mypage", :action => "notice") %></li>
+	  <% channel_creators.each do |creator| -%>
+	    <li class="select-each creator<%= creator.id -%>">
+	      <%= link_to creator.name, url_for(:crid => creator.id) -%>
+	    </li>
+	  <%- end -%>
+	</ul>
+</div>

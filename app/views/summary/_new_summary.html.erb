@@ -1,0 +1,13 @@
+<%-
+  new_summaries ||= []
+-%>
+<div>アニメモリ新着まとめ</div>
+<ul>
+  <%- new_summaries.each do |new_summary| -%>
+  <li>
+    <a href="<%= url_for(:action => "index", :sid => new_summary.id, :aid => new_summary.anime_id) %>">
+    <%= cut_str(new_summary.title, 35) -%>&nbsp;&nbsp;<%= "[#{cut_str(anime_with_episode(new_summary.anime, new_summary.episode),18)}]" -%>
+    </a>
+  </li>
+  <%- end -%>
+</ul>

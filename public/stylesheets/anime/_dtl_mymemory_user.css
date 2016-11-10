@@ -1,0 +1,63 @@
+.dtl-mymemory-user-favo,
+.dtl-mymemory-user-watching,
+.dtl-mymemory-user-watched{
+	margin:0;
+	font-size:14px;
+	width: 530px;
+}
+
+.dtl-mymemory-user-favo div,
+.dtl-mymemory-user-watching div{
+	margin:5px 0;
+	border-bottom:2px solid #E4E9F2;
+  color:#5C5C5C;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.dtl-mymemory-user-favo div span{
+  color:#F7BC40;
+  font-size:15px;
+}
+.dtl-mymemory-user-watching div span{
+  color:#D74258;
+  font-weight: bold;
+}
+
+
+.dtl-mymemory-user-watched span{
+  font-weight:bold;
+}
+
+.dtl-mymemory-user-favo ul,
+.dtl-mymemory-user-watching ul{
+	list-style-type: none;
+	margin: -10px 0 0;
+	text-align: center;
+	padding: 5px;
+	display: block;
+}
+
+.dtl-mymemory-user-favo ul li,
+.dtl-mymemory-user-watching ul li{
+	float:left;
+	margin-right: 5.68px;
+	margin-top: 5px;
+}
+
+.dtl-mymemory-user-favo ul li img,
+.dtl-mymemory-user-watching ul li img{
+  border: 1px solid #FFD3D3;
+	width: 25px;
+	height: 25px;
+}
+
+.dtl-mymemory-user-watching{
+	clear:both;
+	padding-top: 5px;
+}
+
+.dtl-mymemory-user-watched{
+	clear:both;
+	padding-top: 5px;
+}

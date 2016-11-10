@@ -1,0 +1,27 @@
+.instruction-balloon{
+	position:absolute;
+	top:-35px;
+	left:-5px;
+	z-index:5;
+	opacity:1!important;
+	background-color: #c62a54;
+	color:white;
+	font-size: 11px;
+	height:20px;
+	width:111px;
+	padding-top:10px;
+	border-radius: 2px;
+}
+
+.instruction-balloon:before{
+  right: 5%;
+  bottom: -41%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -6px;
+}

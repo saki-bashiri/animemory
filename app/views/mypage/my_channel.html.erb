@@ -1,0 +1,48 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "mypage/my_channel" %>
+  <%= javascript_include_tag "common/my_channel", "mypage/my_channel" %>
+<%- end -%>
+
+
+<% content_for :head do %>
+<% end %>
+
+<div class="row-fluid">
+  <div class="span12">
+    <%= render :partial => "mypage_top_personal_cover", :locals => {:user => @user} %>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span8">
+    <div class="my-channel">
+      <div><%= image_tag("/images/my.png") -%>　　&nbsp;キーワードの参照・削除
+  　</div>
+      <ul>
+        <% @creators.each do |creator| %>
+          <li class="my-channel-box">
+            <%= link_to_if (creator.production? || creator.voice_actor?), creator.name, url_for(:controller => :creator, :action => :index, :crid => creator.id) -%>
+            <% creator.labels.each do |label| %>
+              <span class="roll-type <%= label.type -%>">[<%= label.name -%>]</span>
+            <% end %>
+            <%= my_channel_button(creator.id, true, @user) -%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="span4" id="search">
+    <div class="my-channel-keyword-search">
+      <div>
+        <%= image_tag("/images/my.png") -%>　　&nbsp;キーワードの検索・登録
+    　</div>
+      <div>
+        <%= text_field_tag "q", "", :id => "search-text" -%>
+        <%= submit_tag "検索", :id => "search-button", "data-url" => url_for(:action => :ajax_my_channel) -%>
+      </div>
+      <div>検索結果があれば表示</div>
+      <div id="search-result">
+      </div>
+    </div>
+  </div>
+</div>

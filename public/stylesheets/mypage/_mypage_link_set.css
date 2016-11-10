@@ -1,0 +1,227 @@
+.mypage-link-set{
+	bottom: -50px;
+	position: absolute;
+	right: 0;
+	z-index: 5;
+}
+
+.mypage-link-set i{
+  margin-top: -1px;
+}
+
+.mypage-link-set > ul{
+  list-style-type:none;
+  font-size:12px;
+}
+
+.mypage-link-set > ul > li{
+	display:block;
+	float:right;
+	text-align:center;
+	position:relative;
+	width:auto;
+}
+
+.mypage-link-set > ul > li > a{
+	display: block;
+	margin: 0 auto;
+	color: #5C5C5C;
+	text-decoration: none;
+  border-right: 1px #fff solid;
+}
+
+.mypage-link-set > ul > li:first-child > a > span{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.mypage-link-set > ul > li:last-child > a > span{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.mypage-link-set > ul > li > a > span{
+	display: block;
+	text-align: center;
+	background-color: #E0E3E5;
+	font-size: 13px;
+	padding: 9px 10px 6px 10px;
+}
+
+.mypage-link-set > ul > li > a > span:hover{
+	background-color: #48bb32;
+	text-decoration: underline;
+	color:#fff;
+	text-decoration:none;
+}
+
+.mypage-link-set > ul > li.active > a > span{
+	background-position: right bottom;
+	text-decoration: underline;
+	color:#fff;
+	text-decoration:none;
+}
+
+.mypage-link-set > ul > li.active  span{
+  background-color: #48bb32;
+}
+
+.mypage-link-set > ul > li:nth-child(6) > span > i{
+  margin-top: -2px;
+  margin-right:-1px;
+}
+
+.mypage-link-set > ul > li:nth-child(5) > span{
+  left: -32%;
+}
+
+.mypage-link-set > ul > li:nth-child(6) > span{
+  left: -24%;
+}
+
+.mypage-link-set > ul > li > span{
+	display: block;
+	position: absolute;
+	bottom: -40px;
+	left: -43%;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0;
+	padding: 1px 10px;
+	text-align: center;
+	width: 150px;
+	color: #6D6D6D;
+	padding: 5px;
+	border-radius: 2px;
+	color: #fff;
+	background-color: #c62a54;
+}
+
+.mypage-link-set > ul > li > span:after{
+	right: 45%;
+	top: -28%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(72, 187, 50, 0);
+	border-bottom-color: #c62a54;
+	border-width: 8px;
+	margin-top: -5px;
+}
+
+.mypage-link-set > ul > li.active > span{
+	display: block;
+	position: absolute;
+	bottom: -40px;
+	left: -6%;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0;
+	padding: 1px 10px;
+	text-align: center;
+	width: 100px;
+	color: #6D6D6D;
+	padding: 5px;
+	border-radius: 2px;
+	color: #fff;
+	background-color: #c62a54;
+}
+
+.mypage-link-set > ul > li.active > span:after{
+	right: 45%;
+	top: -28%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-bottom-color: #c62a54;
+  border-width: 8px;
+  margin-top: -5px;
+}
+
+.mypage-link-set > ul > li > a:hover{
+	color: black;
+}
+
+.mypage-link-set > ul > li:first-child > ul{
+	position:absolute;
+	right:0;
+	list-style-type: none;
+}
+
+.mypage-link-set > ul > li:first-child > ul > li a{
+	display: block;
+	text-align: center;
+	background-color: #E0E3E5;
+	font-size: 13px;
+	width: 119px;
+	padding: 9px 10px 6px 10px;
+  border:1px solid #fff;
+  text-decoration: none;
+  color: #5C5C5C;
+}
+
+.mypage-link-set > ul > li:first-child > ul > li a:hover{
+  background-color: #48bb32;
+  color:#fff;
+}
+
+.mypage-link-set > ul > li:first-child > ul > li:nth-child(1) a{
+	border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.mypage-link-set > ul > li:first-child > ul > li:nth-child(2) a{
+  border-top:none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.setting-active{
+  border-bottom-right-radius:0!important;
+}
+
+.mypage-link-set > ul > li:first-child > a > span,
+.mypage-link-set > ul > li:last-child > a > span{
+	position: relative;
+	height:20px;
+	width:20px;
+}
+
+.mypage-link-set > ul > li:first-child > a > span > img,
+.mypage-link-set > ul > li:last-child > a > span > img{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	bottom: 7px;
+}
+
+.mypage-link-set > ul > li > a > span > i.home-icon{
+	background-image:url('/images/home_icon.png');
+}
+
+.mypage-link-set > ul > li > a > span > i.setting-icon{
+	background-image:url('/images/setting_icon.png');
+}
+
+.new-notice-count{
+	display: inline-block;
+	padding: 0 4px;
+	margin-left: 3px;
+	background-color: #fff!important;
+	border-radius: 3px;
+	font-size: 11px;
+	color: #c62a54;
+	height: 17px;
+}
+
+.mypage-link-set > ul > li.active > a:hover{
+	color:#ffffff;
+}

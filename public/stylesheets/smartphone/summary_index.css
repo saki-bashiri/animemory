@@ -1,0 +1,206 @@
+.am-sp-summary-title{
+  display: block;
+  margin: 10px 0 10px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.am-sp-summary-title div span{
+  word-wrap: break-word;
+}
+
+.am-sp-summary-index-summary-contents{
+  border: none;
+  background-color: #ffffff;
+}
+
+.am-sp-summary-index-summary-contents div img{
+  margin: 5px;
+  width: 98%;
+}
+
+.am-summary-index-sub-pic{
+
+}
+
+.am-summary-index-sub-pic img{
+
+}
+
+.am-summary-index-responses{
+  line-height: 1;
+}
+
+.am-summary-index-responses ul{
+  list-style-type: none;
+  margin: 10px 15px 60px 15px!important;
+  font-size: large;
+  line-height: 1;
+}
+
+.am-summary-index-responses ul li{
+  margin:20px 0;
+  line-height: 1.2;
+}
+
+.am-summary-index-responses ul li span .summary-image{
+  width: 97%;
+  border: 1px solid antiquewhite;
+}
+
+.am-summary-index-responses-title{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.am-summary-index-responses-title a{
+  color: #408629;
+  text-decoration: none;
+}
+
+.am-summary-index-responses-title span{
+  color: #c62a54;
+}
+
+.am-sp-summary-source-info{
+  color: #ffffff;
+  background-color: #000000;
+  padding-top: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.am-summary-response-content{
+  font-size: 22px;
+  word-wrap: break-word;
+}
+
+.am-sp-new-summary-wrap{
+}
+
+.am-summary-index-comment{
+  border-top: 3px dashed black;
+  border-bottom: 10px solid black;
+}
+
+.am-summary-index-comment div p{
+  word-wrap: break-word;
+  border-top: 3px dashed #ededed;
+  padding: 10px;
+}
+
+.am-summary-index-user-comment{
+  
+}
+
+.am-summary-index-user-comment ul{
+  list-style-type:none;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom:20px;
+  word-wrap:break-word;
+  padding-right: 15px;
+}
+
+.am-summary-index-user-comment ul li{
+  margin-bottom:25px;
+}
+
+.am-sp-commentator{
+  font-weight: bold;
+  color:#408629;  
+}
+
+.am-sp-comment{
+  font-size:15px;
+}
+
+.am-sp-new-summary div{
+  position: relative;
+  margin-left: 0!important;
+  border-bottom: 1px solid #272727;
+  background: #777777; /* Old browsers */
+  background: -moz-linear-gradient(top,  #777777 0%, #000000 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#777777), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #777777 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #777777 0%,#000000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #777777 0%,#000000 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #777777 0%,#000000 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777777', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.am-sp-new-summary div a{
+ display: block;
+}
+
+.am-sp-new-summary div a img{
+  width:35%
+}
+
+.am-sp-new-summary div strong{
+  position: absolute;
+  width:55%;
+  left: 37%;
+  top:5px;
+  font-size: 17px;
+  color: #ffffff;
+  padding-top: 0;
+  word-wrap:break-word;
+  width:55%;
+}
+
+.am-sp-new-summary div a span{
+  position: absolute;
+  left: 37%;
+  top: 60%;
+  font-size: 12px;
+  color: #ffffff;
+  width:55%;
+}
+
+.am-sp-new-summary div a .am-sp-index-half-arrow{
+  height: 25px!important;
+  width: 20px!important;
+  position: absolute;
+  top: 43%;
+  right: 0.5%;
+}
+
+.am-sp-new-summary div strong:hover{
+  color: #dddddd;
+}
+
+.am-sp-new-summary-wrap{
+  background-color:#000000;
+  width: 100%!important;
+  margin-bottom:15px;
+}
+
+.am-sp-new-summary-wrap .am-sp-new-summary-cat-head{
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 18px;
+  padding: 10px 5px;
+}
+
+.am-summary-index-user-comment .am-sp-new-summary-cat-head{
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 18px;
+  padding: 0 5px 10px 5px;
+}
+
+.am-user-comment-post{
+  font-weight:bold;
+  font-size:14px;
+}
+
+#comment-content{
+  width:85%;
+  height:120px;
+  display:inline-block;
+  margin: 10px 0;
+}

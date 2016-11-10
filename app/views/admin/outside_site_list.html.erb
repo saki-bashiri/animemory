@@ -1,0 +1,50 @@
+<% content_for :head do %>
+<% end %>
+
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+  <div class="span9">
+    <div class="amBadge-Admin2">
+     <div>外部サイトの設定</div>
+    </div>
+    <div class="amBadge-Admin">
+      <%= form_tag ({:action => "outside_site_register"}) do %>
+        <div class="amAdminSearch">
+          <span><span>サイト名</span><%= text_field_tag "site_name" %></span>
+          <span><span>URL</span><%= text_field_tag "url" %></span>
+          <span><span>RSS URL</span><%= text_field_tag "rss_url" %></span>
+        </div>
+        <div class="text-center amAdminInput"><%= submit_tag "新規登録" %></div>
+      <% end %>
+    </div>
+    <div class="row-fluid amAdminBody">
+      <ol class="am-admin-content-list">
+        <div class="am-admin-th">
+           <span class="am-admin-th-cat">Name</span>
+           <span class="am-admin-th-cat">Url</span>
+           <span class="am-admin-th-cat">RSS</span>
+           <span class="am-admin-th-mini-cat">Edit</span>
+           <span class="am-admin-th-mini-cat">Status</span>
+           <span class="am-admin-th-mid-cat">Show/Suspend</span>
+        <div>
+        <% @sites.each do |site| %>
+          <li class="<%= cycle("even","odd") %>">
+            <%= form_tag ({:action => "outside_site_edit"}, :class => "am-admin-outside-input") do %>
+              <%= hidden_field_tag "outside_site_id", site.id %>
+              <span><%= text_field_tag "site_name", site.site_name %></span>
+              <span><%= text_field_tag "url", site.url %></span>
+              <span><%= text_field_tag "rss_url", site.rss_url %></span>
+              <%= submit_tag "編集" %>
+            <% end %> 
+            <%= form_tag ({:action => "outside_site_status_change"}, :class => "am-admin-outside-input-right") do %>
+              <%= hidden_field_tag "outside_site_id", site.id %>
+              <span><%= site.state_name %></span>
+              <%= submit_tag "公開", :name => "restart", :class => "am-admin-outside-input-show" %>
+              <%= submit_tag "停止", :name => "stop" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>

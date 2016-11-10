@@ -1,0 +1,9 @@
+AuthUserFile /home/animemory_stg/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic
+require valid-user 
+order deny,allow
+RailsEnv development
+SetEnv TZ "Asia/Tokyo"
+SetEnv LANG "ja_JP.UTF-8"

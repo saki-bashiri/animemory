@@ -1,0 +1,27 @@
+<h1>新規原作登録確認</h1>
+<div>
+  <%= form_tag (url_for(:action => "regist_conf"), :method => :post) do %>
+      <ul>
+        <li>
+          <%= hidden_field_tag "origin[id]", @origin.id %>
+        </li>
+        <li>作品名：<%= @origin.title %>
+          <%= hidden_field_tag "origin[title]", @origin.title %></li>
+        <li>コメント：<%= @origin.description %>
+          <%= hidden_field_tag "origin[description]", @origin.description %></li>
+        <li>
+          <%= Origin::OriginType[@origin.original_type] %>
+          <%= hidden_field_tag "origin[original_type]", @origin.original_type %>
+        </li>
+
+        <li>
+          <% @animes.each do |anime| %>
+
+            <%= link_to anime.title, url_for(:controller => "anime", :action => "dtl", :anime => anime.id) %>,&nbsp;
+            <%= hidden_field_tag "origin[anime_ids][]", anime.id %>
+          <% end %>
+        </li>
+        <li><%= submit_tag "作成", :name => "commit" %></li>
+      </ul>
+  <% end %>
+</div>

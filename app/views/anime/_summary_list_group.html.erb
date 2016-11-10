@@ -1,0 +1,39 @@
+<%= content_for :head do -%>
+  <%= stylesheet_link_tag "anime/_summary_list_group" %>
+<%- end -%>
+
+<% summaries ||= [] %>
+<div class="summary_list_group">
+  <div class="">
+    <i class="icon-star icon"></i>まとめ一覧
+  </div>
+  <% if @summaries.present? %>
+    <ul>
+      <% summaries.each do |summary| %>
+      <li>
+        <a href="<%= url_for(:controller => "summary", :action => "index", :sid => summary.id, :aid => summary.anime_id) %>">
+          <span class="am-anime-dtl-summary-main-image">
+            <%= image_tag( anime_image_path(summary.anime_image.present? ? summary.anime_image.image_path(:path_100x100) : "/images/no_image.jpg"), :class =>"img-polaroid" ) -%>
+          </span>
+          <span class="info-wrap">
+            <span>
+              <%= cut_str(summary.title, 30) -%>
+            </span>
+            <span>
+              投稿者：&nbsp;<%= user_nickname(summary.user) -%>
+            </span>
+            <span>
+              投稿日時：&nbsp;<%= summary.created_at.strftime("%Y年%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})%H:%M:%S") -%>
+            </span>
+            <span>
+              元スレ：&nbsp;<%= cut_str(summary.thread_log.try(:subject), 34) -%>
+            </span>
+          </span>
+        </a>
+      </li>
+      <%- end -%>
+    </ul>
+  <% else %>
+    <span>このアニメのまとめを作りませんか？</span>
+  <% end %>
+</div>

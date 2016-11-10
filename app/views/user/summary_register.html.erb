@@ -1,0 +1,37 @@
+<% content_for :head do %>
+<%= javascript_include_tag "user/summary_register" %>
+<% end %>
+
+<% content_for :title do %>
+<% end %>
+
+<div id="left" style="color:#7ab5d3">
+  <ul id="source">
+    <li>
+      ソースはこちらです。
+    </li>
+    <% @thread.comments.each do |comment| %>
+      <li class="comment">
+        <%= hidden_field_tag "cid[]", comment.id %>
+        <p><%= user_nickname(comment.user) %></p>
+        <div>
+          <%= comment.comment %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div id="right" style="color:#fbb450">
+  <%= form_tag url_for(:action => "summary_register_conf"), :method => :post do %>
+    <%= hidden_field_tag "tid", @thread.id %>
+    <div>
+      タイトル: <%= text_field_tag "title", params[:title].to_s %>
+    </div>
+    <ul id="summary">
+      <li>
+        ここにドラッグアンドドロップしてください。
+      </li>
+    </ul>
+    <%= submit_tag "確認画面へ", :name => "conf" %>
+  <% end %>
+</div>

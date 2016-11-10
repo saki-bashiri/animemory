@@ -1,0 +1,343 @@
+.anime-list{
+	padding-bottom: 10px;
+	position: relative;
+	background-color: #a5d6a5;
+	border-radius: 3px;
+	margin-top: -7px;
+}
+
+.anime-list div.anime-list-title{
+	padding: 10px;
+	font-size: 14px;
+	color: #fff;
+	margin: 10px;
+	margin-top: 10px;
+	outline: 1px dashed #fff;
+	outline-offset: -5px;
+	background-color: #48bb32;
+	position: absolute;
+	display: block;
+	width: 688px;
+}
+
+.anime-list div:first-child i{
+  margin-right: 3px;
+}
+
+.anime-list div.paginate span.anime-count{
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	color: #283626;
+}
+
+.anime-list div.paginate span.anime-count b{
+  color: #EAF5EA;
+}
+
+.anime-list div.paginate .pagination{
+	top: 35px;
+	right: 12px;
+	position: absolute;
+	background-color: honeydew;
+	display: block;
+	padding: 0 10px;
+	border-radius: 1px;
+}
+
+.anime-list div.paginate .pagination .current{
+  color:#c62a54;
+  font-weight: bold;
+}
+
+.anime-list ul{
+	display: inline-block;
+	font-size: 12px;
+	list-style-type: none;
+	margin: 80px 0 10px 10px;
+	background-color: #fff;
+	height: auto;
+	width: 697px;
+	padding: 5px 0 5px 10px;
+}
+
+
+.anime-list ul li{
+	display: inline-block;
+	font-size: 12px;
+	list-style-type: none;
+	margin: 5px 0 3px 0;
+  background-color: honeydew;
+  border: 1px solid #DDF0E0;
+	height: auto;
+	width: 686px;
+	position:relative;
+}
+
+.anime-list ul li:hover{
+  background-color: #a5d6a5;
+}
+
+.anime-list ul li:hover span a{
+  color: #fff;
+}
+
+.anime-list ul li span.anime-title{
+	position: absolute;
+	font-size: 15px;
+	top: 10px;
+	border-bottom: 1px dashed #000;
+	padding-bottom: 2px;
+	width: 550px;
+}
+
+.anime-list ul li span.anime-status{
+	position: absolute;
+	font-size: 13px;
+	top: 38px;
+	width: 550px;
+	left: 105px;
+}
+
+.anime-list ul li span.anime-status span .mark-up{
+	display: inline-block;
+	padding: 0 5px;
+	margin: 0 5px 0 15px;
+	height: 18px;
+	color: #fff;
+	line-height: 1.7;
+}
+
+.anime-list ul li span.anime-status span .mark-up-favo{
+  color: #E07373;
+}
+
+.anime-list ul li span.anime-status span .mark-up-watched{
+  background-color:#48bb32;
+  border-radius:1px;
+  font-size: 11px;
+}
+
+.anime-list ul li span.anime-status span .mark-up-watching{
+  background-color:#c62a54;
+  border-radius:1px;
+  font-size: 11px;
+}
+
+.anime-list ul li a img{
+  margin:5px;
+}
+
+
+.anime-list ul li span.favorite-balloon,
+.anime-list ul li span.watch-balloon{
+	position: absolute;
+	top: -35px;
+	left: -9px;
+	opacity: 1!important;
+	background-color: #c62a54;
+	color: white;
+	font-size: 11px;
+	height: 20px;
+	width: 110px;
+	padding: 5px;
+	border-radius: 2px;
+	text-align:center;
+}
+
+.anime-list ul li span.mymemory{
+	position: relative;
+	display: block;
+	left: 475px;
+	top: -58px;
+}
+
+.anime-list ul li span.mymemory button{
+	background-color: #dbcfd9;
+	background-image: -moz-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: -o-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#dbcfd9));
+	background-image: -webkit-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: linear-gradient(to bottom, #ffffff, #dbcfd9);
+	background-repeat: repeat-x;
+	border-color: #dbcfd9 #dbcfd9 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius:1px;
+	border:1px solid #ccc;
+	color: rgb(95, 95, 95);
+	display:inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size:11px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.anime-list ul li span.mymemory a,
+.anime-list ul li span.mymemory button{
+	bottom:-28px;
+	position:absolute;
+}
+
+.anime-list ul li span.mymemory a{
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 23px;
+	height: 25px;
+	left: 10px;
+	bottom: -30px;
+}
+
+.anime-list ul li span.mymemory button{
+	left: 45px;
+  top: 4px;
+}
+
+.favorite{
+	background-image:url('/images/star.png');
+}
+
+.unfavorite{
+	background-image:url('/images/star_unfavorite.png');
+}
+
+.unfavorite:hover{
+	background-image:url('/images/star.png');
+}
+
+.anime-list ul li span.mymemory button,
+.anime-list ul li span.mymemory .nologin-mymemory-watch{
+  background-color: #dbcfd9;
+	background-image: -moz-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -o-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#9E9D9D));
+	background-image: -webkit-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: linear-gradient(to bottom, #ffffff, #9E9D9D);
+	background-repeat: repeat-x;
+	border-color: #9E9D9D #dbcfd9 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	color: rgb(95, 95, 95);
+	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size: 11px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	width:47px;
+	box-shadow: 0px 0px 1px #fff;
+}
+
+.anime-list ul li span.favorite-balloon:before,
+.anime-list ul li span.watch-balloon:before{
+  right: 20%;
+  bottom: -41%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -6px;
+}
+
+.anime-list ul li .favorite-balloon:before{
+  right: 68%!important;
+  bottom: -41%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -6px;
+}
+
+.anime-list ul li span.mymemory .nologin-mymemory-watch{
+	position: absolute;
+	height: 17px;
+	width: 45px;
+	padding-top: 2px;
+	text-align: center;
+	padding-bottom: 3px;
+	left: 45px;
+	top: 3px;
+}
+
+.anime-list ul li span.animemo,
+.anime-list ul li span.tags{
+  position: absolute;
+  font-size:11px;
+}
+
+.anime-list ul li span.animemo{
+	top: 25px;
+	left: 20px;
+	line-height: 1.4;
+	width: 555px;
+}
+
+.anime-list ul li span.animemo span{
+  font-weight: bold;
+}
+
+.anime-list ul li span.tags{
+  top:57px;
+  left:20px;
+}
+
+.anime-list ul li span.tags span{
+  font-weight: bold;
+}
+
+.anime-list ul li span.tags a{
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 11.844px;
+  line-height: 14px;
+  color: #000000;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color:#a5d6a5;
+  text-decoration:none;
+}
+
+.anime-list ul li:hover span.tags a{
+  background-color:#fff;
+}
+
+.anime-list ul li:hover span.tags a:hover{
+  background-color:#48bb32;
+  color:#ffffff
+}
+
+.anime-list div.paginate-bottom{
+	position: relative;
+	display: block;
+	height: 15px;
+	margin-top: -5px;
+}
+
+.anime-list div.paginate-bottom > span{
+	position: absolute;
+	background-color: honeydew;
+	display: block;
+	padding: 0 10px;
+	border-radius: 1px;
+	right:10px;
+}
+
+.anime-list div.paginate-bottom > span nav{
+	margin: 0;
+}
+
+.anime-list div.paginate-bottom span .current{
+  color:#c62a54;
+  font-weight: bold;
+}

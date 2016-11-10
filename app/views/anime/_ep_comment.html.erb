@@ -1,0 +1,27 @@
+<div class="row-fluid amUpperSpace2">
+<p class="amTreadnewhead">更新スレッド</p>
+<div class="row-fluid">
+  <div class="span6 well">
+    <% threads.each do |thread| %>
+    <div class="row-fluid">
+      <div class="amThreadupdate">
+        <a href="<%= url_for(:controller => "anime", :action => "thread", :tid => thread.id) %>" class="span12 amThreadhead">
+          <span>
+            件名：" <%= cut_str(thread.title, 40) %> " by <%= user_nickname(thread.user) %>
+          </span>
+        </a>
+        <p>
+          <%= cut_str(thread.comments.first.try(:comment), 40) %><%# 1san %>
+        </p>
+        <% if thread.comments.first.try(:id) != thread.comments.last.try(:id) %>
+
+        <div class="alert">
+          <strong>最新コメ by <%= user_nickname(thread.comments.last.user) %></strong>：<%= cut_str(thread.comments.last.try(:comment), 40) %><%# latest comment %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

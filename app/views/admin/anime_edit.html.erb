@@ -1,0 +1,60 @@
+<% content_for :head do %>
+<%= javascript_include_tag "admin/anime_edit.js" %>
+<% end %>
+<% content_for :title do %>アニメ管理画面<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <div class="span12">
+    <div class="row-fluid">
+      <%= link_to ">>もどる", url_for(:action => "index") %>
+      <div id="search-form">
+        <%= form_tag({:action => "anime_edit_conf"}, :method => :post, :id => "anime-form") do %>
+          <%= hidden_field_tag "anime[id]", @anime.id %>
+          <table>
+            <tr>
+              <td>作品名</td>
+              <td><%= text_field_tag "anime[title]", @anime.title %></td>
+            </tr>
+            <tr>
+              <td>作品名ふりがな</td>
+              <td><%= text_field_tag "anime[kana]", @anime.kana %></td>
+            </tr>
+            <tr>
+              <td>作品タイプ</td>
+              <td><%= select_tag("anime[movie_flg]",options_for_select([["テレビ放送", 0], ["劇場", 1]], @anime.movie_flg)) %></td>
+            </tr>
+            <tr>
+              <td>放送開始日</td>
+              <td><%= text_field_tag "anime[started_on]", (@anime.started_on.strftime("%Y/%m/%d") rescue ""), :id => "start_on" %></td>
+            </tr>
+            <tr>
+              <td>放送終了日</td>
+              <td><%= text_field_tag "anime[finished_on]", (@anime.finished_on.strftime("%Y/%m/%d") rescue ""), :id => "finish_on" %></td>
+            </tr>
+            <tr>
+              <td>アニメモ</td>
+              <td><%= text_area_tag "anime[outline]", @anime.outline %></td>
+            </tr>
+            <tr>
+              <td>エピソード</td>
+              <% eps = [] %>
+              <% (1..200).each{|i| eps << ["#{i}話", i]} %>
+              <td><%= select_tag "anime[ep_cnt]", options_for_select(eps, @anime.episodes.size) %></td>
+            </tr>
+            <tr>
+              <td>掲載状態</td>
+              <td><%= select_tag("anime[status]",options_for_select([["掲載中", Anime::ACTIVE], ["保留", Anime::DRAFT]], @anime.status)) %></td>
+            </tr>
+            <tr>
+              <td>しょぼいカレンダーID</td>
+              <td><%= text_field_tag "anime[shoboi_tid]", @anime.shoboi_tid, :id => "shoboi_tid" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= submit_tag "確認", :name => "conf" %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<%= javascript_include_tag "anime/_thread_comment" %>
+
+
+<div class="row-fluid">
+  <p class="amUpperSpace2 amTreadnewhead">
+    スレッド
+  </p>
+  <div class="row-fluid">
+    <div class="span6 well">
+    <%= render :partial => "anime/thread_list", :locals => {:title => thread.title, :comments => thread.comments} %>
+      <div class="row-fluid">
+        <div class="span12 text-center">
+          <p>＜＜下記のフォームからコメントできます＞＞</p>
+          <p>
+            <%= form_tag url_for(:action => "post_comment"), {:method => :post, :id => "comment-form"} do %>
+            <%= text_area_tag "comment", "", {:size => "120x3", :id => "comment", "data-tid" => thread.id, :class => "amTextarea" } %>
+          </p>
+          <p>
+            <%= button_tag "コメントしてみる", {:name => "commit", :id => "commit", :class => "amCommentSubmit" } %>
+          </p>
+            <% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<%
+  tags ||= []
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_tag_cloud" %>
+<% end %>
+
+<div class="tag-cloud">
+	<div><i class="icon-white icon-tags"></i>人気のタグはこちら</div>
+	<ul>
+		<%- tags.each do |tag| -%>
+		  <li class="tag">
+		    <%= link_to tag.name, url_for(:action => "list", :search_key => "tag", :q => tag.name) %>
+		  </li>
+		<%- end -%>
+	</ul>
+</div>

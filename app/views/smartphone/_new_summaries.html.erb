@@ -1,0 +1,17 @@
+<%-
+  new_summaries ||= []
+-%>
+
+<% new_summaries.each_with_index do |summary, i| -%>
+  <div class="span12">
+    <a href="<%= url_for(:controller => "smartphone", :action => "summary_index", :sid => summary.id, :aid => summary.anime_id) %>" class="am-top-sidebar-img-wrap">
+      <img src="<%= anime_image_path(summary.anime_image.try(:image_path, :path_200x200)) %>">
+      <strong>
+        <%= cut_str(summary.title.to_s, 18) -%>
+      </strong>
+      <%= image_tag("/images/arrow01.png", :size =>"25x20", :class => "am-sp-index-half-arrow") %>
+      <span><%= "[#{anime_with_episode(summary.anime, summary.episode)}]" -%></span>
+    </a>
+  </div>
+<% end -%>
+

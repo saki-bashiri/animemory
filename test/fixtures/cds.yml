@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  song_id: 1
+  anime_id: 1
+  released_on: 2013-01-08
+
+two:
+  title: MyString
+  song_id: 1
+  anime_id: 1
+  released_on: 2013-01-08

@@ -1,0 +1,113 @@
+<% content_for :title do %>
+新規アニメ登録[アニメモリ]
+<% end %>
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/register", "lib/jquery-ui/jquery-ui-1.10.2.custom.min", "lib/bootstrap/bootstrap.min" %>
+<%= javascript_include_tag "anime/regist" %>
+<% end %>
+<% content_for :h1 do %>
+アニメ新規登録
+<% end %>
+
+<div class="row-fluid amRegistercontainer">
+  <div class="span4">
+    <p class="amCategoryhead2">アニメタイトル<p>
+    <div class="row-fluid">
+      <div class="span12 well amRegister amUpperSpace2 amRegisterline">
+        <%= form_tag url_for(:action => "auth_anime_entry_conf"), :multipart => true, :method => :post do %>
+
+        <div class="row-fluid">
+          <div class="span12">タイトル（最大200文字）[必須]: <%= text_field_tag "anime[title]", @anime.title, :id => "title" %></div>
+          <% if @anime.errors.present? && @anime.errors.messages[:title] %>
+        <div class="error"><%= @anime.errors.messages[:title] %></div>
+          <% end %>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12">かな（最大200文字）[必須]:<%= text_field_tag "anime[kana]", @anime.kana, :id => "kana" %></div>
+          <% if @anime.errors.present? && @anime.errors.messages[:kana] %>
+          <div class="error"><%= @anime.errors.messages[:kana] %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="span4">
+    <p class="amCategoryhead2">話数/作品タイプ<p>
+
+    <div class="row-fluid">
+      <div class="span12 well amRegister amUpperSpace2">
+        <div class="row-fluid">
+          <div class="span12">話数 [任意]：</div>
+          <% eps = [["標準(13話)", 0]] %>
+          <% (1..1000).each{|i| eps << ["#{i}話", i]} %>
+          <div class="span12"><%= select_tag("anime[ep_cnt]",options_for_select(eps, params[:ep_cnt].present? ? params[:ep_cnt].to_i : 0)) %></div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12">作品タイプ [任意] : </div>
+          <div><%= select_tag("anime[movie_flg]",options_for_select([["非映画", 0], ["映画", 1]], 0)) %></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="span4">
+    <p class="amCategoryhead2">放送日期間/最速放送曜日<p>
+    <div class="row-fluid">
+      <div class="span12 well amRegister amRegisterline amUpperSpace2">
+
+        <div class="row-fluid">
+          <div class="span12 input">放送開始日 [任意] : <%= text_field_tag "anime[started_on]", (@anime.started_on.strftime("%Y/%m/%d") rescue ""), :id => "start_on" %></div>
+          <% if @anime.errors.present? && @anime.errors.messages[:started_on] %>
+          <div class="error"><%= @anime.errors.messages[:started_on] %></div>
+          <% end %>
+        </div>
+        <div class="row-fluid">
+          <div class="span12">放送終了日 [任意]: <%= text_field_tag "anime[finished_on]", "", :id => "finish_on" %></div>
+          <% if @anime.errors.present? && @anime.errors.messages[:finished_on] %>
+          <div class="error"><%= @anime.errors.messages[:finished_on] %></div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row-fluid">
+  <div class="span12">
+    <p class="amCategoryhead2">アニメモ<p>
+    <div class="row-fluid">
+      <div class="span12 well amUpperSpace2">
+        <div class="input span10">アニメモ（最大5000文字) [必須] : <%= text_area_tag "anime[outline]", @anime.outline, {:id => "animemo", :size => "60x12"} %>
+          <% if @anime.errors.present? && @anime.errors.messages[:outline] %>
+          <div class="error"><%= @anime.errors.messages[:outline] %></div>
+          <% end %>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12 input text-center">
+            入力内容について200文字以内でコメントを入力してください。[必須]
+            <p><%= text_field_tag "anime[comment]", params[:anime].present? ? params[:anime][:comment].to_s : "", :id => "comment" %></p>
+            <% if @comment_error.present? %>
+            <div class="error"><%= @comment_error %></div>
+            <% end %>
+          </div>
+
+
+          <div class="row-fluid amRegistercontainer text-center">
+            <div class="span12"><%= submit_tag "確認", :name => "conf", :id => "conf" %></div>
+          </div>
+          <% end %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

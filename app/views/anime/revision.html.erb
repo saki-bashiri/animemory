@@ -1,0 +1,41 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/images" %>
+<% end %>
+<% content_for :title do %>
+編集履歴閲覧画面
+<% end %>
+<% content_for :h1 do %>
+編集履歴閲覧画面　[アニメモリ]
+<% end %>
+<div class="row-fluid amUpperSpace2">
+  <div class="span12">
+  <h1 class="amCategoryhead amRevisiontitle"><%= link_to @anime.title, url_for(:action => "dtl", :anime => @anime.id), :class => "amImgliblink" %>の編集履歴</h1>
+    <div class="row-fluid">
+      <div class="span12 well amRivisioncontent text-left">
+  <table class="table-bordered table">
+    <tr class="badge-warning">
+      <th class="span1">編集No.</th>
+      <th class="span1">参照No.</th>
+      <th class="span2">編集者</th>
+      <th class="span2">編集日時</th>
+      <th class="span4">コメント</th>
+      <th class="span1">閲覧link</th>
+      <th class="span1">編集link</th>
+    </tr>
+    <% @anime_histories.each do |anime_history| %>
+    <tr>
+      <td class="text-center"><%= anime_history.id %></td>
+      <td class="text-center"><%= anime_history.revision_id %></td>
+      <td><%= anime_history.user.try(:nickname) %></td>
+      <td><%= anime_history.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+      <td><%= anime_history.comment %></td>
+      <td class="text-center"><a href ="<%= url_for(:action => "dtl", :anime => anime_history.anime_id, :rev => anime_history.id) %>">閲覧</a></td>
+      <td class="text-center"><a href="<%= url_for(:action => "edit", :anime => anime_history.anime_id, :rev => anime_history.id) %>">編集</a></td>
+    </tr>
+    <% end %>
+  </table>
+
+  </div>
+  </div>
+</div>
+</div>

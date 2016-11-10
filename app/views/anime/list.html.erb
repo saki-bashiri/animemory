@@ -1,0 +1,15 @@
+<% content_for :head do %>
+<%= javascript_include_tag "common/mymemory", "common/search" %>
+<% end %>
+  
+<div class="row-fluid">
+  <div class="span3">
+  	<%= render :partial => "shared/urging_user_for_login_and_mypage", :locals =>{:user => @user} -%>
+    <%= render :partial => "shared/sidebar_ads", :locals => {:amazon_products => @amazon_products} -%>
+  </div>
+
+  <div class="span9">
+    <%= render :partial => "anime/list_content", :locals => {
+      :animes => @animes, :mymemory_hash => @mymemory_hash, :user => @user} -%>
+  </div>
+</div>

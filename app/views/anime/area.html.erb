@@ -1,0 +1,58 @@
+<% content_for :title do %>
+  アニメモリ-animemory-
+<% end %>
+<% content_for :head do %>
+  <meta charset="utf-8" xmlns="http://www.w3.org/1999/html">
+  <meta name="description" content="animemory">
+  <meta name="keywords" content="アニメ,anime">
+  <%= stylesheet_link_tag "anime/top", "anime/detail" %>
+  <%= stylesheet_link_tag "anime/layout" %>
+  <%= stylesheet_link_tag "anime/style3" %>
+  <%= javascript_include_tag "lib/jquery/jquery-1.9.1.min", "anime/index" %>
+<% end %>
+
+<div id="inner">
+  <%=  render :partial => "top_form" %>
+
+  <%= render :partial => "anime/area_info" %>
+  <div id="anime-info">
+    <ul class="tab">
+      <% tab = ["日", "月", "火", "水", "木", "金" , "土", "工事中"] %>
+      <% for i in 0..7 do -%>
+        <li><a href="#tab<%= i %>" class=<%=( i == (@today - 5.hour ).wday ) ?  "selected" : "" %> ><%= tab[i] %></a></li>
+      <% end -%>
+    </ul>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div class="anime-daily-list">
+      <ul class="panel">
+        <% Weekday::ALLDAYS.each_key do |weekday| -%>
+          <li id="tab<%= weekday %>">
+            <div class="onair-wrap">
+              <% @wday_schedules[weekday].each do |sc| -%>
+                <div class="onair-box">
+                  <a href="<%= url_for(:action => "dtl", :epid => sc.episode_id ) %>">
+                    <img src="<%= anime_image_path( sc.anime.icon_path(:thumb_path) ) %>" class="anime-image" data-noimage="<%= anime_image_path("/images/no_image.jpg") %>">
+                  </a>
+                  <div class="clear">
+                    <%= link_to "#{cut_str(sc.anime.try(:title), 9)}##{sc.episode.try(:episode)}", {:action => "dtl", :epid => sc.episode_id } %>
+                  </div>
+                  <div class="clear">
+                    <% onair = sc.on_air_time %>
+                    <%= animetime(onair)%>
+                  </div>
+                  <div class="clear">
+                    <%= "(#{sc.medium.try(:name)})" %>
+                  </div>
+                </div>
+              <%- end -%>
+            </div>
+          </li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render :partial => "top_side_bar" %>
+</div>

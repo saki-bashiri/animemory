@@ -1,0 +1,15 @@
+<% 0.upto(9) do |n| %>
+mymemory<%= n %>:
+  user_id: <%= n %>
+  anime_id: <%= n %>
+  favorite_flg: <%= n % 2 %>
+  watch_flg: <%= n % 3 %>
+  myfolder_id: <%= n %>
+  memo: <%= n %>
+  story_fav_flg: <%= n % 2 %>
+  voice_fav_flg: <%= n % 2 %>
+  chara_fav_flg: <%= n % 2 %>
+  animation_fav_flg: <%= n % 2 %>
+  performance_fav_flg: <%= n % 2 %>
+  sound_fav_flg: <%= n % 2 %>
+<% end %>

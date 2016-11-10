@@ -1,0 +1,15 @@
+<div>
+  <h3>
+    <%= @summary.title %>
+  </h3>
+  <ul>
+    <% @summary.summary_comments.each do |scomment| %>
+      <% comment = scomment.comment %>
+      <li>
+        <p><%= user_nickname(comment.user) %></p>
+        <%= comment.comment %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

@@ -1,0 +1,42 @@
+.am-error{
+  filter: alpha(opacity=75);
+  -moz-opacity: 0.75;
+  opacity: 0.75;
+  background-image: url('/images/error.png');
+  background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-repeat:repeat-y;
+  min-height: 700px;
+  position:relative;
+}
+
+.am-error-sentence-wrap{
+  filter: alpha(opacity=100) !important;
+  -moz-opacity: 1 !important;
+  opacity: 1 !important;
+  background-image: url('/images/hukidashi-error.png');
+  background-repeat:no-repeat;
+  background-size: 95%;
+  -webkit-background-size: 95%;
+  -o-background-size: 95%;
+  width: 300px;
+  min-height: 500px;
+  position: absolute;
+  top:100px;
+  left:310px;
+}
+
+.am-error-sentence{
+  position: absolute;
+  left:120px;
+  top:50px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.am-error-sentence table tr td{
+  display: inline-block;
+  margin-left: 7px;
+  margin-right: 7px;
+}

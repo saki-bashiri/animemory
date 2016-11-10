@@ -1,0 +1,22 @@
+<%
+  anime ||= nil
+  mymemory ||= nil
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_dtl_anime_title_set" %>
+  <%= javascript_include_tag "anime/_dtl_anime_title_set" %>
+<% end %>
+<div class="dtl-anime-title-set">
+  <strong class="inner">
+    <%= anime.title.to_s %>
+  </strong>
+  <small>
+    <cite>ー&nbsp;<%= anime.kana.to_s %></cite>
+  </small>
+  <%= mymemory_js_data %>
+  <div class="am-anime-status-buttons mymemory" data-aid="<%= mymemory.try(:anime_id) %>">
+    <%= favorite_button(mymemory, :button => {:id => "mymemory-favorite", :class => "mymemory-favorite"}, :balloon => {:class => "am-arrow-balloon-fav"}, :nologin => {:id => "mymemory-favorite-no-login"}) %>
+    <%= watch_button(mymemory, :button => {:id => "mymemory-watch", :class => "mymemory-watch"}, :balloon => {:class => "am-arrow-balloon-watch"}, :nologin => {:id => "mymemory-watch-no-login"} ) %>
+  </div>
+</div>

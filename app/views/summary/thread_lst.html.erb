@@ -1,0 +1,49 @@
+<%
+  anime_title = @episode.present? ? "#{@anime.title} #{@episode.episode}話" : "#{@anime.title}"
+%>
+<% content_for :title do %>
+アニメモリ-animemory-
+<% end %>
+<% content_for :head do %>
+<%= stylesheet_link_tag "summary/thread_list" %>
+<% end %>
+
+<% content_for :h1 do %>
+<%= anime_title %>のまとめ作成ページ
+<% end %>
+
+<div class="row-fluid">
+  <div class="span3 text-center ">
+    <div class="">
+      <img src="<%= anime_image_path(@anime.anime_image.present? ? @anime.anime_image.image_path(:path_200x200) : "/images/no_image_200x200.jpg" ) %>" id="anime-image" class="img-polaroid">
+    </div>
+    <div class="amImagelink">
+      <div><p class="am-special-btn row-fluid"><%= link_to "アニメ詳細へ", url_for(:controller => "anime", :action => "dtl", :anime => @anime.id, :id => "am-anime-title") %></p></div>
+    </div>
+  </div>
+
+  <div class="span9 text-center">
+    <h2 class="am-anime-title-for-summary">
+      『<%= link_to anime_title, url_for(:controller => "anime", :action => "dtl", :anime => @anime.id, :id => "am-anime-title", :class => "text-left") %>  』のまとめを作る
+    </h2>
+    <div class="am-thread-list-upper am-navbar">
+      <%= form_tag url_for(), :method => :get do %>
+        <%= hidden_field_tag "aid", @anime.id %>
+        <%= hidden_field_tag "epid", @episode.id if @episode.present? %>
+        <span>キーワード：<%= text_field_tag "q", params[:q] %><span>
+        <% checked = params[:more].present? ? {:checked => true} : nil %>
+        <span><%= check_box_tag "more", "1", checked %>レス内文字列を含める<span>
+        <%= submit_tag "検索する", :name => "search" %>
+      <% end %>
+    </div>
+    <div class="am-thread-list-wrap">
+      <ul class="am-thread-list">
+        <% @threads.each do |thread| %>
+        <li class="am-thread-title text-left">
+          <a href="<%= url_for(:action => "register", :dat_cd => thread.dat_cd, :aid => @anime.id, :epid => @episode.try(:id)) %>"><%= "#{thread.subject} (#{thread.count}) @#{thread.board.name}" %></a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

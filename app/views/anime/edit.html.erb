@@ -1,0 +1,21 @@
+<% content_for :head do %>
+<%= javascript_include_tag "anime/edit" %>
+<%= stylesheet_link_tag "anime/edit" %>
+<% end %>
+<% content_for :title do %>
+  <%= @anime.title %>のアニメモを編集しましょう！[アニメモリ]
+<% end %>
+<% content_for :h1 do %>
+  アニメモを編集して<%= @anime.title %>の情報を充実させましょう！
+<% end %>
+
+<div class="span12">
+  <div class="anime-edit">
+    <div><i class="icon icon-edit"></i>[アニメモ]編集 (※5000文字以内)</div>
+      <%= form_tag url_for(:action => :edit_conf), :method => :post do %>
+        <%= hidden_field_tag :aid, @anime.id %>
+        <%= text_area_tag "outline", @anime.outline, :id =>"animemo-edit" %>
+        <span><%= submit_tag "確認", :id => "submit-button" %></span>
+      <% end %>
+  </div>
+</div>

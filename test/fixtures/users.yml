@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mail_address: MyString
+  password: MyString
+  nickname: MyString
+  register_type: 1
+  status: 1
+
+two:
+  mail_address: MyString
+  password: MyString
+  nickname: MyString
+  register_type: 1
+  status: 1

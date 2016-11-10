@@ -1,0 +1,12 @@
+<div id="am-footer" class="am-theme-color-green">
+  <% if params[:action] != "summary_howto" %>
+  <div id="page-up"><a href="#layout-header">ページの先頭へ</a></div>
+  <%- end -%>
+    <ul id="amNavinfo">
+        <li><%= link_to "ABOUT アニメモリ", create_url({:controller => "help", :action => "index"}, {:https => false}), :class => "am-font-color-white" -%></li>
+        <li>
+          <%= auto_discovery_link_tag(:rss, {:controller => "xml", :action => "matome", :format => "rss"}) %>
+        </li>
+      </ul>
+    <div class="copyright">Copyright &copy; Crewmo, Inc. All Rights Reserved.</div>
+</div>

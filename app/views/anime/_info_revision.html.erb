@@ -1,0 +1,71 @@
+<div id="info-revision">
+
+<table>
+
+  <tr>
+    <td><img src="<%= anime_image_path( anime.anime.anime_image.present? ? anime.anime.anime_image.image_path(:path_100x100) : "/images/no_image.jpg") %>"></td>
+  </tr>
+
+  <tr>
+    <td><%= button_to("マイメモリ", {:controller => "mymemory", :action => "register", :anime => anime.id}) %></td>
+  </tr>
+
+
+  <tr>
+    <td>タイトル</td>
+    <td><a href="<%= url_for(:action => "dtl", :anime => anime.id) %>"><%= revision.title.to_s %></a></td>
+  </tr>
+
+  <tr>
+    <td>かな</td>
+    <td><%= revision.kana.to_s %></td>
+  </tr>
+
+  <tr>
+    <td>キャラクター</td>
+    <td>
+      <% anime.characters.each do |character| %>
+          [<%= character.name.to_s %>（<%= character.kana.to_s %>） : <%= character.creator.name.to_s if character.creator.present? %>  @@<%= character.comment.to_s %>],
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>曲</td>
+    <td>
+      <% anime.songs.each do |song| %>
+          [<%= song.title.to_s %> : <%= song.singer.name.to_s if song.singer.present? %> ...作詞: <%= song.songwriter.name if song.songwriter.present? %>...作曲: <%= song.composer.name if song.composer.present? %>  @@<%= song.description.to_s %>],
+          <% form_tag url_for(:controller => "anime", :action => "song_edit"), :method => :post do %>
+              <%= hidden_field_tag "song_id", song.id %>
+              <%= submit_tag "[編集]" %>
+          <% end %>
+      <% end %>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td>原作</td>
+    <% if anime.origin.present? %>
+        <td><%= anime.origin.title.to_s %></td>
+        <td><%= anime.origin.description.to_s %></td>
+    <% end %>
+  </tr>
+
+
+
+  <tr>
+    <td>放送開始日</td>
+    <td><%= revision.started_on.strftime("%Y年%m月%d日") if revision.started_on.present? %></td>
+  </tr>
+  <tr>
+    <td>放送終了日</td>
+    <td><%= revision.finished_on.strftime("%Y年%m月%d日") if revision.finished_on.present? %></td>
+  </tr>
+  <tr>
+    <td>memo</td>
+    <td><%= revision.outline if revision.outline.present? %></td>
+  </tr>
+</table>
+
+</div>

@@ -1,0 +1,222 @@
+
+
+/* index放送アニメ情報の調整 */
+
+.am-lower-space-10px{
+  margin-bottom: 10px;
+}
+
+.accordion-toggle{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.accordion-heading .btn-group{
+  padding-top: 7px;
+  padding-bottom: 8px;
+  width: auto;
+}
+
+.accordion{
+  text-align: center;
+}
+
+.alert-block {
+  margin-bottom: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+
+}
+
+.alert-block .btn {
+  margin-right: -20px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.container-fluid {
+  float: left;
+  margin-top: 25px;
+  padding: 0;
+  min-width:130px ;
+  text-align: center;
+  *zoom: 1;
+}
+
+.nav-tabs li{
+  float:left;
+}
+
+.amColor{
+  background-color: #fafafa!important;
+}
+
+.amColor a{
+  color: #4f7255;
+}
+
+.thumbnail {
+  margin: 2px !important;
+  padding: 0;
+  height:157px;
+  border: none;
+  list-style-type: none;
+  font-size: 10px;
+}
+
+.thumbnail:hover {
+  background-color: #fcc222;
+}
+
+.amDailylist{
+  margin-top: 5px;
+  margin-left: 15px;
+  min-height: 495px;
+}
+
+.am-thumbnail{
+  position: relative!important;
+  overflow: hidden!important;
+  margin-bottom: 5px!important;
+  margin-left: 12px!important;
+  width: 152px!important;
+  height: 150px!important;
+  border-radius: 0!important;
+}
+
+.am-thumbnail dl{
+  position: absolute!important;
+  top: 120px;
+  padding-top: 5px;
+  width: 151px;
+  height: 65px;
+  background-image: url("/images/daily_info_dl_background.png");
+  opacity: 1;
+}
+
+.am-thumbnail dl a{
+  border-bottom:1px dotted;
+  color: white;
+  text-decoration:none;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.am-thumbnail dl a:hover{
+  border-color: #ff9600;
+  color: #ff9600;
+  text-decoration: none;
+}
+
+.amDailylist .thumbnail img{
+  width: 150px;
+  height: 150px;
+  border: 1px solid #d0d0d0;
+}
+
+.well{
+  padding: 0;
+  height:48px;
+  text-align:center;
+  font-size: 9px;
+}
+
+.amDailyupper{
+  margin-top: 18px !important;
+  margin-right: 0!important;
+  margin-left: 0!important;
+  width: 70px!important;
+  border: none!important;
+  border-radius: 0!important;
+}
+
+.amDailyupper a{
+  color: #888888 !important;
+  font-weight: bold!important;
+  font-size: 19px!important;
+}
+
+.am-top-outside-summary-cat-headder{
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.am-outside-summary-wrap, .am-outside-summary-wrap-right{
+  padding-left: 5px;
+  list-style-image: url("/images/list-mark-red.gif");
+  font-size: 11px;
+  margin-left:30px !important;
+}
+
+.am-outside-summary-wrap li{
+  margin-bottom: 0;
+}
+
+.am-outside-summary-wrap td a span{
+  text-decoration: none!important;
+}
+
+li.selected{
+  background-color: #dddddd !important;
+}
+
+li.selected a{
+  color: #c62a54!important;
+}
+
+/* index検索コンポーネントの調整   */
+
+ul.nav li button{
+    height: 25px;
+    font-size: 10px;
+}
+
+ul.nav li input[type="text"]{
+  height: 15px;
+  font-size: 13px;
+}
+
+ul.nav li input[type="submit"]{
+   margin-left: -17px;
+   width: 60px;
+   height: 25px;
+   font-size: 13px;
+}
+
+/* index画像枠のサイズ調整 */
+.accordion-group{
+  border: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #353fff535;
+}
+
+.am-embos-border{
+  border: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #353fff535;
+  /* IE以外なら丸角も！ */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.well{
+  background-color: #ffffff;
+}
+
+/*　sidebarの指定　*/
+
+a.amNodecoration{
+  text-decoration: none;
+}
+
+.img-polaroidtop {
+  padding: 1px;
+  border: 1px ridge #ccc;
+  border: 1px ridge rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

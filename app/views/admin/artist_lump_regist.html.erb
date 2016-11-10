@@ -1,0 +1,72 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>アーティスト（声優・歌手・作詞者）一括登録<% end %>
+<% content_for :title do %>アーティスト（声優・歌手・作詞者）一括登録<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin">
+      <div>アーティスト（声優・歌手・作詞者）一括登録</div>
+    </div>
+    <div class="amAdminWell">
+      <% if params[:conf].present? && params[:file].present? %>
+      <%= form_tag({:action => "artist_lump_regist"}, :method => :post) do %>
+            <table>
+              <tr>
+                <td>名前</td>
+                <td>ふりがな</td>
+                <td>ニックネーム</td>
+                <td>誕生日</td>
+                <td>声優</td>
+                <td>歌手</td>
+                <td>作曲者</td>
+                <td>作詞者</td>
+              </tr>
+              <% @artists.each_with_index do |artist, i| %>
+                <%= hidden_field_tag "artist[][name]", artist.name %>
+                <%= hidden_field_tag "artist[][kana]", artist.kana %>
+                <%= hidden_field_tag "artist[][birthday]", artist.birthday.strftime("%Y-%m-%d") rescue "" %>
+                <%= hidden_field_tag "artist[][voice_actor_flg]", artist.voice_actor_flg %>
+                <%= hidden_field_tag "artist[][singer_flg]", artist.singer_flg %>
+                <%= hidden_field_tag "artist[][composer_flg]", artist.composer_flg %>
+                <%= hidden_field_tag "artist[][songwriter_flg]", artist.songwriter_flg %>
+                <tr>
+                  <td><%= artist.name %></td>
+                  <td><%= artist.kana %></td>
+                  <td><%= artist.nickname %></td>
+                  <td><%= artist.birthday.present? ? artist.birthday.strftime("%Y/%m/%d") : "なし" %></td>
+                  <td><%= artist.voice_actor_flg == 1 ? "○" : "×" %></td>
+                  <td><%= artist.singer_flg == 1 ? "○" : "×" %></td>
+                  <td><%= artist.composer_flg == 1 ? "○" : "×" %></td>
+                  <td><%= artist.songwriter_flg == 1 ? "○" : "×" %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td><%= submit_tag "登録", :name => "commit" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <% else %>
+          <%= form_tag({:action => "artist_lump_regist"}, :method => :post, :multipart => true) do %>
+      <div class="amAdminTag">
+        <div class="button_wrapper">
+          <div class="button">
+            ファイルを選択
+          </div>
+          <%= file_field_tag("file") %>
+          ⬆をクリックしてファイルを選択しやがれ！
+        </div>
+        <div>
+
+        </div>
+        <div class="amAdminTag">
+          <%= submit_tag "登録内容の確認", :name => "conf" %>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

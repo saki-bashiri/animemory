@@ -1,0 +1,166 @@
+.dtl-episodes-group{
+	margin-top: -1px;
+	padding-bottom: 10px;
+  position: relative;
+  background-color: #a5d6a5;
+  border-radius: 3px;
+  min-height: 50px;
+}
+
+.dtl-episodes-group div:first-child{
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px;
+  margin-top: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -5px;
+  background-color: #48bb32;
+  position: absolute;
+  display: block;
+  width: 360px;
+}
+
+.dtl-episodes-group div:first-child i{
+  margin-right: 2px;
+  margin-top: 0;
+}
+
+.dtl-episodes-group div ul{
+  display: inline-block;
+  font-size: 12px;
+  list-style-type: none;
+  margin: 60px 10px 0 10px;
+  background-color: #fff;
+  height: auto;
+  width: 369px;
+  padding:5px;
+}
+
+.dtl-episodes-group div ul li{
+	-moz-border-radius: 4px 3px 3px 3px;
+	-webkit-border-radius: 4px 3px 3px 3px;
+	border-top: 1px solid #DFDFDF;
+	border-left: 1px solid #DFDFDF;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #FFFDFD, #EDF3EE);
+	background-image: -o-linear-gradient(top, #FFFDFD, #EDF3EE);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFDFD), to(#EDF3EE));
+	background-image: -webkit-linear-gradient(top, #FFFDFD, #EDF3EE);
+	background-image: linear-gradient(to bottom, #FFFDFD, #EDF3EE);
+	background-repeat: repeat-x;
+	box-shadow: 2px 2px 2px #ADA8A8;
+	display: block;
+	margin: 2px 5px 5px 5px;
+	padding: 5px;
+	position: relative;
+	width: 95%;
+	z-index: 0;
+	border-radius: 4px 3px 3px 3px;
+}
+
+.dtl-episodes-group div ul li:first-child{
+ 
+}
+
+.dtl-episodes-group div ul li:hover{
+	background-color: #a5d6a5;
+	background-image: none;
+	background-repeat: repeat-x;
+	color:#fff;
+}
+
+.dtl-episodes-group div ul li:hover a{
+	color:#000;
+}
+
+.dtl-episodes-group div ul li a{
+  display: inline-block;
+  color: #53634F;
+  width: 295px;
+}
+
+.dtl-episodes-group div ul li span{
+  display: inline-block;
+  position:absolute;
+  right:5px;
+}
+
+.dtl-episodes-group div ul li button{
+	-moz-border-radius: 2px;
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #EEEEEE, #B3B1B1);
+	background-image: -o-linear-gradient(top, #EEEEEE, #B3B1B1);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#EEEEEE), to(#B3B1B1));
+	background-image: -webkit-linear-gradient(top, #EEEEEE, #B3B1B1);
+	background-image: linear-gradient(to bottom, #EEEEEE, #B3B1B1);
+	background-repeat: repeat-x;
+	border-bottom-color: #b3b3b3;
+	border-color: #e6e6e6 #ACA8A8 #bfbfbf;
+	border-radius: 0;
+	border: 1px #D8D8D8 outset;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	color: #000;
+	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size: 11px;
+	line-height: 20px;
+	padding: 0 2px;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	text-decoration: none;
+	width:50px;
+	text-align: center;
+	float: left;
+	border-radius: 2px;
+}
+
+.episode-memory-balloon{
+	position: absolute;
+	width: 105px;
+	background-color: #000;
+	color: white;
+	font-size: 11px;
+	top: -40px;
+	right: -10px!important;
+	padding: 5px 2px;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.episode-memory-balloon:after{
+	right: 15%;
+	bottom: -45%;
+  border: solid transparent;
+  content: " ";
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #000;
+  border-width: 8px;
+  margin-top: -6px;
+}
+
+.watched, .will-watch{
+	background-image: none!important;
+	border: 1px #fff inset!important;
+	border-radius: 4px!important;
+	color:white!important;
+	font-weight:normal!important;
+	text-shadow:none!important;
+}
+
+.dtl-episodes-group div ul li span.episode-memory-box .watched{
+	background-color: #c62a54!important;
+}
+
+.will-watch{
+	background-color: #48bb32!important;
+}

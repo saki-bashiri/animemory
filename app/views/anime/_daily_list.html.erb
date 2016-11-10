@@ -1,0 +1,80 @@
+  <%- content_for :head do -%>
+    <%= stylesheet_link_tag "anime/_daily_info" %>
+    <%= javascript_include_tag "anime/_daily_list" %>
+  <%- end -%>
+
+<div class="span12">
+
+  <div class="accordion-heading area">
+    <div class="alert alert-block alert-success am-theme-color-green am-no-border-radius">
+      <h5>放送中アニメ情報
+        <a class="btn pull-right" data-toggle="collapse" href="#area1">
+          放送エリア指定
+        </a>
+      </h5>
+    </div>
+    <div id="area1" class="accordion-body collapse">
+      <div class="accordion" id="equipamento1">
+        <div class="accordion-group">
+          <div class="btn-group" id="area-box" data-toggle="buttons-radio" data-url="<%= url_for(:action => "area") %>" >
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::TOKYO %>" href="#">東京</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::SAITAMA %>" href="#">埼玉</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::CHIBA %>" href="#">千葉</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::KANAGAWA %>" href="#">神奈川</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::KINKI %>" href="#">近畿</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::TOKAI %>" href="#">東海</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::HOKKAIDO %>" href="#" >北海道</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::TOHOKU %>" href="#">東北</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::CHUBU %>" href="#">中部</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::CHUGOKU %>" href="#">中国</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::KYUSHU %>" href="#">九州</a>
+            <a class="btn area-key" data-toggle="tab" data-areaid="<%= Medium::JAPAN %>" href="#">全国</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="span12 am-embos-border am-no-border-radius" id="daily-list">
+    <div class="alert alert-block amColor">
+      <ul class="nav nav-tabs">
+        <!-- wdaysから工事中(wdays[7])を一旦除去 -->
+        <% wdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI" , "SAT"] %>
+        <% (0..6).each do |i| -%>
+          <li class="<%=( i == (@today - 5.hour ).wday ) ? "selected" : "" %> amDailyupper text-center" data-tab="<%= "#wday#{i}" %>"><a href="<%= "#wday#{i}" %>" ><%= wdays[i] %></a></li>
+        <% end -%>
+      </ul>
+      <% Weekday::ALLDAYS.keys.sort.each do |weekday| -%>
+      <div class="row-fluid text-center amDailylist" id="<%= "wday#{weekday}" %>">
+        <% if !@wday_schedules[weekday].empty? %>
+          <% @wday_schedules[weekday].each do |sc, i| -%>
+            <div class="span3 thumbnail am-thumbnail">
+              <dl class="am-font-color-white">
+                <%= link_to "#{cut_str(sc.anime.try(:title), 11)}##{sc.episode.try(:episode)}", {:action => "dtl", :epid => sc.episode_id } -%><br />
+                <%= animetime(sc.on_air_time) -%><br />
+                <%= "(#{sc.medium.try(:name)})" -%>
+              </dl>
+              <a href="<%= url_for(:action => "dtl", :epid => sc.episode_id) -%>" title="<%= sc.anime.try(:title) -%>">
+                <img src="<%= anime_image_path( sc.anime.anime_image.present? ? sc.anime.anime_image.image_path(:path_150x150) : "/images/no_image_200x200.jpg" ) -%>">
+              </a>
+            </div>
+          <%- end -%>
+        <% else %>
+          <div class="span3 thumbnail am-thumbnail">
+            <dl class="am-font-color-white">
+              放送予定のアニメはありません<br>
+              他曜日・エリアでも探してみてね<br>
+            </dl>
+            <a href="#">
+              <img src="<%= anime_image_path("/images/no_image.jpg") %>">
+            </a>
+          </div>
+        <% end %>
+      </div>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<%# 呼び出し元で呼ぶ render :partial => "anime/daily_list" %>

@@ -1,0 +1,43 @@
+.am-summary-instruction-contents ol li span {
+  font-weight: bolder;
+  font-size: 13px;
+  color: #f60000;
+}
+
+.am-summary-instruction-contents{
+  border: 1px solid #e3e3e3;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.am-summary-instruction-contents{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  min-height: 80px;
+  background-color: #ffffff;
+}
+
+
+.am-summary-edit-instruction{
+  padding: 5px 0 0 0;
+  display: block;
+  height: 25px;
+  font-size: 17px;
+  margin-bottom: 3px;
+  list-height:1;
+  text-shadow: -1px -1px white, 1px 1px #333;
+}
+
+.am-summary-edit-instruction{
+  background-color: #c62a54;
+  color: #ffffff;
+}
+
+.am-summary-howto{
+  margin-left: 0!important;
+  margin-right: 10px!important;
+}

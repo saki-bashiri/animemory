@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  anime_id: 1
+  episode: 1
+  subtitle: MyString
+  total_watched_count: 1
+  total_favorite_count: 1
+  status: 1
+
+two:
+  anime_id: 1
+  episode: 1
+  subtitle: MyString
+  total_watched_count: 1
+  total_favorite_count: 1
+  status: 1

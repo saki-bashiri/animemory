@@ -1,0 +1,38 @@
+.animemory-error{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.animemory-error > div{
+  position:relative;
+  width:400px;
+  height:350px;
+  background-color:#f7f5f5;
+  display: inline-block;
+  border-radius:5px;
+  text-align: center;
+}
+
+.warning-sign{
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.animemory-error > div > span:nth-child(2){
+  font-size: 20px;
+  color:#D31879;
+ display: inline-block;
+  margin-top:30px;
+}
+
+.animemory-error > div > span:nth-child(3){
+  margin-top:30px;
+  font-size: 12px;
+  width:300px;
+  display: inline-block;
+}
+
+.animemory-error > div > span:nth-child(4){
+  display: inline-block;
+  margin-top: 20px;
+}

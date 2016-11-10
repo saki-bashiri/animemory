@@ -1,0 +1,13 @@
+<h1> <%= @anime.title %> 新規キャラクター登録</h1>
+<div>
+  <%= form_tag (url_for(:action => "add_conf"), :method => :post) do %>
+      <ul>
+        <li>名前：<%= text_field_tag "character[name]" %></li>
+        <li>ふりがな：<%= text_field_tag "character[kana]" %></li>
+        <li>コメント：<%= text_area_tag "character[description]" %></li>
+        <li>CV: <%= text_field_tag "character[arid]" %></li>
+        <%= hidden_field_tag "anime", @anime.id %>
+        <li><%= submit_tag "確認", :name => "conf" %></li>
+      </ul>
+  <% end %>
+</div>

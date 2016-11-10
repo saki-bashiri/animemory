@@ -1,0 +1,66 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>
+  声優・歌手・作曲者・作詞者管理
+<% end %>
+<% content_for :title do %>声優・歌手・作詞者<% end %>
+<div class="row-fluid amAdminBody2" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin2">
+      <div>声優・歌手・作曲者・作詞者管理</div>
+    </div>
+    <div class="amBadge-Admin">
+      <%= form_tag({:action => "artist"}, :method => :get) do %>
+      <div class="amAdminSearch">
+        <div class="amAdminSearch">
+          <span><span>名前</span><%= text_field_tag "q", params[:q] %></span>
+          <span><span>アニメID</span><%= text_field_tag "aid", params[:aid] %></span>
+          <span class="amAdminEpInput"><span>エピソード</span><%= text_field_tag "ep", params[:episode] %>話</span>
+        </div>
+        <div class="text-center amAdminInput"><%= submit_tag "検索", :name => "search" %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row-fluid amAdminCountWrap">
+      <span class="span6 text-left amSearchResultLeft"><%= page_entries_info(@artists) %></span>
+      <span class="span6 text-right amSearchResultRight"><%= paginate(@artists) %></span>
+    </div>
+
+      <div class="row-fluid">
+        <table class="amAdminTableWrap2">
+          <tr class="amAdminTableHead">
+            <th class="amAdminEp">ID</th>
+            <th class="amAdminAnimeTitleSchedule2">名前</th>
+            <th class="amAdminAnimeTitleSchedule2">ふりがな</th>
+            <th class="amAdminAnimeTitleSchedule2">ニックネーム</th>
+            <th class="amAdminAnimeTitleSchedule2">誕生日</th>
+            <th class="amAdminAnimeCheckbox">声優</th>
+            <th class="amAdminAnimeCheckbox">歌手</th>
+            <th class="amAdminAnimeCheckbox">作曲</th>
+            <th class="amAdminAnimeCheckbox">作詞</th>
+            <th class="amAdminAnimeUpdate3">更新</th>
+          </tr>
+          <% @artists.each_with_index do |artist, i| %>
+            <%= form_tag({:action => "artist"}, :method => :post) do %>
+              <%= hidden_field_tag "id", artist.id %>
+          <tr class="amAdminTable <%= cycle("even","odd") %>">
+            <td class="amAdminEpElement"><%= artist.id %></td>
+            <td class="amAdminAnimeTitleSchedule"><%= text_field_tag "name", artist.name %></td>
+            <td class="amAdminAnimeTitleSchedule"><%= text_field_tag "kana", artist.kana %></td>
+            <td class="amAdminAnimeTitleSchedule"><%= text_field_tag "nickname", artist.nickname %></td>
+            <td class="amAdminAnimeTitleSchedule"><%= text_field_tag "birthday", artist.birthday.present? ? artist.birthday.strftime("%Y/%m/%d") : "" %></td>
+            <td class="amAdminAnimeCheckbox"><%= check_box_tag "voice_actor_flg", 1, artist.voice_actor_flg == 1 %></td>
+            <td class="amAdminAnimeCheckbox"><%= check_box_tag "singer_flg", 1, artist.singer_flg == 1 %></td>
+            <td class="amAdminAnimeCheckbox"><%= check_box_tag "composer_flg", 1, artist.composer_flg == 1 %></td>
+            <td class="amAdminAnimeCheckbox"><%= check_box_tag "songwriter_flg", 1, artist.songwriter_flg == 1 %></td>
+            <td><%= submit_tag "更新", :name => "commit" %></td>
+          </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>

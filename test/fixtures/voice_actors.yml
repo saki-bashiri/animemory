@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  gender: 1
+  birthday: 2013-01-07
+
+two:
+  name: MyString
+  kana: MyString
+  nickname: MyString
+  gender: 1
+  birthday: 2013-01-07

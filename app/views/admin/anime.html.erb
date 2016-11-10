@@ -1,0 +1,45 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>
+  <div>アニメ管理</div>
+<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+
+  <div class="span9">
+    <div class="amBadge-Admin2">
+     <div>アニメ管理</div>
+    </div>
+    <div class="amBadge-Admin">
+      <%= form_tag({:action => "anime"}, :method => :post, :id => "anime-form") do %>
+          <div class="amAdminSearch">
+            <span><span>アニメID</span><%= text_field_tag "aid", params[:aid] %></span>
+            <span><span>作品名</span><%= text_field_tag "title", params[:title] %></span>
+            <span><span>作品名(かな)</span><%= text_field_tag "kana", params[:kana] %></span>
+          </div>
+
+          <div class="text-center amAdminInput"><%= submit_tag "検索", :name => "search" %></div>
+
+      <% end %>
+    </div>
+
+
+    <div class="row-fluid　amAdminCountWrap">
+      <span class="text-left span6 amSearchResultLeft"><%= page_entries_info(@animes) %></span>
+      <span class="text-right span6 amSearchResultRight"><%= paginate(@animes) %></span>
+    </div>
+
+    <div class="row-fluid amAdminBody">
+      <ul class="amAdminAnimes">
+        <% @animes.each do |anime| %>
+        <li class="<%= cycle("even","odd") %>">
+          <a href="<%= create_url({:action => "anime_edit", :aid => anime.id}) %>"><%= anime.title %></a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+
+</div>

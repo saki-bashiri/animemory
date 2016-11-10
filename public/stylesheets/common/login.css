@@ -1,0 +1,31 @@
+.container{
+  min-height: 600px!important;
+}
+
+.container-wrap{
+
+}
+
+.am-login-background div{
+  position: relative;
+}
+
+.am-login-background div div{
+  position: absolute;
+  top:130px;
+  left: 60px;
+  display: block;
+  height: 102px;
+  width: 363px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-image: url("/images/login-background.png");
+}
+
+.am-login-background div div a img{
+  position: absolute;
+  top: 53px;
+  left: 470px;
+  height: 52px;
+  width: 350px;
+}

@@ -1,0 +1,137 @@
+<% content_for :head do %>
+  <% if  @new_register_flg %>
+    <%= javascript_include_tag "mypage/media_list_intro" %>
+    <%= stylesheet_link_tag "mypage/media_list_intro" %>
+  <% else %>
+    <%= javascript_include_tag "mypage/media_list" %>
+    <%= stylesheet_link_tag "mypage/media_list" %>
+  <% end %>
+<% end %>
+
+<% if @new_register_flg %>
+
+  <% content_for :h1 do %>
+  すごく簡単!! 初回設定をしてすぐアニメモリを使いましょう！
+  <% end %>
+
+  <div class="intro-media-list">
+    <div>
+      <span class="page-title">アニメモリ初回設定画面 ステップ１</span>
+      <span>
+        <ul>
+          <li class="step1 active"><span>ステップ１</span></li>&gt;&nbsp;
+          <li id="to-step-2">
+            <span>ステップ２</span>
+            <a style="display:none;" href="<% url_for(:action => :intro_mychannel)%>">ステップ２へ</a>
+          </li>&gt;&nbsp;
+          <li><span>利用開始！</span></li>
+        </ul>
+      </span>
+    </div>
+    <div class="explanation">
+      <span>
+        <div>
+          <h4>放送局選択</h4>
+        </div>
+        <span class="main-explanation">
+        あなたの地域で視聴可能な放送局・ネット配信を選択してください。
+        </span><br />
+        <span class="sub-explanation">※放送局設定画面であとから変更も可能です</span><br />
+        <span class="button-next" style="display:none;">
+        <%= button_tag "ステップ２へ", :id => "next-button", "data-url" => url_for(:action => :intro_mychannel)  %>
+        </span>
+         
+      <span>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+
+  <div style="display:none;" data-token="<%= h form_authenticity_token %>" id="authenticity_token"></div>
+    <div class="row-fluid">
+      <div class="mypage-media-list">
+        <div class="row-fluid media-list-unchosen">
+          <div class="mypage-media-list-cathead">
+            <div class="choose-area">
+              エリア選択
+            </div>
+            <span class="media-list-area-anchors-show">
+            <span>
+            <ul class="media-list-area-anchors">
+              <% MasterTable::Area::KEYS.each do |area_type| %>
+                <li>
+                  <a href="#<%= area_type.to_s %>"><%= MasterTable::Area.area_name(area_type) %></a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <% MasterTable::Area::KEYS.each do |area_type| %>
+            <div class="area">
+              <span><%= MasterTable::Area.area_name(area_type) -%></span>
+            </div>
+            <% if @media_hash[area_type].present? -%>
+              <ul>
+                <% @media_hash[area_type].each do |media| %>
+                  <% selected = @user_media_ids.include?(media.id) %>
+                  <li class="<%= selected ? "selected" : nil -%>">
+                    <span class="media" data-id="<%= media.id -%>">
+                      <span class"inner" id="<%= area_type.to_s -%>"><%= media.name %></span>
+                      <%= link_to (selected ? "選択済" : "未選択"), "#", "data-selected" => (selected ? 1 : 0), "data-mid" => media.id, :class => "media-select" -%>
+                    </span>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= render :partial => "mypage_top_personal_cover", :locals => {:user => @user} %>
+    </div>
+  </div>
+  <div style="display:none;" data-token="<%= h form_authenticity_token %>" id="authenticity_token"></div>
+  <div class="row-fluid">
+    <div class="span10 mypage-media-list">
+      <div class="row-fluid media-list-unchosen">
+        <div class="mypage-media-list-cathead">
+          <span>
+            放送局リスト
+          </span>
+          <span class="media-list-area-anchors-show">
+            エリア
+          <span>
+          <ul class="media-list-area-anchors">
+            <% MasterTable::Area::KEYS.each do |area_type| %>
+              <li>
+                <a href="#<%= area_type.to_s %>"><%= MasterTable::Area.area_name(area_type) %></a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <% MasterTable::Area::KEYS.each do |area_type| %>
+          <div class="area"><%= MasterTable::Area.area_name(area_type) -%></div>
+          <% if @media_hash[area_type].present? -%>
+            <ul>
+              <% @media_hash[area_type].each do |media| %>
+                <% selected = @user_media_ids.include?(media.id) %>
+                <li class="<%= selected ? "selected" : nil -%>">
+                  <span class="media" data-id="<%= media.id -%>">
+                    <span class"inner" id="<%= area_type.to_s -%>"><%= media.name %></span>
+                    <%= link_to (selected ? "選択済" : "未選択"), "#", "data-selected" => (selected ? 1 : 0), "data-mid" => media.id, :class => "media-select" -%>
+                  </span>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="span2">
+      <%= render :partial => "shared/narrow_add" %>
+    </div>
+  </div>
+<% end %>

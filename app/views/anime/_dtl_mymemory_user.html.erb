@@ -1,0 +1,42 @@
+<%
+ favorites ||= nil
+ watchings ||= nil
+ watched_count ||= nil
+%>
+
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/_dtl_mymemory_user" %>
+<% end %>
+
+<div class="dtl-mymemory-user-favo">
+  <div>
+    <span>★</span> に登録中のユーザー
+  </div>
+  <ul>
+    <% @favorites.each do |favorite| %>
+      <% next unless ( user = favorite.user ) %>
+      <li>
+        <%= image_tag user.profile_image_url, :width => 25, :height => 25 %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="dtl-mymemory-user-watching">
+  <div>
+    <span>みてる</span> に登録中のユーザー
+  </div>
+  <ul>
+    <% @watchings.each do |watching| %>
+      <% next unless ( user = watching.user ) %>
+      <li>
+        <%= image_tag user.profile_image_url, :width => 25, :height => 25 %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="dtl-mymemory-user-watched">
+  <% if @watched_count.to_i > 0 %>
+    「みた人数」
+    <span><%= @watched_count %></span>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+.amHelp{
+  padding-top:0;
+}
+
+.amHlepwell{
+  min-height:700px !important;
+}
+
+.amBlockquotefix{
+  border-bottom: 1px dashed #bbbbbb;
+}
+
+.amTitlefix{
+  margin-top:-10px;
+  margin-bottom: 0;
+}
+
+.amHlepcontents div h3{
+  margin-top:-5px;
+  padding-bottom:10px;
+  padding-top:0;
+  border-bottom: 1px dashed #bbbbbb;
+}
+
+.amHlepcontents div ul li{
+  margin: 10px 0;
+}

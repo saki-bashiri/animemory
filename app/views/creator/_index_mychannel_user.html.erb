@@ -1,0 +1,19 @@
+<% 
+mychannel_users ||= []
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "creator/_index_mychannel_user" %>
+<% end %>
+
+<div class="index-mychannel-user">
+  <div><%= image_tag("my.png") -%>  &nbsp;チャンネルに登録中のユーザー</div>
+  <ul>
+  <% @mychannel_users.each do |user| %>
+    <li>
+    <%= image_tag user.profile_image_url, :width => 30, :height => 30 %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+

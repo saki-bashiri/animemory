@@ -1,0 +1,14 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= render :partial => "mypage_top_personal_cover", :locals => {:user => @user} -%>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span8">
+    <%= render :partial => "mypage/notice", :locals => {:selected_creator => @selected_creator, :notifications => @notifications, :new_notice_ids => @new_notice_ids } -%>
+  </div>
+  <div class="span4">
+    <%= render :partial => "mypage/notice_target_select", :locals => {:channel_creators => @channel_creators} -%>
+  </div>
+</div>

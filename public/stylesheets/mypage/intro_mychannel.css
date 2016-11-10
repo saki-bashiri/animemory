@@ -1,0 +1,167 @@
+.intro-mychannel{
+	color: #5C5C5C;
+}
+
+.intro-mychannel div:first-child{
+	font-size: 13px;
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.intro-mychannel div:first-child > span{
+  text-align: center;
+}
+
+.intro-mychannel div:first-child > span.page-title{
+  display: inline-block;
+  margin: 5px 0 5px -10px;
+  font-size:14px;
+}
+
+.intro-mychannel div:first-child > span > ul{
+  list-style-type: none;
+  margin-left: 0;
+  font-size: 13px;
+}
+
+.intro-mychannel div:first-child > span > ul li{
+  display:inline-block;
+  margin: 0 10px 0 0;
+  padding:5px 10px 3px 10px;
+  border-radius:3px;
+  background-color: #F6E5E6;
+}
+
+.intro-mychannel div:first-child > span > ul li.active{
+  background-color: #E76587;
+  color:#fff;
+}
+
+.intro-mychannel div:first-child > span > ul li.active a{
+  color:#fff;
+}
+
+.intro-mychannel div.explanation{
+  display: block;
+  clear: both;
+  text-align: center;
+  margin: 15px 0 0 -10px;
+  font-size: 14px;
+  background-color: #FFF9F9;
+}
+
+.intro-mychannel div.explanation > span{
+  text-align: left;
+  display: inline-block;
+  padding:5px 10px 3px 10px;
+  margin:5px 0 5px -15px;
+  border-radius:3px;
+  color: #5E5E5E;
+}
+
+.intro-mychannel div.explanation > span > div > h4{
+  display: block;
+  margin-right:-10px;
+  margin-top:-5px; 
+}
+
+.intro-mychannel div.explanation > span > span{
+  color:#BE8787;
+  font-size: 13px;
+}
+
+div.explanation > span > span.link-to-mypage {
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+}
+
+div.explanation > span > span.link-to-mypage a{
+  display: inline-block;
+  margin: 10px -9px 10px 5px;
+  border: 0;
+  background-color: #E76587;
+  padding: 7px 30px 5px 30px;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.intro-mychannel .popular-creator div:first-child{
+  margin: 15px 0 5px -10px;
+  display: block;
+  font-size: 14px;
+  border-bottom:2px solid #E4E9F2;
+}
+
+.intro-mychannel .popular-creator ul{
+  margin-top: 8px;
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.intro-mychannel .popular-creator ul li{
+  display: inline-block;
+  padding:5px 10px 5px 10px;
+  background-color: #FCF7F7;
+  border-radius: 3px;
+  margin: 0 5px 9px 0;
+}
+
+.intro-mychannel .popular-creator ul li .my-channel-wrap{
+  position: relative;
+}
+
+.intro-mychannel .popular-creator ul li .my-channel-wrap button{
+  border:0;
+  background-color: transparent;
+  height: 25px;
+  width: 35px;
+}
+
+.intro-mychannel .popular-creator ul li .my-channel-wrap button.on{
+  background-image:url('/images/my.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.intro-mychannel .popular-creator ul li .my-channel-wrap button.off{
+  background-image:url('/images/my_off.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.my-channel-balloon{
+  position: absolute;
+  width: 100px;
+  background-color: #c62a54;
+  color: white!important;
+  font-size: 10px;
+  bottom: 28px;
+  right: -34px;
+  padding: 5px 2px;
+  height: 17px;
+  border-radius: 2px;
+  text-align: center;
+  z-index:12;
+}
+
+
+
+/* introductionのみトップフォーム除去　＆　ヘッダーデザイン微調整*/
+.layout-h1{
+	border-bottom: 1px solid #B9D3BD;
+	box-shadow:rgba(100, 143, 96, 0.65098) 0px 0px 5px 1px;
+  -webkit-box-shadow:rgba(100, 143, 96, 0.65098) 0px 0px 5px 1px;
+  -moz-box-shadow:rgba(100, 143, 96, 0.65098) 0px 0px 5px 1px;
+}
+
+
+
+
+
+
+
+
+

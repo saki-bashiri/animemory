@@ -1,0 +1,22 @@
+<% content_for :head do %>
+<% end %>
+<% content_for :h1 do %>
+  <div>しょぼいカレンダー管理</div>
+<% end %>
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <%= render :partial => "index_list" %>
+  <h2>しょぼいカレンダーIDとひもづいていないアニメ</h2>
+
+  <table style="margin: 5px">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+    <% @missing_data.each do |data| %>
+      <tr>
+        <td><%= data[0] %></td>
+        <td style="text-align: center"><%= data[1] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

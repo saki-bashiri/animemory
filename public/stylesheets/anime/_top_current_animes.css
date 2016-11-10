@@ -1,0 +1,194 @@
+.top-current-animes{
+	padding-bottom: 10px;
+	position: relative;
+	background-color: #D6D6D6;
+	border-radius: 3px;
+	margin-left: 0;
+	margin-top:10px;
+	min-height: 120px;
+}
+
+.top-current-animes div:first-child{
+	padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px;
+  margin-top: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -5px;
+  background-color: #9E9E9E;
+  position: absolute;
+  display: block;
+  width: 95%;
+}
+
+.top-current-animes div:first-child i{
+	margin-right: -1px;
+	margin-top: 0;
+}
+
+.top-current-animes ul{
+display: inline-block;
+font-size: 10px;
+list-style-type: none;
+margin: 60px 10px -3px 12px;
+background-color: #fff;
+height: auto;
+width: 763px;
+padding-left: 23px;
+border-radius: 5px;
+padding-top: 10px;
+padding-bottom: 15px;
+}
+
+.top-current-animes ul li{
+	display: inline-block;
+	position: relative;
+	float: left;
+	line-height: 1;
+	margin: 10px 12px 30px 10px;
+	text-align: center;
+	word-wrap: break-word;
+}
+
+.top-current-animes ul li a:nth-child(2) img{
+  border: 1px solid #ccc;
+  height:100px;
+  width:100px;
+}
+
+.top-current-animes ul li a.anime-title{
+	background-image: url('/images/daily_info_dl_background.png');
+	bottom: 0;
+	color: white;
+	display: inline-block;
+	padding: 3px 3px 0;
+	position: absolute;
+	width: 96px;
+	font-size: 10px;
+	height: 25px;
+	line-height: 1.2;
+}
+
+.top-current-animes ul li span.mymemory{
+	position:relative;
+	display:block;
+}
+
+.top-current-animes ul li span.mymemory button{
+	background-color: #dbcfd9;
+	background-image: -moz-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: -o-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#dbcfd9));
+	background-image: -webkit-linear-gradient(top, #ffffff, #dbcfd9);
+	background-image: linear-gradient(to bottom, #ffffff, #dbcfd9);
+	background-repeat: repeat-x;
+	border-color: #dbcfd9 #dbcfd9 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius:1px;
+	border:1px solid #ccc;
+	color: rgb(95, 95, 95);
+	display:inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size:11px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+
+.top-current-animes ul li span.mymemory a,
+.top-current-animes ul li span.mymemory button{
+	bottom:-28px;
+	position:absolute;
+}
+
+.top-current-animes ul li span.mymemory a{
+	background-size: contain;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  left: 10px;
+  bottom:-30px;
+}
+
+.top-current-animes ul li span.mymemory button{
+	right: 10px;
+}
+
+.favorite{
+	background-image:url('/images/star.png');
+}
+
+.unfavorite{
+	background-image:url('/images/star_unfavorite.png');
+}
+
+.unfavorite:hover{
+	background-image:url('/images/star.png');
+}
+
+.top-current-animes ul li span.favorite-balloon,
+.top-current-animes ul li span.watch-balloon{
+	position: absolute;
+	top: -140px;
+  left: -9px;
+	opacity: 1!important;
+	background-color: #c62a54;
+	color: white;
+	font-size: 11px;
+	height: 20px;
+	width: 110px;
+	padding: 10px 5px 1px 5px;
+	border-radius: 2px;
+}
+
+.top-current-animes ul li span.favorite-balloon:before,
+.top-current-animes ul li span.watch-balloon:before{
+  right: 20%;
+  bottom: -41%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(72, 187, 50, 0);
+  border-top-color: #c62a54;
+  border-width: 8px;
+  margin-top: -6px;
+}
+
+.top-current-animes ul li span.mymemory button,
+.top-current-animes ul li span.mymemory .nologin-mymemory-watch{
+  background-color: #dbcfd9;
+	background-image: -moz-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -o-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#9E9D9D));
+	background-image: -webkit-linear-gradient(top, #ffffff, #9E9D9D);
+	background-image: linear-gradient(to bottom, #ffffff, #9E9D9D);
+	background-repeat: repeat-x;
+	border-color: #dbcfd9 #dbcfd9 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	color: rgb(95, 95, 95);
+	display: inline-block;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	font-size: 11px;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	box-shadow: 0px 0px 1px #fff;
+}
+
+.top-current-animes ul li span.mymemory .nologin-mymemory-watch{
+	position: absolute;
+	height: 16px;
+	width: 45px;
+	padding-top: 5px;
+	left: 45px;
+	top: 6px;
+}
+
+.top-current-animes ul li span.nologin-mymemory-favorite{
+
+}

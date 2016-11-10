@@ -1,0 +1,21 @@
+<div class="row-fluid amUpperSpace2 text-left">
+  <div class="span12">
+  <p class="amTreadnewhead">スレッド立ち上げ</p>
+  <div class="row-fluid">
+    <div class="span6 well">
+      <div class="span12 amThreadnew">
+      <%= form_tag url_for(:controller => "anime", :action => "add_thread"), {:method => :post} do %>
+      <%= hidden_field_tag "aid", anime.id %>
+      <%= hidden_field_tag "epid", episode.present? ? episode.id : nil %>
+      <%= hidden_field_tag "no_ep_flg", episode.blank? ? 1 : 0 %>
+        <p class="amThreadnewtitle">件名：<br><span><%= text_field_tag "title", "" %></span></p>
+      <p class="amUpperSpace2">本文:<%= text_area_tag "content", "", {:size => "60x5"} %></p>
+      <div class="text-center"><%= submit_tag "新しいスレッドを作成する", :name => "commit" %><div>
+      <% end %>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+</div>

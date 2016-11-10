@@ -1,0 +1,34 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/main_image_edit" %>
+<% end %>
+<% content_for :title do %>
+  <%= @anime.title %>のメイン画像選択 [アニメモリ]
+<% end %>
+<% content_for :h1 do %>
+  <%= @anime.title %>のアニメ詳細画面に表示されるメイン画像を選択
+<% end %>
+
+<div class="span12">
+  <div class="main-image-edit">
+    <div><strong><i class="icon icon-ok"></i><%= link_to @anime.title, url_for(:action => "dtl", :anime => @anime.id) %>のメイン画像選択</strong><span>メイン画像にする画像を選択して更新ボタンを押してください。</span>
+    </div>
+    <% if @anime.anime_images.present? %>
+        <%= form_tag url_for(:action => :main_image_edit_do), :method => :post do %>
+          <%= submit_tag "更新", :id => "submit-button" %>
+          <%= hidden_field_tag :aid, @anime.id %>
+          <ul>
+            <% @anime.anime_images.each do |image| %>
+              <li>
+                <%= image_tag( anime_image_path(image.image_path(:path_100x100)) ) %><br>
+                <%= radio_button_tag "image_id", image.id, @anime.anime_image.try(:id) == image.id %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "画像投稿画面へ", url_for(:action => "image_up", :aid => @anime.id), :class => "image-upload" %>
+        <% end %>
+      </div>
+    <% else %>
+      まだ画像が投稿されていません。
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  anime_id: 1
+  title: MyString
+  singer_id: 1
+  composer_id: 1
+  songwriter_id: 1
+  song_type: 1
+  description: MyString
+  status: 1
+
+two:
+  anime_id: 1
+  title: MyString
+  singer_id: 1
+  composer_id: 1
+  songwriter_id: 1
+  song_type: 1
+  description: MyString
+  status: 1

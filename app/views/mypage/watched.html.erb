@@ -1,0 +1,42 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "common/mymemory", "mypage/watched" %>
+  <%= stylesheet_link_tag  "common/mymemory", "mypage/watched" %>
+<% end %>
+
+<div class="row-fluid">
+  <div class="span12">
+  <%= render :partial => "mypage_top_personal_cover", :locals => {:user => @user} %>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span10">
+    <div class="mypage-watched">
+      <div><%= image_tag("watched.png") -%></i>みたアニメリスト</div>
+      <%= mymemory_js_data %>
+      <ul>
+        <%- if @mymemories.present? -%>
+          <% @mymemories.each do |mymemory| %>
+            <% anime = mymemory.anime %>
+            <li>
+              <%= link_to cut_str(anime.title, 24), url_for(:controller => :anime, :action => :dtl, :anime => anime.id), :class => "anime-title" %>
+              <a href="<%= url_for(:controller => :anime, :action => :dtl, :anime => anime.id) %>">
+                <img src="<%= anime_image_path(anime.anime_image.try(:image_path, :path_100x100)) -%>">
+              </a>
+              <span class="mymemory" data-aid="<%= anime.id %>">
+                <%= favorite_button(mymemory, :button => {:class => "mymemo-fv"}, :balloon => {:class => "am-arrow-balloon-fav"}, :nologin => {}) %>
+                <%= watch_button(mymemory, :button => {:class => "mymemo-wc"}, :balloon => {:class => "am-arrow-balloon-watch"}, :nologin => {} ) %>
+              </span>
+            </li>
+          <%- end -%>
+        <%- else-%>
+          <span class="nothing"><i class="icon icon-info-sign"></i>みたアニメはまだありません。</span>
+        <%- end -%>
+      </ul>
+    </div>
+  </div>
+
+  <div class="span2">
+    <%= render :partial => "shared/narrow_add" -%>
+  </div>
+</div>

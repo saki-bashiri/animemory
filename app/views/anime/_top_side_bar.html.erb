@@ -1,0 +1,32 @@
+<%- content_for :head do-%>
+<%= stylesheet_link_tag "anime/_top_side_bar" -%>
+<%- end -%>
+
+<% amazon_products ||= [] %>
+<div class="am-top-sidebar-title">
+  <h5>おすすめグッズ</h5>
+</div>
+<div class="row-fluid">
+  <ul class="am-top-sidebar-main">
+    <li>
+      <a href="http://www.amazon.co.jp/exec/obidos/ASIN/4063949761/animemory06-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51YseUTwzIL._SX200_SX200_.jpg" alt="進撃の巨人(12) (講談社コミックス)" /></a><br /><a class="top-top-sidebar-product-text" href="http://www.amazon.co.jp/exec/obidos/ASIN/4063949761/animemory06-22/ref=nosim/" target="_blank">進撃の巨人(12) (講談社コミックス)</a>
+    </li>
+    <li>
+      <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IIEERM2/animemory06-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/617gLZZ8FvL._SX200_.jpg" alt="ガールズ&amp;パンツァー これが本当のアンツィオ戦です! [Blu-ray]" /></a><br /><a class="top-top-sidebar-product-text" href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IIEERM2/animemory06-22/ref=nosim/" target="_blank">ガールズ&amp;パンツァー これが本当のアンツィオ戦です! [Blu-ray]</a>
+    </li>
+    <li>
+      <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IE4QTYK/animemory06-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51l4zQRIPCL._SX200_.jpg" alt="劇場版ペルソナ3 #1 Spring of Birth(完全生産限定版) [Blu-ray]" /></a><br /><a class="top-top-sidebar-product-text" href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IE4QTYK/animemory06-22/ref=nosim/" target="_blank">劇場版ペルソナ3 #1 Spring of Birth(完全生産限定版) [Blu-ray]</a>
+    </li>
+    <li>
+      <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00C3BRE1W/animemory06-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51AY%2B6TQy1L._SX200_.jpg" alt="進撃の巨人 9 [初回特典:特典DISC「進撃の巨人」Reading&amp;Live Event「Attack 音 体感」] [Blu-ray]" /></a><br /><a class="top-top-sidebar-product-text" href="http://www.amazon.co.jp/exec/obidos/ASIN/B00C3BRE1W/animemory06-22/ref=nosim/" target="_blank">進撃の巨人 9 [初回特典:特典DISC「進撃の巨人」] [Blu-ray]</a>
+    </li>
+    <%# 一旦保留 %>
+    <% if false %>
+      <% amazon_products.each do |amazon_product| %>
+        <li>
+          <span class="am-amazon-product-warp"><%= amazon_advertise_iframe(amazon_product.asin) %></span>
+        </li>
+      <% end -%>
+    <% end %>
+  </ul>
+</div>

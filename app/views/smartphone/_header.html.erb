@@ -1,0 +1,12 @@
+<div class="row-fluid am-sp-header" xmlns="http://www.w3.org/1999/html">
+  <a href="<%= create_url({:controller => "smartphone", :action => "index"}, {:https => false}) -%>">
+    <%= image_tag("sp-logo.png", :size => "498x134") -%>
+
+  <div>
+    <%= form_tag url_for(:controller => :anime, :action => :list), {:method => :get, :id => "search-form"} do %>
+      <%= hidden_field_tag "search_key", "word", :id => "hidden_key" %>
+      <%= text_field_tag "q", params[:q].to_s, :size => "30" %>
+      <%= submit_tag "" %>
+    <% end %>
+  </div>
+</div>

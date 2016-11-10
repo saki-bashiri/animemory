@@ -1,0 +1,156 @@
+#profile{width: 810px; height:325px;  border-left:1px solid #82fca9; border-right:7px solid #82fca9; background-color: #82fca9;}
+#profile-background{width:806px; height:280px; text-align:left;  margin-top:10px; margin-left:0; border:5px solid #82fca9; margin-right:0; background-image:url("b2886520.jpg"); }
+#profile-pic{margin-top:90px; margin-left:30px; margin-bottom:0;}
+#profile-pic img{width:170px; height:170px; border:3px solid whitesmoke ;}
+#profile-pic-cover{height:auto; margin-top:0;}
+
+#profile-bottom{height:20px;}
+
+#profile-info{width:250px; height:121px; text-align:left; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr= #bcb2bd,EndColorStr= #bcb2bd); background-color: rgba(188, 178, 189, 0.60); border-radius:5px;}
+#profile-info-title{color:white; font-size:15px; padding: 3px 0 0 13px;}
+#profile-info-content{font-size:11px; line-height:140%; padding: 4px 0 0 13px;}
+
+#list-number{height:70px;font-size:11px; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr= #fff316,EndColorStr= #fff316); background-color: rgba(255, 243, 22, 0.60); }
+#list-number-title{margin-top:3px; font-size:15px; text-align:center;}
+#list-number-content{font-size:27px; font-weight:bold; text-align:center; color: #e21e00;}
+#favorite{height:70px; font-size:11px; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr= #fff316,EndColorStr= #fff316);background-color: rgba(255, 243, 22, 0.60);}
+#favorite-title{margin-top:3px; font-size:15px; text-align:center;}
+#favorite-title-in{font-size:27px; font-weight:bold; text-align:center; color: #e21e00;}
+#to-watch{height:70px; font-size:11px; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr= #fff316,EndColorStr= #fff316);background-color: rgba(255, 243, 22, 0.60);}
+#to-watch-title{margin-top:3px; font-size:15px; text-align:center;}
+#to-watch-title-in{font-size:27px; font-weight:bold; text-align:center; color: #e21e00;}
+
+#mymemory-anime-today{height:36px; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr= #ff6b06,EndColorStr= #ff6b06);background-color: rgba(255, 107, 6, 0.60);}
+
+#mymemory-add{background-color: blue;}
+
+#sortable-wrap1{
+                height:230px;
+                border-radius: 10px;
+                margin:10px;
+               }
+#sortable1 {
+                height:230px;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow-y:scroll;
+               }
+#sortable1 li {padding: 3px;
+                margin: 7px 6px 5px 6px;
+                width: 90px;
+                height: 90px;
+                font-size: 10px;
+                text-shadow:10px;
+                text-align: center;
+                background-color:#FFFFFF;
+                border-radius:11px;
+                border: 2px outset;
+                overflow:hidden;
+                background: -webkit-gradient(linear, left top, left bottom, from(#00B303), to(#fff));
+                background: -moz-linear-gradient(top, #00B303, #fff);
+                filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00B303', endColorstr='#ffffff');
+              }
+
+#sortable-wrap2{
+                height:230px;
+                border-radius: 10px;
+                margin:30px 15px 20px 13px;
+                float:left;}
+
+#sortable2 {width: 245px;
+            height:230px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow-y:scroll;
+           }
+
+#sortable2 li {
+               padding: 3px;
+               margin: 7px 5px 6px 6px;
+               width: 90px;
+               height: 90px;
+               font-size: 10px;
+               text-shadow:10px;
+               text-align: center;
+               background-color:#FFFFFF;
+               border-radius:11px;
+               border: 2px outset;
+               overflow:hidden;
+               background: -webkit-gradient(linear, left top, left bottom, from(#ff6b06), to(#fff));
+               background: -moz-linear-gradient(top, #ff6b06, #fff);
+               filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFA600', endColorstr='#ffffff');}
+
+#sortable-wrap3{width: 245px; height:230px;  border-radius: 10px; margin:30px 15px 20px 21px; float:left; }
+#sortable3 {width: 245px; height:230px; list-style-type: none; margin: 0; padding: 0; overflow-y:scroll; }
+#sortable3 li {padding: 3px;  margin: 7px 5px 6px 6px; float: left; width: 90px; height: 90px; font-size: 10px; text-shadow:10px; text-align: center;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00ffae), to(#fff));
+    background: -moz-linear-gradient(top, #00ffae, #fff);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffae', endColorstr='#ffffff');
+    border-radius:11px; border: 2px outset; overflow:hidden;}
+
+
+#sortable-wrap4{width: 245px; height:230px; float:right;  border-radius: 10px; margin:30px 0 20px 13px;}
+#sortable4 {width: 245px; height:230px; list-style-type: none; margin: 0; padding: 0; overflow-y:scroll; }
+#sortable4 li {padding: 3px;  margin: 7px 5px 6px 6px; float: left; width: 90px; height: 90px; font-size: 10px; text-shadow:10px; text-align: center; border-radius:11px; border: 2px outset; overflow:hidden;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff316), to(#fff));
+    background: -moz-linear-gradient(top, #fff316, #fff);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffae', endColorstr='#ffffff');
+}
+
+#sortable5 {width: 380px; height:220px; list-style-type: none; margin: 0; padding: 0; overflow-y:scroll; }
+#sortable5 li {padding: 3px;  margin: 7px 5px 6px 6px; width: 90px; height: 90px; font-size: 10px; text-shadow:10px; text-align: center; background-color:#00FF04; border-radius:11px; border: 2px outset; overflow:hidden;}
+
+#sortable6 {width: 380px; height:220px; list-style-type: none; padding: 0; overflow-y:scroll; }
+#sortable6 li {padding: 3px;  margin: 7px 5px 6px 6px; width: 90px; height: 90px; font-size: 10px; text-shadow:10px; text-align: center; background-color:#FFA600; border-radius:11px; border: 2px outset; overflow:hidden;}
+
+#sortable1 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+#sortable2 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+#sortable3 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+#sortable4 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+#sortable5 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+#sortable6 li a {line-height: 1.15; text-align:justify; margin-top:3px; text-decoration: none;}
+
+#sortable1 li img, #sortable2 li img, #sortable3 li img, #sortable4 li img, #sortable5 li img, #sortable6 li img{height:60px; width:90px; border-radius:5px; margin-top:3px; }
+
+#search{
+    text-align:center;
+    border:3px solid #999999;
+    width:870px;
+    height:35px;
+    margin-left:50px;
+}
+
+#search input{
+    margin-top:8px;
+    border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px ;
+    -webkit-border-radius: 5px;
+    text-shadow: 0 1px #fff;
+    -moz-box-shadow: 0 1px 1px #fff;
+    -webkit-box-shadow: 0 1px 1px #fff;
+    box-shadow: 0 1px 1px #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff));
+    background: -moz-linear-gradient(top, #eee, #fff);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff');
+    }
+
+.category-title{
+    font-size:12px;
+    margin:5px 0;
+    background: linear-gradient(left, #00ffae 0%, white 100%);
+    background: -webkit-linear-gradient(left, #00ffae 0%, white 100%);
+    background: -moz-linear-gradient(left, #00ffae 0%, white 100%);
+    background: -o-linear-gradient(left, #00ffae 0%, white 100%);
+    background: -ms-linear-gradient(left, #00ffae 0%, white 100%);
+    }
+
+#amAdv{background: blue;}
+
+/* clears */
+
+
+
+
+

@@ -1,0 +1,91 @@
+.mypage-anirepo-list{
+  padding-bottom: 10px;
+  position: relative;
+  background-color: #F1CECE;
+  border-radius: 3px;
+}
+
+.mypage-anirepo-list div:first-child{
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px;
+  margin-top: 10px;
+  outline: 1px dashed #fff;
+  outline-offset: -5px;
+  background-color: #C98A8A;
+  position: absolute;
+  display: block;
+  width: 360px;
+}
+
+.mypage-anirepo-list div:first-child i{
+  margin-right: 3px;
+}
+
+.mypage-anirepo-list ul{
+  display: inline-block;
+  font-size: 12px;
+  list-style-type: none;
+  margin: 60px 10px 0 10px;
+  background-color: #fff;
+  height: auto;
+  width: 370px;
+  padding: 5px;
+}
+
+.mypage-anirepo-list ul li{
+  display:block;
+  background-color: rgb(255, 240, 240);
+  border: 1px solid #F0DDDD;
+  margin: 5px;
+  position:relative;
+  height: 110px;
+}
+
+.mypage-anirepo-list ul li:hover{
+  background-color: #F1CECE;
+}
+
+.mypage-anirepo-list ul li:hover span a{
+  color:#AA6C6C;
+}
+
+.mypage-anirepo-list ul li.mypage-anirepo-type-anime-edit{
+  background-color:#fff;
+  position:relative;
+}
+
+.mypage-anirepo-list ul li span.mypage-anirepo-content{
+  display:inline-block;
+}
+
+.mypage-anirepo-list ul li span.mypage-anirepo-content span{
+  display:block;
+}
+
+.mypage-anirepo-list ul li span.mypage-anirepo-content span:nth-child(3){
+  display:block;
+  position:absolute;
+}
+
+.mypage-anirepo-list ul li img{
+  height:100px;
+  margin:5px;
+  width:100px;
+}
+
+.mypage-anirepo-list ul li div{
+	position:absolute;
+}
+
+.nothing{
+  padding:20px 0;
+  text-align:center;
+  display: block;
+}
+
+.nothing i{
+  display: inline-block;
+  margin: -1px 3px;
+}

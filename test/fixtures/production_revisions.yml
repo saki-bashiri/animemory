@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  production_id: 1
+  name: MyString
+  kana: MyString
+  description: MyString
+  status: 1
+  user_id: 1
+
+two:
+  production_id: 1
+  name: MyString
+  kana: MyString
+  description: MyString
+  status: 1
+  user_id: 1

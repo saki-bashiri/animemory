@@ -1,0 +1,48 @@
+<%
+  res ||= nil
+  summary ||= nil
+  comments ||= []
+  comment_count = comments.length
+%>
+
+<%= javascript_include_tag "summary/each_comment_box" %>
+
+<li class="am-each-comment-box">
+  <% if comment_count > 10 %>
+    <span class="arrow_box_purple pull-right">
+  <% elsif comment_count > 0 %>
+    <span class="arrow_box_green pull-right">  
+  <% else %>
+    <span class="arrow_box pull-right"> 
+  <% end %>
+      <%= comment_count %>
+    </span>
+
+  <span class="pencil_wrap pull-right">
+    <a href="#" class="pencil pull-right">
+    </a>
+    <a class="pencil_plus" href="#">+</a>
+  </span>
+
+  <div class="clearfix"></div>
+  <div class="am-each-comment">
+    <ul>
+      <% comments.each do |comment| %>
+        <li><span><%= "#{comment.content_res_number}." %>名前:名無しさん＠アニメモリ 投稿日:<%= "#{comment.created_at.strftime("%Y年%m月%d日 %H:%M")}" %></span>
+          <p><%= wiki(comment.content) %></p>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center">
+      <span>※※※※※※※※※※※※※※まとめレスにコメントする※※※※※※※※※※※※※※</span>
+    <div>
+    <div class="each-comment-form">
+      <form>
+        <input type="hidden" class="summary_id" value="<%= summary.id %>"><br />
+        <input type="hidden" class="content_id" value="<%= res.id %>">
+        <textarea class="comment_content"></textarea><br />
+        <button class="am_comment_submit">コメント</button>
+      </form>
+    </div>
+  </div>
+</li>

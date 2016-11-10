@@ -1,0 +1,19 @@
+<div>
+  <%= form_tag url_for(:action => "summary_registering"), :method => :post do %>
+    <%= hidden_field_tag "title", @title %>
+    <%= hidden_field_tag "tid", @thread.id %>
+    <p><%= @title %></p>
+    <ul>
+      <% @comments.each do |comment| %>
+        <li>
+          <%= hidden_field_tag "cid[]", comment.id %>
+          <%= user_nickname(comment.user) %>
+          <div>
+            <%= comment.comment %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <%= submit_tag "まとめを作る", :name => "commit" %>
+  <% end %>
+</div>

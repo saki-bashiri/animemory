@@ -1,0 +1,151 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "common/my_channel", "mypage/intro_mychannel" %>
+  <%= stylesheet_link_tag "mypage/intro_mychannel" %>
+<% end %>
+
+<div style="display:none;" data-token="<%= h form_authenticity_token %>" id="authenticity_token"></div>
+
+<% content_for :h1 do %>
+  アニメモリ 新規登録 初期設定
+<% end %>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="row-fluid">
+      <div class="intro-mychannel">
+        <div>
+          <span>
+            <ul>
+              <li><span>ステップ１</span></li>&gt;&nbsp;
+              <li class="step2 active"><span>ステップ２</span></li>&gt;&nbsp;
+              <li class="step2 active"><span>ステップ３</span></li>&gt;&nbsp;
+              <li class="step2 active"><span>ステップ４</span></li>&gt;&nbsp;
+              <li id="start-animemory">
+                <span>利用開始！</span>
+                <a style="display:none;" href="<% url_for(:action => :index)%>">利用開始！</a>
+              </li>
+            </ul>
+          </span>
+        </div>
+        <div class="step1">
+          <div class="explanation">
+          <span>
+            <div>
+              <h4>あなたの地域の放送局選択</h4>
+            </div>
+            <span class="main-explanation">
+              視聴が可能な放送局・配信サービスを選択してください。
+            </span><br />
+            <span class="sub-explanation">
+              ※各話のアニメ放送情報は選択された放送局のものをお送りしますので、ぜひとも選択ください。
+            </span>
+          <span>
+          </div>
+          <div class="popular-creator">
+            <% @recommend_media.each do |media_hash| %>
+              <% area_key, area_name, media = media_hash[:area_key], media_hash[:area_name], media_hash[:media] %>
+              <div><%= area_name %></div>
+              <ul class="<%= area_key %>">
+                <% media.each do |medium| %>
+                  <li>
+                    <%= medium.name %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+        <div class="step2">
+          <div class="explanation">
+          <span>
+            <div>
+              <h4>マイメモリ登録</h4>
+            </div>
+            <span class="main-explanation">
+              「マイメモリ」であなたのお気に入りのアニメや見てるアニメをチェックできます。
+            </span><br />
+            <span class="sub-explanation">
+              ※「みてる」にしたアニメは、選択された放送局で放送がある場合にマイページでお知らせいたします。
+              ぜひ日々のアニメ視聴にご利用ください。
+            </span>
+          <span>
+          </div>
+          <div class="popular-creator">
+            <div>おすすめアニメ</div>
+            <ul>
+              <% @voice_actors.each do |voice_actor| %>
+                <li class="voice-actor my-channel-list">
+                  <%= voice_actor.name %>
+                  <%= my_channel_button(voice_actor.id, @mychannel_crids.include?(voice_actor.id), @user) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="step3">
+          <div class="explanation">
+          <span>
+            <div>
+              <h4>マイメモリ登録</h4>
+            </div>
+            <span class="main-explanation">
+              「マイメモリ」であなたのお気に入りのアニメや見てるアニメをチェックできます。
+            </span><br />
+            <span class="sub-explanation">
+              ※「みてる」にしたアニメは、選択された放送局で放送がある場合にマイページでお知らせいたします。
+              ぜひ日々のアニメ視聴にご利用ください。
+            </span>
+          <span>
+          </div>
+          <div class="popular-creator">
+            <div>おすすめアニメ</div>
+            <ul>
+              <% @voice_actors.each do |voice_actor| %>
+                <li class="voice-actor my-channel-list">
+                  <%= voice_actor.name %>
+                  <%= my_channel_button(voice_actor.id, @mychannel_crids.include?(voice_actor.id), @user) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="step4">
+          <div class="explanation">
+          <span>
+            <div>
+              <h4>My!チャンネル登録</h4>
+            </div>
+            <span class="main-explanation">
+            好きな声優・制作会社をMy!チャンネル登録して最新通知を受け取りましょう。
+            </span><br />
+            <span class="sub-explanation">※下記の声優・制作会社以外もアニメ詳細画面等で登録できます</span>
+            <span class="link-to-mypage" style="display:none;"><a href="<%= url_for(:action => :index) %>">アニメモリ利用開始！</a></span>
+          <span>
+          </div>
+          <div class="popular-creator">
+            <div>おすすめ声優</div>
+            <ul>
+              <% @voice_actors.each do |voice_actor| %>
+                <li class="voice-actor my-channel-list">
+                  <%= voice_actor.name %>
+                  <%= my_channel_button(voice_actor.id, @mychannel_crids.include?(voice_actor.id), @user) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="popular-creator">
+            <div>おすすめ制作会社</div>
+            <ul>
+              <% @productions.each do |production| %>
+                <li class="production my-channel-list">
+                  <%= production.name %>
+                  <%= my_channel_button(production.id, @mychannel_crids.include?(production.id), @user) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

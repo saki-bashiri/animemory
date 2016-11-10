@@ -1,0 +1,29 @@
+<%
+  anime ||= nil
+  user ||= nil
+%>
+<% content_for :head do %>
+  <%= javascript_include_tag "common/episode_memory", "anime/_dtl_episodes_group" %>
+  <%= stylesheet_link_tag "anime/_dtl_episodes_group" %>
+<% end %>
+
+<div class="dtl-episodes-group">
+  <div><i class="icon-white icon-film"></i>
+    このアニメの各エピソード
+  </div>
+  <div>
+    <%= episode_memory_js_data %>
+    <ul>
+      <%- anime.episodes.sort_by(&:episode).each do |episode| -%>
+        <% next if episode.episode == 0 %>
+        <li>
+          <a href="#">
+            <%= "##{episode.episode.to_s} #{episode.subtitle}" %>
+          </a>
+          <% episode_memory = episode_memory_hash[episode.id] %>
+          <%= episode_memory_button(episode_memory, user, episode, :class => "ep-memory-button") %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

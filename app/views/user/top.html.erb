@@ -1,0 +1,10 @@
+<div>
+  <p><%= @member.nickname %>さんのまとめ一覧</p>
+  <ul>
+    <% @summaries.each do |summary| %>
+      <li>
+        <%= link_to summary.title, url_for(:action => "summary", :sid => summary.id) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

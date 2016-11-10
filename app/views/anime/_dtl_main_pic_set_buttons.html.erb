@@ -1,0 +1,16 @@
+<%
+ anime ||= nil
+ episode ||= nil
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "anime/_dtl_main_pic_set_buttons" %>
+  <%= javascript_include_tag "anime/_dtl_main_pic_set_buttons" %>
+<% end %>
+
+<div class="dtl-main-pic-set-buttons">
+  <a href="<%= url_for(:action => :images, :aid => anime.id) %>">
+    <%= image_tag("image_up.png") -%>
+    <span class="explantion-balloon" style="display:none;">アニメ画像投稿</span>
+  </a>
+</div>

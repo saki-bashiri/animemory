@@ -1,0 +1,18 @@
+<%= render :partial => "header" %>
+<h1>スケジュール新規登録確認</h1>
+<% now = Time.zone.now %>
+<%= form_tag url_for(:action => "schedule_register_conf"), :method => :post do %>
+<p>放送開始時刻
+  <%= hidden_field_tag("on_air_time",@on_air_time) %>
+<%= hidden_field_tag("on_air_time[year]",@on_air_time.year) %><%= @on_air_time.year %>年
+<%= hidden_field_tag("on_air_time[month]",@on_air_time.month) %><%= @on_air_time.month %>月
+<%= hidden_field_tag("on_air_time[day]",@on_air_time.day) %><%= @on_air_time.day %>日
+<%= hidden_field_tag("on_air_time[hour]",@on_air_time.hour) %><%= @on_air_time.hour %>時
+<%= hidden_field_tag("on_air_time[minute]",@on_air_time.min) %><%= @on_air_time.min %>分
+</p>
+<p>メディアID<%= hidden_field_tag "medium", @media.id %><%= @media.id %></p>
+<p>エピソードID<%= hidden_field_tag "episode", @episode.id %><%= @episode.id %></p>
+<p>放送時間<%= hidden_field_tag "span", @span.to_s %><%= @span %>分</p>
+<p>メモ<%= hidden_field_tag "memo", @memo.to_s %><%= @memo %></p>
+<p><%= submit_tag "新規作成", :confirm => "つくってもいいですか" %></p>
+<% end %>

@@ -1,0 +1,32 @@
+確認画面
+
+<%= form_tag url_for(:action => "song_register_conf"), :method => :post do %>
+    <p><%= hidden_field_tag "[anime]", @anime.id %>
+      <%= @anime.title %> %>
+    </p>
+    <p>曲名
+      <%= @title %>
+      <%= hidden_field_tag "song[title]", @title %></p>
+
+    <p>歌手
+      <%= @singer.name %>
+      <%= hidden_field_tag "song[singer_id]", @singer.id %></p>
+
+    <p>作詞者
+      <%= @songwriter.name %>
+      <%= hidden_field_tag "song[songwriter_id]", @songwriter.id %></p>
+
+    <p>作曲者
+      <%= @composer.name %>
+      <%= hidden_field_tag "song[composer_id]", @composer.id %></p>
+
+    <p>曲のタイプ
+      <%= @song_type.to_s %>
+      <%= hidden_field_tag "song[song_type]", @song_type %></p>
+
+    <p>メモ
+      <%= @description %>
+      <%= hidden_field_tag "song[description]", @description %></p>
+
+    <%= submit_tag "決定", :name => "commit" %>
+<% end %>

@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <meta charset="utf-8">
+  <meta name="description" content="<%= @anime.title %>は見ましたか？あなたが見た記録をアニメモリでチェックできます。<%= @anime.title %>の声優、スタッフをチェックして新作に備えることもできます。">
+  <meta name="keywords" content="アニメ,<%= @anime.title %>,最新情報">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@animemory">
+  <meta name="twitter:title" content="<%= @anime.title %> の最新情報">
+  <meta name="twitter:description" content="<%= @anime.title %>は見ましたか？あなたが見た記録をアニメモリでチェックできます。<%= @anime.title %>の声優、スタッフをチェックして新作に備えることもできます。">
+  <meta name="twitter:creator" content="@animemory">
+  <meta name="twitter:image:src" content="<%= anime_image_path(@anime.anime_image.image_path(:path_512x288)) if @anime.anime_image.present? %>">
+
+  <meta property="og:title" content="<%= @anime.title %> の最新情報" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="<%= anime_image_path(@anime.anime_image.image_path(:path_200x200)) if @anime.anime_image.present? %>" />
+  <meta name="og:description" content="<%= @anime.title %>は見ましたか？あなたが見た記録をアニメモリでチェックできます。<%= @anime.title %>の声優、スタッフをチェックして新作に備えることもできます。">
+  <meta property="og:site_name" content="animemory" />
+
+  <%= stylesheet_link_tag "common/wiki" %>
+  <%= javascript_include_tag "anime/dtl", "common/mymemory" %>
+<% end %>
+
+<% content_for :title do %>
+  アニメ <%= @anime.title %> の最新情報　[アニメモリ]
+<% end %>
+
+<%= content_for :h1 do %>
+  アニメ <%= @anime.title %> の最新情報
+<% end %>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="span7">
+      <%= render :partial => "anime/dtl_main_pic_set", :locals => {
+        :anime => @anime, :anime_main_image => @anime_main_image, :mymemory => @mymemory } %>
+      <%= render :partial => "anime/dtl_mymemory_user", :locals => {
+        :favorites => @favorites, :watchings => @watchings, :watched_count => @watched_count } %>
+      <%= render :partial =>  "anime/dtl_anime_info", :locals => {:anime => @anime, :user => @user, :my_creator_ids => @my_channel_creator_ids } %>
+    </div>
+    <div class="span5">
+      <%= render :partial => "shared/urging_user_for_login_and_mypage", :locals =>{:user => @user} -%>
+      <%= render :partial => "anime/dtl_episodes_group", :locals => {:anime => @anime, :episode_memory_hash => @episode_memory_hash, :user => @user}  %>
+    </div>
+  </div>
+</div>
+
+

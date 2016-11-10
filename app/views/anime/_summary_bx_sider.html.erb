@@ -1,0 +1,36 @@
+<%
+  new_summaries ||= nil
+%>
+
+<% content_for :head do %>
+<%= stylesheet_link_tag "anime/_summary_bx_slider" %>
+<% end %>
+
+<div class="span8 top-slider-all-wrap">
+  <div id="slider">
+    <div class="top-slider-big-img">
+      <ul id="slider2" class="slider">
+        <% @new_summaries.each do |summary| %>
+          <li>
+            <a href="<%= url_for(:controller => "summary", :action => "index", :sid => summary.id, :aid => summary.anime_id) %>">
+              <span class="am-top-new-summary-title"><span><%= summary.title %></span></span>
+              <img src="<%= anime_image_path(summary.anime_image.present? ? summary.anime_image.image_path(:path_512x288) : "/images/no_image_200x200.jpg") %>" alt="<%= summary.title %>" />
+            </a>
+          </li>
+        <% end %>
+      </ul>
+      <div class="bx-pager">
+        <div>
+          <% @new_summaries.each_with_index do |summary, i| %>
+            <a data-slide-index="<%= i %>" href="#">
+              <span></span>
+            <img src="<%= anime_image_path(summary.anime_image.present? ? summary.anime_image.image_path(:path_256x144) : "/images/no_image.jpg") %>" />
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--   呼び出しもとで書く<%= render :partial => "anime/summary_bx_sider", :locals => {:new_summaries => @new_summaries} %> -->

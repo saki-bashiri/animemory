@@ -1,0 +1,27 @@
+<%- content_for :head do -%>
+  <%= stylesheet_link_tag "anime/_top_new_anime" %>
+<%- end -%>
+
+<div class="accordion-heading">
+  <div class="alert alert-block alert-success am-theme-color-green am-no-border-radius">
+    <h5 class="amTopregisternew">新着登録アニメ
+      <%= link_to "新規登録", url_for(:action => "auth_anime_entry"), :class => "btn pull-right" -%>
+    </h5>
+  </div>
+</div>
+
+<div class="alert alert-block am-new-anime-wrap">
+  <% @new_animes.each_with_index do |anime, i| -%>
+  <div class="span6 am-new-anime-thumbnail">
+    <a href="<%= url_for(:action => "dtl", :anime => anime.id) %>">
+      <img src="<%= anime_image_path(anime.anime_image.present? ? anime.anime_image.image_path(:path_100x100) : "/images/no_image.jpg") %>" width="100" height="100">
+    </a>
+      <%= link_to cut_str(anime.title.to_s, 16), url_for(:action => "dtl", :anime => anime.id) %>
+    <span>
+      <a href="<%= url_for(:action => "dtl", :anime => anime.id) -%>"><%= anime.outline != "" ? cut_str(anime.outline.to_s, 45) : "あらすじ募集中！" -%></a>
+    </span>
+  </div>
+  <% end -%>
+</div>
+
+<!-- 呼び出しもとで呼ぶ <%= render :partial => "anime/top_new_anime" %> -->

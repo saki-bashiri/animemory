@@ -1,0 +1,26 @@
+<%
+	creator ||= nil
+	my_channel ||= nil
+	user ||= nil
+%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "creator/_creator_index_main_pic_set" %>
+<% end %>
+
+<div class="creator-index-main-pic-set">
+  <%= image_tag("no_image.png", :size => "512x288")-%>
+  <%= my_channel_button(creator.id, my_channel.present?, user) %>
+  <div class="creator-index-title-set">
+    <strong class="inner">
+	    <%= creator.name %>
+	  </strong>
+	  <small>
+      <cite>-&nbsp;<%= creator.kana %>
+    </small>
+    <span class="creator-type">
+      <%= creator.labels.map{|label| label.name}.join("・") %>
+    </span>
+  </div>
+  <span class="no-image-explanation">※画像投稿機能が近々リリース予定です</span>
+</div>
